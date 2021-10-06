@@ -445,16 +445,16 @@ class LearnSpellOnLevelUp : public PlayerScript
                 {
                     LearnProficiencyForNewLevel(player);
                 }
-            }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLogin", 0))
-            {
-                LearnMountForNewLevel(player);
-            }
+                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
+                {
+                    LearnMountForNewLevel(player);
+                }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-            {
-                MaxAllWeaponSkill(player);
+                if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
+                {
+                    MaxAllWeaponSkill(player);
+                }
             }
         }
 
@@ -476,16 +476,16 @@ class LearnSpellOnLevelUp : public PlayerScript
                 {
                     LearnProficiencyForNewLevel(player);
                 }
-            }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLevelUp", 0))
-            {
-                LearnMountForNewLevel(player);
-            }
+                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
+                {
+                    LearnMountForNewLevel(player);
+                }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-            {
-                MaxAllWeaponSkill(player);
+                if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
+                {
+                    MaxAllWeaponSkill(player);
+                }
             }
         }
 
