@@ -41,6 +41,191 @@ class AssistantNPC : public CreatureScript
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
         }
+
+        bool OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action)
+        {
+            if (sender != GOSSIP_SENDER_MAIN)
+                return false;
+
+            if (action == 1)
+            {
+                OnGossipHello(player, creature);
+            }
+            if (action == ASSISTANT_GOSSIP_HEIRLOOM)
+            {
+                ClearGossipMenuFor(player);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want weapons", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+1);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want armor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+2);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want something else", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+3);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+1)
+            {
+                ClearGossipMenuFor(player);
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_DEATH_KNIGHT)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_axe_09:25:25:-19|tBloodied Arcanite Reaper", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+4);
+                }
+
+                if (player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_SHAMAN)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_sword_17:25:25:-19|tBalanced Heartseeker", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+5);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_DEATH_KNIGHT)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_sword_43:25:25:-19|tVenerable Dal'Rend's Sacred Charge", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+6);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_weapon_bow_08:25:25:-19|tCharmed Ancient Bone Bow", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+7);
+                }
+
+                if (player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_SHAMAN || player->getClass() == CLASS_MAGE || player->getClass() == CLASS_WARLOCK || player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_talisman_12:25:25:-19|tDignified Headmaster's Charge", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+8);
+                }
+
+                if (player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_SHAMAN || player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_hammer_05:25:25:-19|tDevout Aurastone Hammer", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+9);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_SHAMAN)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_weapon_shortblade_03:25:25:-19|tSharpened Scarlet Kris", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+10);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_DEATH_KNIGHT)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_sword_19:25:25:-19|tReforged Truesilver Champion", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+11);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_weapon_rifle_09:25:25:-19|tUpgraded Dwarven Hand Cannon", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+12);
+                }
+
+                if (player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_SHAMAN || player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_hammer_07:25:25:-19|tThe Blessed Hammer of Grace", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+13);
+                }
+
+                if (player->getClass() == CLASS_PRIEST || player->getClass() == CLASS_SHAMAN || player->getClass() == CLASS_MAGE || player->getClass() == CLASS_WARLOCK || player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_staff_13:25:25:-19|tGrand Staff of Jordan", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+14);
+                }
+
+                if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_PALADIN || player->getClass() == CLASS_HUNTER || player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_DEATH_KNIGHT || player->getClass() == CLASS_MAGE || player->getClass() == CLASS_WARLOCK)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_sword_36:25:25:-19|tBattleworn Thrash Blade", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+15);
+                }
+
+                if (player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_SHAMAN)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_hammer_17:25:25:-19|tVenerable Mass of McGowan", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+16);
+                }
+
+                if (player->getClass() == CLASS_SHAMAN || player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_gizmo_02:25:25:-19|tRepurposed Lava Dredger", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+17);
+                }
+
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+2)
+            {
+                ClearGossipMenuFor(player);
+
+                switch (player->getClass())
+                {
+                    case CLASS_WARRIOR:
+                    case CLASS_PALADIN:
+                    case CLASS_DEATH_KNIGHT:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_30:25:25:-19|tPolished Spaulders of Valor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+18);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_plate03:25:25:-19|tPolished Breastplate of Valor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+19);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_20:25:25:-19|tStrengthened Stockade Pauldrons", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+20);
+                        break;
+                    case CLASS_HUNTER:
+                    case CLASS_SHAMAN:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_01:25:25:-19|tChampion Herod's Shoulder", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+21);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_chain_07:25:25:-19|tChampion's Deathdealer Breastplate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+22);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_10:25:25:-19|tPrized Beastmaster's Mantle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+23);
+                        break;
+                    case CLASS_ROGUE:
+                    case CLASS_DRUID:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_07:25:25:-19|tStained Shadowcraft Spaulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+24);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_leather_07:25:25:-19|tStained Shadowcraft Tunic", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+25);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_05:25:25:-19|tExceptional Stormshroud Shoulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+26);
+                        break;
+                    case CLASS_PRIEST:
+                    case CLASS_MAGE:
+                    case CLASS_WARLOCK:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_misc_bone_taurenskull_01:25:25:-19|tTattered Dreadmist Mantle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+27);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_cloth_49:25:25:-19|tTattered Dreadmist Robe", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+28);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_02:25:25:-19|tExquisite Sunderseer Mantle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+29);
+                        break;
+                }
+
+                if (player->getClass() == CLASS_PALADIN)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_10:25:25:-19|tPristine Lightforge Spaulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+30);
+                }
+
+                if (player->getClass() == CLASS_SHAMAN)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_29:25:25:-19|tMystical Pauldrons of Elements", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+31);
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_chain_11:25:25:-19|tMystical Vest of Elements", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+32);
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_29:25:25:-19|tAged Pauldrons of The Five Thunders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+33);
+                }
+
+                if (player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_06:25:25:-19|tPreened Ironfeather Shoulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+34);
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_leather_06:25:25:-19|tPreened Ironfeather Breastplate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+35);
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_01:25:25:-19|tLasting Feralheart Spaulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+36);
+                }
+
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_ring_39:25:25:-19|tDread Pirate Ring", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+37);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_talisman_01:25:25:-19|tSwift Hand of Justice", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+38);
+
+                if (player->getClass() == CLASS_PALADIN || 
+                    player->getClass() == CLASS_HUNTER || 
+                    player->getClass() == CLASS_PRIEST || 
+                    player->getClass() == CLASS_SHAMAN || 
+                    player->getClass() == CLASS_MAGE || 
+                    player->getClass() == CLASS_WARLOCK || 
+                    player->getClass() == CLASS_DRUID)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_talisman_08:25:25:-19|tDiscerning Eye of the Beast", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+39);
+                }
+
+                if (player->GetTeamId() == TEAM_ALLIANCE)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_trinketpvp_01:25:25:-19|tInherited Insignia of the Alliance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+40);
+                }
+                else if (player->GetTeamId() == TEAM_HORDE)
+                {
+                    AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_trinketpvp_02:25:25:-19|tInherited Insignia of the Horde", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+41);
+                }
+
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+3)
+            {
+                ClearGossipMenuFor(player);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_misc_book_11:25:25:-19|tTome of Cold Weather Flight", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 42, "Do you wish to purchase this?", 10000000, false);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+
+            return true;
+        }
 };
 
 class LearnSpellOnLevelUp : public PlayerScript
