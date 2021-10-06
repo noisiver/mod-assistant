@@ -134,7 +134,7 @@ class AssistantNPC : public CreatureScript
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_gizmo_02:25:25:-19|tRepurposed Lava Dredger", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+17);
                 }
 
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             }
             else if (action == ASSISTANT_GOSSIP_HEIRLOOM+2)
@@ -213,15 +213,135 @@ class AssistantNPC : public CreatureScript
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_jewelry_trinketpvp_02:25:25:-19|tInherited Insignia of the Horde", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+41);
                 }
 
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             }
             else if (action == ASSISTANT_GOSSIP_HEIRLOOM+3)
             {
                 ClearGossipMenuFor(player);
                 AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_misc_book_11:25:25:-19|tTome of Cold Weather Flight", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 42, "Do you wish to purchase this?", 10000000, false);
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+4)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+5)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+6)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+7)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+8)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+9)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+10)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+11)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+12)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+13)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+14)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+15)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+16)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+17)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+18)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+19)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+20)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+21)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+22)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+23)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+24)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+25)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+26)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+27)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+28)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+29)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+30)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+31)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+32)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+33)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+34)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+35)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+36)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+37)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+38)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+39)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+40)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+41)
+            {
+            }
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM+42)
+            {
+                player->ModifyMoney(-10000000);
+                player->AddItem(49177, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+3);
             }
 
             return true;
