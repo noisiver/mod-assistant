@@ -51,7 +51,7 @@ class AssistantNPC : public CreatureScript
             {
                 OnGossipHello(player, creature);
             }
-            if (action == ASSISTANT_GOSSIP_HEIRLOOM)
+            else if (action == ASSISTANT_GOSSIP_HEIRLOOM)
             {
                 ClearGossipMenuFor(player);
                 AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want weapons", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+1);
@@ -175,15 +175,13 @@ class AssistantNPC : public CreatureScript
                 {
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_10:25:25:-19|tPristine Lightforge Spaulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+30);
                 }
-
-                if (player->getClass() == CLASS_SHAMAN)
+                else if (player->getClass() == CLASS_SHAMAN)
                 {
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_29:25:25:-19|tMystical Pauldrons of Elements", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+31);
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_chain_11:25:25:-19|tMystical Vest of Elements", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+32);
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_29:25:25:-19|tAged Pauldrons of The Five Thunders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+33);
                 }
-
-                if (player->getClass() == CLASS_DRUID)
+                else if (player->getClass() == CLASS_DRUID)
                 {
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_shoulder_06:25:25:-19|tPreened Ironfeather Shoulders", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+34);
                     AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_chest_leather_06:25:25:-19|tPreened Ironfeather Breastplate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+35);
@@ -449,7 +447,7 @@ class LearnSpellOnLevelUp : public PlayerScript
                 }
             }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.OnLogin", 0))
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLogin", 0))
             {
                 LearnMountForNewLevel(player);
             }
@@ -480,7 +478,7 @@ class LearnSpellOnLevelUp : public PlayerScript
                 }
             }
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.OnLevelUp", 0))
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLevelUp", 0))
             {
                 LearnMountForNewLevel(player);
             }
@@ -965,6 +963,30 @@ class LearnSpellOnLevelUp : public PlayerScript
         }
 };
 
+class SetSpawnPoint : public PlayerScript
+{
+    public:
+        SetSpawnPoint() : PlayerScript("SetSpawnPoint") { }
+
+        void OnFirstLogin(Player* player) override
+        {
+            if (sConfigMgr->GetBoolDefault("Assistant.SpawnPoint.Enabled", 0))
+            {
+                if (player->getClass() == CLASS_DEATH_KNIGHT && !sConfigMgr->GetBoolDefault("Assistant.SpawnPoint.DeathKnight", 0))
+                    return;
+
+                if (player->GetTeamId() == TEAM_ALLIANCE)
+                {
+                    player->TeleportTo(0, -8830.438477, 626.666199, 93.982887, 0.682076);
+                }
+                else if (player->GetTeamId() == TEAM_HORDE)
+                {
+                    player->TeleportTo(1, 1630.776001,  -4412.993652, 16.567701, 0.080535);
+                }
+            }
+        }
+};
+
 class DazeImmunity : public PlayerScript
 {
     public:
@@ -1091,6 +1113,7 @@ void AddModAssistantScripts()
 {
     new AssistantNPC();
     new LearnSpellOnLevelUp();
+    new SetSpawnPoint();
     new DazeImmunity();
     new DynamicExperience();
     new DynamicReputation();

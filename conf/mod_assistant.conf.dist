@@ -1,6 +1,6 @@
 [worldserver]
 ###########################################################################
-# Gossip
+# Assistant NPC
 ###########################################################################
 # Obtain heirlooms from the assistant npc
 Assistant.Gossip.Heirlooms = 0
@@ -20,7 +20,9 @@ Assistant.Gossip.Utilities = 0
 # Obtain other from the assistant npc
 Assistant.Gossip.Other = 0
 ###########################################################################
-# Spells and Skills
+
+###########################################################################
+# Learning spells and skills
 ###########################################################################
 # Learn spells when entering the world or leveling up
 Assistant.Spells.Enabled = 0
@@ -49,12 +51,6 @@ Assistant.Spells.MaxSkill.MaxLevel = 80
 # Learn riding and mount spells
 Assistant.Spells.Riding.Enabled = 0
 
-# Learn riding and mount spells when entering the world
-Assistant.Spells.Riding.OnLogin = 0
-
-# Learn riding and mount spells when leveling up
-Assistant.Spells.Riding.OnLevelUp = 0
-
 # Learn apprentice (75%) riding and mount spells
 Assistant.Spells.Riding.Apprentice = 0
 
@@ -72,6 +68,16 @@ Assistant.Spells.Riding.ColdWeather = 0
 
 # Add a immunity to daze to players when entering the world
 Assistant.Spells.Immunity.Daze = 0
+###########################################################################
+
+###########################################################################
+# Set spawn point of new characters
+###########################################################################
+# Set spawn point to Stormwind and Orgrimmar
+Assistant.SpawnPoint.Enabled = 0
+
+# Set spawn point for death knight
+Assistant.SpawnPoint.DeathKnight = 0
 ###########################################################################
 
 ###########################################################################
