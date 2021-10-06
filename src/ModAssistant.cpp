@@ -417,6 +417,241 @@ class AssistantNPC : public CreatureScript
                 player->AddItem(49177, 1);
                 OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM+3);
             }
+            else if (action == ASSISTANT_GOSSIP_GLYPH)
+            {
+                ClearGossipMenuFor(player);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want some major glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want some minor glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+1)
+            {
+                ClearGossipMenuFor(player);
+
+                switch (player->getClass())
+                {
+                    case CLASS_WARRIOR:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Bloodthirst", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+3);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Devastate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+4);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Intervene", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+5);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Mortal Strike", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+6);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Bladestorm", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+7);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Shockwave", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+8);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Vigilance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+9);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Enraged Regeneration", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+10);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Spell Reflection", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+11);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarrior:25:25:-19|tGlyph of Shield Wall", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+12);
+                        break;
+                    case CLASS_PALADIN:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Hammer of Wrath", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+13);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Avenging Wrath", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+14);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Avenger's Shield", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+15);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Holy Wrath", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+16);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Seal of Righteousness", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+17);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Seal of Vengeance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+18);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Beacon of Light", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+19);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Hammer of the Righteous", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+20);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Divine Storm", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+21);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpaladin:25:25:-19|tGlyph of Shield of Righteousness", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+22);
+                        break;
+                    case CLASS_HUNTER:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Bestial Wrath", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+23);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Snake Trap", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+24);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Steady Shot", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+25);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Trueshot Aura", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+26);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Volley", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+27);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Wyvern Sting", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+28);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Chimera Shot", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+29);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Explosive Shot", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+30);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Kill Shot", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+31);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorhunter:25:25:-19|tGlyph of Explosive Trap", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+32);
+                        break;
+                    case CLASS_ROGUE:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Adrenaline Rush", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+33);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Deadly Throw", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+34);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Vigor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+35);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Hunger for Blood", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+36);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Killing Spree", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+37);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Shadow Dance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+38);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Fan of Knives", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+39);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Tricks of the Trade", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+40);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Mutilate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+41);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorrogue:25:25:-19|tGlyph of Cloak of Shadows", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+42);
+                        break;
+                    case CLASS_PRIEST:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Circle of Healing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+43);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Lightwell", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+44);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Mass Dispel", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+45);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Shadow Word: Death", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+46);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Dispersion", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+47);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Guardian Spirit", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+48);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Penance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+49);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Mind Sear", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+50);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Hymn of Hope", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+51);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorpriest:25:25:-19|tGlyph of Pain Suppression", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+52);
+                        break;
+                    case CLASS_DEATH_KNIGHT:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Anti-Magic Shell", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+53);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Heart Strike", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+54);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Bone Shield", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+55);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Chains of Ice", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+56);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Dark Command", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+57);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Death Grip", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+58);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Death and Decay", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+59);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Frost Strike", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+60);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Icebound Fortitude", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+61);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordeathknight:25:25:-19|tGlyph of Icy Touch", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+62);
+                        break;
+                    case CLASS_SHAMAN:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Chain Heal", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+63);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Lava", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+64);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Fire Elemental Totem", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+65);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Mana Tide Totem", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+66);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Stormstrike", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+67);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Elemental Mastery", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+68);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Thunder", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+69);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Feral Spirit", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+70);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Riptide", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+71);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorshaman:25:25:-19|tGlyph of Earth Shield", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+72);
+                        break;
+                    case CLASS_MAGE:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Arcane Power", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+73);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Deep Freeze", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+74);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Living Bomb", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+75);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Invisibility", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+76);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Ice Lance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+77);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Molten Armor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+78);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Water Elemental", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+79);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Frostfire", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+80);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Arcane Blast", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+81);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majormage:25:25:-19|tGlyph of Eternal Water", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+82);
+                        break;
+                    case CLASS_WARLOCK:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Conflagrate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+83);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Death Coil", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+84);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Felguard", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+85);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Howl of Terror", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+86);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Unstable Affliction", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+87);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Haunt", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+88);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Metamorphosis", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+89);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Chaos Bolt", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+90);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Demonic Circle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+91);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majorwarlock:25:25:-19|tGlyph of Shadowflame", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+92);
+                        break;
+                    case CLASS_DRUID:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Mangle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+93);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Swiftmend", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+94);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Innervate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+95);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Lifebloom", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+96);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Hurricane", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+97);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Starfall", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+98);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Focus", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+99);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Berserk", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+100);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Wild Growth", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+101);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_majordruid:25:25:-19|tGlyph of Nourish", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+102);
+                        break;
+                }
+
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+2)
+            {
+                ClearGossipMenuFor(player);
+
+                switch (player->getClass())
+                {
+                    case CLASS_WARRIOR:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Battle", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+103);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Bloodrage", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+104);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Charge", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+105);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Mocking Blow", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+106);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Thunder Clap", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+107);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Enduring Victory", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+108);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarrior:25:25:-19|tGlyph of Command", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+109);
+                        break;
+                    case CLASS_PALADIN:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of Blessing of Might", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+110);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of Blessing of Kings", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+111);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of Blessing of Wisdom", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+112);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of Lay on Hands", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+113);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of Sense Undead", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+114);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpaladin:25:25:-19|tGlyph of the Wise", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+115);
+                        break;
+                    case CLASS_HUNTER:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of Revive Pet", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+116);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of Mend Pet", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+117);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of Feign Death", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+118);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of Possessed Strength", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+119);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of the Pack", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+120);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorhunter:25:25:-19|tGlyph of Scare Beast", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+121);
+                        break;
+                    case CLASS_ROGUE:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Pick Pocket", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+122);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Distract", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+123);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Pick Lock", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+124);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Safe Fall", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+125);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Blurred Speed", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+126);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorrogue:25:25:-19|tGlyph of Vanish", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+127);
+                        break;
+                    case CLASS_PRIEST:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Fading", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+128);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Levitate", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+129);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Fortitude", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+130);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Shadow Protection", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+131);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Shackle Undead", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+132);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorpriest:25:25:-19|tGlyph of Shadowfiend", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+133);
+                        break;
+                    case CLASS_DEATH_KNIGHT:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Blood Tap", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+134);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Death's Embrace", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+135);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Horn of Winter", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+136);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Corpse Explosion", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+137);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Pestilence", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+138);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordeathknight:25:25:-19|tGlyph of Raise Dead", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+139);
+                        break;
+                    case CLASS_SHAMAN:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Thunderstorm", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+140);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Water Breathing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+141);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Astral Recall", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+142);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Renewed Life", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+143);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Water Shield", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+144);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Water Walking", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+145);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorshaman:25:25:-19|tGlyph of Ghost Wolf", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+146);
+                        break;
+                    case CLASS_MAGE:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Arcane Intellect", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+147);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Fire Ward", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+148);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Frost Armor", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+149);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Frost Ward", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+150);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of the Penguin", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+151);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of the Bear Cub", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+152);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Slow Fall", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+153);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minormage:25:25:-19|tGlyph of Blast Wave", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+154);
+                        break;
+                    case CLASS_WARLOCK:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Unending Breath", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+155);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Drain Soul", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+156);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Kilrogg", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+157);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Curse of Exhaustion", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+158);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Enslave Demon", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+159);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minorwarlock:25:25:-19|tGlyph of Souls", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+160);
+                        break;
+                    case CLASS_DRUID:
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Aquatic Form", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+161);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Unburdened Rebirth", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+162);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Thorns", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+163);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Challenging Roar", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+164);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of the Wild", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+165);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Dash", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+166);
+                        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface\\icons\\inv_glyph_minordruid:25:25:-19|tGlyph of Typhoon", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+167);
+                        break;
+                }
+
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
 
             return true;
         }
