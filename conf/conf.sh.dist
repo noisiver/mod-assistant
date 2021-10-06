@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+DB_WORLD_CUSTOM_PATHS+=(
+    $MOD_ASSISTANT_ROOT"/sql/world/base/"
+)

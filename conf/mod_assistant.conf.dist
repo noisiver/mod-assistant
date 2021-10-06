@@ -1,0 +1,104 @@
+[worldserver]
+###########################################################################
+# Gossip
+###########################################################################
+# Obtain heirlooms from the assistant npc
+Assistant.Gossip.Heirlooms = 0
+
+# Obtain glyphs from the assistant npc
+Assistant.Gossip.Glyphs = 0
+
+# Obtain gems from the assistant npc
+Assistant.Gossip.Gems = 0
+
+# Obtain containers from the assistant npc
+Assistant.Gossip.Containers = 0
+
+# Obtain utilties from the assistant npc
+Assistant.Gossip.Utilities = 0
+
+# Obtain other from the assistant npc
+Assistant.Gossip.Other = 0
+###########################################################################
+# Spells and Skills
+###########################################################################
+# Learn spells when entering the world or leveling up
+Assistant.Spells.Enabled = 0
+
+# Learn spells when entering the world
+Assistant.Spells.OnLogin = 0
+
+# Learn spells when leveling up
+Assistant.Spells.OnLevelUp = 0
+
+# Learn class-specific spells
+Assistant.Spells.Class = 0
+
+# Learn ranks of known talents
+Assistant.Spells.Talent = 0
+
+# Learn weapon and defense skills
+Assistant.Spells.Proficiency = 0
+
+# Set a players weapon skills to their max value
+Assistant.Spells.MaxSkill.Enabled = 0
+
+# Max level where a player gets their skills maxed out
+Assistant.Spells.MaxSkill.MaxLevel = 80
+
+# Learn riding and mount spells
+Assistant.Spells.Riding.Enabled = 0
+
+# Learn riding and mount spells when entering the world
+Assistant.Spells.Riding.OnLogin = 0
+
+# Learn riding and mount spells when leveling up
+Assistant.Spells.Riding.OnLevelUp = 0
+
+# Learn apprentice (75%) riding and mount spells
+Assistant.Spells.Riding.Apprentice = 0
+
+# Learn journeyman (150%) riding and mount spells
+Assistant.Spells.Riding.Journeyman = 0
+
+# Learn expert (225%) riding and mount spells
+Assistant.Spells.Riding.Expert = 0
+
+# Learn artisan (300%) riding and mount spells
+Assistant.Spells.Riding.Artisan = 0
+
+# Learn cold weather flying at level 77
+Assistant.Spells.Riding.ColdWeather = 0
+###########################################################################
+
+###########################################################################
+# Dynamic experience rates
+###########################################################################
+# Modify the amount of experience a player get within a certain level range
+Assistant.Rate.Experience.Enabled = 0
+Assistant.Rate.Experience.1-9     = 1
+Assistant.Rate.Experience.10-19   = 1
+Assistant.Rate.Experience.20-29   = 1
+Assistant.Rate.Experience.30-39   = 1
+Assistant.Rate.Experience.40-49   = 1
+Assistant.Rate.Experience.50-59   = 1
+Assistant.Rate.Experience.60-69   = 1
+Assistant.Rate.Experience.70-79   = 1
+Assistant.Rate.Experience.80      = 1
+###########################################################################
+
+###########################################################################
+# Dynamic reputation rates
+###########################################################################
+# Modify the amount of reputation a player get within a certain level range
+Assistant.Rate.Reputation.Enabled = 0
+Assistant.Rate.Reputation.1-9     = 1
+Assistant.Rate.Reputation.10-19   = 1
+Assistant.Rate.Reputation.20-29   = 1
+Assistant.Rate.Reputation.30-39   = 1
+Assistant.Rate.Reputation.40-49   = 1
+Assistant.Rate.Reputation.50-59   = 1
+Assistant.Rate.Reputation.60-69   = 1
+Assistant.Rate.Reputation.70-79   = 1
+Assistant.Rate.Reputation.80      = 1
+###########################################################################
