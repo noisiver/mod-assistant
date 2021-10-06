@@ -769,6 +769,30 @@ class LearnSpellOnLevelUp : public PlayerScript
         }
 };
 
+class DazeImmunity : public PlayerScript
+{
+    public:
+        DazeImmunity() : PlayerScript("DazeImmunity") { }
+
+        void OnLogin(Player* player) override
+        {
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Immunity.Daze", 0))
+            {
+                if (!player->HasAura(57416))
+                {
+                    player->AddAura(57416, player);
+                }
+            }
+            else
+            {
+                if (player->HasAura(57416))
+                {
+                    player->RemoveAura(57416);
+                }
+            }
+        }
+};
+
 class DynamicExperience : public PlayerScript
 {
     public:
@@ -871,6 +895,7 @@ void AddModAssistantScripts()
 {
     new AssistantNPC();
     new LearnSpellOnLevelUp();
+    new DazeImmunity();
     new DynamicExperience();
     new DynamicReputation();
 }
