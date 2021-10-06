@@ -652,6 +652,831 @@ class AssistantNPC : public CreatureScript
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+3)
+            {
+                player->AddItem(43412, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+4)
+            {
+                player->AddItem(43415, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+5)
+            {
+                player->AddItem(43419, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+6)
+            {
+                player->AddItem(43421, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+7)
+            {
+                player->AddItem(45790, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+8)
+            {
+                player->AddItem(45792, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+9)
+            {
+                player->AddItem(45793, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+10)
+            {
+                player->AddItem(45794, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+11)
+            {
+                player->AddItem(45795, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+12)
+            {
+                player->AddItem(45797, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+13)
+            {
+                player->AddItem(41097, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+14)
+            {
+                player->AddItem(41107, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+15)
+            {
+                player->AddItem(41101, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+16)
+            {
+                player->AddItem(43867, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+17)
+            {
+                player->AddItem(43868, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+18)
+            {
+                player->AddItem(43869, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+19)
+            {
+                player->AddItem(45741, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+20)
+            {
+                player->AddItem(45742, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+21)
+            {
+                player->AddItem(45743, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+22)
+            {
+                player->AddItem(45744, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+23)
+            {
+                player->AddItem(43412, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+24)
+            {
+                player->AddItem(42913, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+25)
+            {
+                player->AddItem(42914, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+26)
+            {
+                player->AddItem(42915, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+27)
+            {
+                player->AddItem(42916, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+28)
+            {
+                player->AddItem(42917, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+29)
+            {
+                player->AddItem(45625, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+30)
+            {
+                player->AddItem(45731, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+31)
+            {
+                player->AddItem(45732, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+32)
+            {
+                player->AddItem(45733, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+33)
+            {
+                player->AddItem(42954, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+34)
+            {
+                player->AddItem(42959, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+35)
+            {
+                player->AddItem(42971, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+36)
+            {
+                player->AddItem(45761, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+37)
+            {
+                player->AddItem(45762, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+38)
+            {
+                player->AddItem(45764, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+39)
+            {
+                player->AddItem(45766, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+40)
+            {
+                player->AddItem(45767, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+41)
+            {
+                player->AddItem(45768, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+42)
+            {
+                player->AddItem(45769, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+43)
+            {
+                player->AddItem(42396, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+44)
+            {
+                player->AddItem(42403, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+45)
+            {
+                player->AddItem(42404, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+46)
+            {
+                player->AddItem(42414, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+47)
+            {
+                player->AddItem(45753, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+48)
+            {
+                player->AddItem(45755, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+49)
+            {
+                player->AddItem(45756, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+50)
+            {
+                player->AddItem(45757, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+51)
+            {
+                player->AddItem(45758, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+52)
+            {
+                player->AddItem(45760, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+53)
+            {
+                player->AddItem(43533, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+54)
+            {
+                player->AddItem(43534, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+55)
+            {
+                player->AddItem(43536, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+56)
+            {
+                player->AddItem(43537, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+57)
+            {
+                player->AddItem(43538, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+58)
+            {
+                player->AddItem(43541, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+59)
+            {
+                player->AddItem(43542, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+60)
+            {
+                player->AddItem(43543, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+61)
+            {
+                player->AddItem(43545, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+62)
+            {
+                player->AddItem(43546, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+63)
+            {
+                player->AddItem(41517, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+64)
+            {
+                player->AddItem(41524, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+65)
+            {
+                player->AddItem(41529, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+66)
+            {
+                player->AddItem(41538, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+67)
+            {
+                player->AddItem(41539, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+68)
+            {
+                player->AddItem(41552, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+69)
+            {
+                player->AddItem(45770, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+70)
+            {
+                player->AddItem(45771, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+71)
+            {
+                player->AddItem(45772, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+72)
+            {
+                player->AddItem(45775, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+73)
+            {
+                player->AddItem(42736, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+74)
+            {
+                player->AddItem(45736, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+75)
+            {
+                player->AddItem(45737, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+76)
+            {
+                player->AddItem(42748, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+77)
+            {
+                player->AddItem(42745, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+78)
+            {
+                player->AddItem(42751, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+79)
+            {
+                player->AddItem(42754, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+80)
+            {
+                player->AddItem(44684, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+81)
+            {
+                player->AddItem(44955, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+82)
+            {
+                player->AddItem(50045, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+83)
+            {
+                player->AddItem(42454, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+84)
+            {
+                player->AddItem(42457, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+85)
+            {
+                player->AddItem(42459, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+86)
+            {
+                player->AddItem(42463, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+87)
+            {
+                player->AddItem(42472, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+88)
+            {
+                player->AddItem(45779, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+89)
+            {
+                player->AddItem(45780, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+90)
+            {
+                player->AddItem(45781, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+91)
+            {
+                player->AddItem(45782, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+92)
+            {
+                player->AddItem(45783, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+93)
+            {
+                player->AddItem(40900, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+94)
+            {
+                player->AddItem(40906, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+95)
+            {
+                player->AddItem(40908, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+96)
+            {
+                player->AddItem(40915, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+97)
+            {
+                player->AddItem(40920, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+98)
+            {
+                player->AddItem(40921, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+99)
+            {
+                player->AddItem(44928, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+100)
+            {
+                player->AddItem(45601, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+101)
+            {
+                player->AddItem(45602, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+102)
+            {
+                player->AddItem(45603, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+103)
+            {
+                player->AddItem(43395, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+104)
+            {
+                player->AddItem(43396, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+105)
+            {
+                player->AddItem(43397, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+106)
+            {
+                player->AddItem(43398, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+107)
+            {
+                player->AddItem(43399, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+108)
+            {
+                player->AddItem(43400, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+109)
+            {
+                player->AddItem(49084, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+110)
+            {
+                player->AddItem(43340, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+111)
+            {
+                player->AddItem(43365, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+112)
+            {
+                player->AddItem(43366, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+113)
+            {
+                player->AddItem(43367, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+114)
+            {
+                player->AddItem(43368, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+115)
+            {
+                player->AddItem(43369, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+116)
+            {
+                player->AddItem(43338, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+117)
+            {
+                player->AddItem(43350, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+118)
+            {
+                player->AddItem(43351, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+119)
+            {
+                player->AddItem(43354, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+120)
+            {
+                player->AddItem(43355, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+121)
+            {
+                player->AddItem(43356, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+122)
+            {
+                player->AddItem(43343, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+123)
+            {
+                player->AddItem(43376, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+124)
+            {
+                player->AddItem(43377, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+125)
+            {
+                player->AddItem(43378, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+126)
+            {
+                player->AddItem(43379, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+127)
+            {
+                player->AddItem(43380, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+128)
+            {
+                player->AddItem(43342, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+129)
+            {
+                player->AddItem(43370, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+130)
+            {
+                player->AddItem(43371, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+131)
+            {
+                player->AddItem(43372, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+132)
+            {
+                player->AddItem(43373, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+133)
+            {
+                player->AddItem(43374, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+134)
+            {
+                player->AddItem(43535, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+135)
+            {
+                player->AddItem(43539, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+136)
+            {
+                player->AddItem(43544, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+137)
+            {
+                player->AddItem(43671, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+138)
+            {
+                player->AddItem(43672, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+139)
+            {
+                player->AddItem(43673, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+140)
+            {
+                player->AddItem(44923, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+141)
+            {
+                player->AddItem(43344, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+142)
+            {
+                player->AddItem(43381, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+143)
+            {
+                player->AddItem(43385, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+144)
+            {
+                player->AddItem(43386, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+145)
+            {
+                player->AddItem(43388, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+146)
+            {
+                player->AddItem(43725, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+147)
+            {
+                player->AddItem(43339, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+148)
+            {
+                player->AddItem(43357, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+149)
+            {
+                player->AddItem(43359, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+150)
+            {
+                player->AddItem(43360, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+151)
+            {
+                player->AddItem(43361, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+152)
+            {
+                player->AddItem(43362, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+153)
+            {
+                player->AddItem(43364, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+154)
+            {
+                player->AddItem(44920, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+155)
+            {
+                player->AddItem(43389, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+156)
+            {
+                player->AddItem(43390, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+157)
+            {
+                player->AddItem(43391, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+158)
+            {
+                player->AddItem(43392, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+159)
+            {
+                player->AddItem(43393, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+160)
+            {
+                player->AddItem(43394, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+161)
+            {
+                player->AddItem(43316, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+162)
+            {
+                player->AddItem(43331, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+163)
+            {
+                player->AddItem(43332, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+164)
+            {
+                player->AddItem(43334, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+165)
+            {
+                player->AddItem(43335, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+166)
+            {
+                player->AddItem(43674, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+167)
+            {
+                player->AddItem(44922, 1);
+                OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
+            }
 
             return true;
         }
