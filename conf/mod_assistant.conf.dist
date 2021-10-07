@@ -78,33 +78,11 @@ Assistant.SpawnPoint.DeathKnight = 0
 ###########################################################################
 
 ###########################################################################
-# Dynamic experience rates
+# Weekend rates
 ###########################################################################
-# Modify the amount of experience a player get within a certain level range
-Assistant.Rate.Experience.Enabled = 0
-Assistant.Rate.Experience.1-9     = 1
-Assistant.Rate.Experience.10-19   = 1
-Assistant.Rate.Experience.20-29   = 1
-Assistant.Rate.Experience.30-39   = 1
-Assistant.Rate.Experience.40-49   = 1
-Assistant.Rate.Experience.50-59   = 1
-Assistant.Rate.Experience.60-69   = 1
-Assistant.Rate.Experience.70-79   = 1
-Assistant.Rate.Experience.80      = 1
-###########################################################################
+# Modify the amount of experience and reputation a player receives
+Assistant.Rate.Weekend.Enabled = 0
 
-###########################################################################
-# Dynamic reputation rates
-###########################################################################
-# Modify the amount of reputation a player get within a certain level range
-Assistant.Rate.Reputation.Enabled = 0
-Assistant.Rate.Reputation.1-9     = 1
-Assistant.Rate.Reputation.10-19   = 1
-Assistant.Rate.Reputation.20-29   = 1
-Assistant.Rate.Reputation.30-39   = 1
-Assistant.Rate.Reputation.40-49   = 1
-Assistant.Rate.Reputation.50-59   = 1
-Assistant.Rate.Reputation.60-69   = 1
-Assistant.Rate.Reputation.70-79   = 1
-Assistant.Rate.Reputation.80      = 1
+# The multiplier to be applied on weekends on top of other options
+Assistant.Rate.Weekend.Multiplier = 1
 ###########################################################################
