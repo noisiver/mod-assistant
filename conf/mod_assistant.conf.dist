@@ -80,9 +80,6 @@ Assistant.SpawnPoint.DeathKnight = 0
 ###########################################################################
 # Weekend rates
 ###########################################################################
-# Modify the amount of experience and reputation a player receives
+# Double the experience and reputation on friday, saturday and sunday
 Assistant.Rate.Weekend.Enabled = 0
-
-# The multiplier to be applied on weekends on top of other options
-Assistant.Rate.Weekend.Multiplier = 1
 ###########################################################################
