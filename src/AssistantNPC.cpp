@@ -16,7 +16,8 @@ enum VendorId
 {
     ASSISTANT_VENDOR_HEIRLOOM_WEAPON = 9000000,
     ASSISTANT_VENDOR_HEIRLOOM_ARMOR = 9000001,
-    ASSISTANT_VENDOR_HEIRLOOM_OTHER = 9000002
+    ASSISTANT_VENDOR_HEIRLOOM_OTHER = 9000002,
+    ASSISTANT_VENDOR_GLYPH = 9000003
 };
 
 class AssistantNPC : public CreatureScript
@@ -98,6 +99,78 @@ class AssistantNPC : public CreatureScript
                 AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want some minor glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH+2);
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+1)
+            {
+                switch (player->getClass())
+                {
+                    case CLASS_WARRIOR:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH);
+                        break;
+                    case CLASS_PALADIN:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+1);
+                        break;
+                    case CLASS_HUNTER:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+2);
+                        break;
+                    case CLASS_ROGUE:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+3);
+                        break;
+                    case CLASS_PRIEST:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+4);
+                        break;
+                    case CLASS_DEATH_KNIGHT:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+5);
+                        break;
+                    case CLASS_SHAMAN:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+6);
+                        break;
+                    case CLASS_MAGE:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+7);
+                        break;
+                    case CLASS_WARLOCK:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+8);
+                        break;
+                    case CLASS_DRUID:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+9);
+                        break;
+                }
+            }
+            else if (action == ASSISTANT_GOSSIP_GLYPH+2)
+            {
+                switch (player->getClass())
+                {
+                    case CLASS_WARRIOR:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+10);
+                        break;
+                    case CLASS_PALADIN:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+11);
+                        break;
+                    case CLASS_HUNTER:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+12);
+                        break;
+                    case CLASS_ROGUE:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+13);
+                        break;
+                    case CLASS_PRIEST:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+14);
+                        break;
+                    case CLASS_DEATH_KNIGHT:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+15);
+                        break;
+                    case CLASS_SHAMAN:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+16);
+                        break;
+                    case CLASS_MAGE:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+17);
+                        break;
+                    case CLASS_WARLOCK:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+18);
+                        break;
+                    case CLASS_DRUID:
+                        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GLYPH+19);
+                        break;
+                }
             }
             else if (action == ASSISTANT_GOSSIP_GEM)
             {
