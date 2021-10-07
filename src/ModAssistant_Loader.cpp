@@ -1,6 +1,14 @@
-void AddModAssistantScripts();
+void AddAssistantNPCScripts();
+void AddDazeImmunityScripts();
+void AddDynamicRatesScripts();
+void AddSetSpawnPointScripts();
+void AddLearnSpellsOnLevelUpScripts();
 
 void Addmod_assistantScripts()
 {
-    AddModAssistantScripts();
+    AddAssistantNPCScripts();
+    AddDazeImmunityScripts();
+    AddDynamicRatesScripts();
+    AddSetSpawnPointScripts();
+    AddLearnSpellsOnLevelUpScripts();
 }
