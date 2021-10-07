@@ -17,7 +17,8 @@ enum VendorId
     ASSISTANT_VENDOR_HEIRLOOM_WEAPON = 9000000,
     ASSISTANT_VENDOR_HEIRLOOM_ARMOR = 9000001,
     ASSISTANT_VENDOR_HEIRLOOM_OTHER = 9000002,
-    ASSISTANT_VENDOR_GLYPH = 9000003
+    ASSISTANT_VENDOR_GLYPH = 9000003,
+    ASSISTANT_VENDOR_GEM = 9000023
 };
 
 class AssistantNPC : public CreatureScript
@@ -184,6 +185,34 @@ class AssistantNPC : public CreatureScript
                 AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want some orange gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM+7);
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+1)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+2)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+1);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+3)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+2);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+4)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+3);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+5)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+4);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+6)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+5);
+            }
+            else if (action == ASSISTANT_GOSSIP_GEM+7)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_GEM+6);
             }
 
             return true;

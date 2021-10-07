@@ -483,3 +483,132 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+22, 43334);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+22, 43335);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+22, 43674);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+22, 44922);
+
+-- Gem: Meta
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+23;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41285);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41307);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41333);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41335);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41339);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41375);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41376);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41377);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41378);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41379);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41380);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41381);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41382);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41385);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41389);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41395);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41396);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41397);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41398);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41400);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 41401);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44076);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44078);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44081);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44082);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44084);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44087);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44088);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+23, 44089);
+
+-- Gem: Red
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+24;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40111);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40112);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40113);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40114);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40115);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40116);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40117);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 40118);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 45862);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 45879);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+24, 45883);
+
+-- Gem: Blue
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+25;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 40119);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 40120);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 40121);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 40122);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 45880);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+25, 45881);
+
+-- Gem: Yellow
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+26;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40123);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40124);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40125);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40126);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40127);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 40128);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 45882);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+26, 45987);
+
+-- Gem: Purple
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+27;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40129);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40130);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40131);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40132);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40133);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40134);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40135);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40136);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40137);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40138);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40139);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40140);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+27, 40141);
+
+-- Gem: Green
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+28;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40164);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40165);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40166);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40167);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40168);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40169);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40170);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40171);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40172);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40173);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40174);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40175);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40176);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40177);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40178);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40179);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40180);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40181);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+28, 40182);
+
+-- Gem: Orange
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+29;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40142);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40143);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40144);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40145);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40146);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40147);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40148);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40149);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40150);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40151);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40152);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40153);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40154);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40155);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40156);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40157);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40158);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40159);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40160);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40161);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40162);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40163);
