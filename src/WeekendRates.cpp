@@ -11,29 +11,23 @@ class WeekendRates : public PlayerScript
 
         void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override
         {
-            if (sConfigMgr->GetBoolDefault("Assistant.Weekend.Rate.Enabled", 0))
+            if (sConfigMgr->GetBoolDefault("Assistant.Weekend.Rate.Enabled", 0) && isWeekend())
             {
-                if (isWeekend())
-                {
-                    amount *= sConfigMgr->GetIntDefault("Assistant.Weekend.Rate.Multiplier", 1);
-                }
+                amount *= 2;
             }
         }
 
         void OnReputationChange(Player* player, uint32 /*factionId*/, int32& standing, bool /*incremental*/) override
         {
-            if (sConfigMgr->GetBoolDefault("Assistant.Weekend.Rate.Enabled", 0))
+            if (sConfigMgr->GetBoolDefault("Assistant.Weekend.Rate.Enabled", 0) && isWeekend())
             {
-                if (isWeekend())
-                {
-                    standing *= sConfigMgr->GetIntDefault("Assistant.Weekend.Rate.Multiplier", 1);
-                }
+                standing *= 2;
             }
         }
 
         void OnLogin(Player* player) override
         {
-            if (isWeekend())
+            if (sConfigMgr->GetBoolDefault("Assistant.Weekend.Rate.Enabled", 0) && isWeekend())
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("The weekend bonus is active, doubling the experience and reputation you receive!");
             }
