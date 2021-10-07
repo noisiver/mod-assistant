@@ -35,7 +35,7 @@ class WeekendRates : public PlayerScript
         {
             if (isWeekend())
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("The weekend bonus is active, giving you twice the experience and reputation!");
+                ChatHandler(player->GetSession()).PSendSysMessage("The weekend bonus is active, doubling the experience and reputation you receive!");
             }
         }
 
