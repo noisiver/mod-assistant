@@ -115,7 +115,7 @@ UPDATE `item_template` SET `BuyPrice`=240000, `SellPrice`=60000 WHERE `entry` IN
 UPDATE `item_template` SET `BuyPrice`=360000, `SellPrice`=90000 WHERE `entry` IN (40111, 40112, 40113, 40114, 40115, 40116, 40117, 40118);
 UPDATE `item_template` SET `BuyPrice`=45000, `SellPrice`=11250 WHERE `entry` IN (45862, 45879, 45883);
 -- Gem: Blue
-UPDATE `item_template` SET `BuyPrice`=360000, `SellPrice`=90000 WHERE `entry` IN (40119, 40120, 40121, 40122)
+UPDATE `item_template` SET `BuyPrice`=360000, `SellPrice`=90000 WHERE `entry` IN (40119, 40120, 40121, 40122);
 UPDATE `item_template` SET `BuyPrice`=45000, `SellPrice`=11250 WHERE `entry` IN (45880, 45881);
 -- Gem: Yellow
 UPDATE `item_template` SET `BuyPrice`=360000, `SellPrice`=90000 WHERE `entry` IN (40123, 40124, 40125, 40126, 40127, 40128);
