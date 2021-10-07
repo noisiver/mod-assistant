@@ -16,9 +16,6 @@ Assistant.Gossip.Containers = 0
 
 # Obtain utilties from the assistant npc
 Assistant.Gossip.Utilities = 0
-
-# Obtain other from the assistant npc
-Assistant.Gossip.Other = 0
 ###########################################################################
 
 ###########################################################################
