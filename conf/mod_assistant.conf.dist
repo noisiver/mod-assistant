@@ -62,9 +62,6 @@ Assistant.Spells.Riding.Artisan = 0
 
 # Learn cold weather flying at level 77
 Assistant.Spells.Riding.ColdWeather = 0
-
-# Add a immunity to daze to players when entering the world
-Assistant.Spells.Immunity.Daze = 0
 ###########################################################################
 
 ###########################################################################
