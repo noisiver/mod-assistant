@@ -89,29 +89,19 @@ class LearnSpellOnLevelUp : public PlayerScript
             if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLogin", 0))
             {
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
-                {
                     LearnSpellForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Talent", 0))
-                {
                     LearnTalentRankForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Proficiency", 0))
-                {
                     LearnProficiencyForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
-                {
                     LearnMountForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-                {
                     MaxAllWeaponSkill(player);
-                }
             }
         }
 
@@ -120,29 +110,19 @@ class LearnSpellOnLevelUp : public PlayerScript
             if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLevelUp", 0))
             {
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
-                {
                     LearnSpellForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Talent", 0))
-                {
                     LearnTalentRankForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Proficiency", 0))
-                {
                     LearnProficiencyForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
-                {
                     LearnMountForNewLevel(player);
-                }
 
                 if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-                {
                     MaxAllWeaponSkill(player);
-                }
             }
         }
 
@@ -155,90 +135,70 @@ class LearnSpellOnLevelUp : public PlayerScript
                     for (int i = 0; i < 124; i++)
                     {
                         if (player->getLevel() >= classSpellWarrior[i][1] && !player->HasSpell(classSpellWarrior[i][0]))
-                        {
                             player->learnSpell(classSpellWarrior[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PALADIN:
                     for (int i = 0; i < 160; i++)
                     {
                         if (player->getLevel() >= classSpellPaladin[i][1] && !player->HasSpell(classSpellPaladin[i][0]))
-                        {
                             player->learnSpell(classSpellPaladin[i][0]);
-                        }
                     }
                     break;
                 case CLASS_HUNTER:
                     for (int i = 0; i < 149; i++)
                     {
                         if (player->getLevel() >= classSpellHunter[i][1] && !player->HasSpell(classSpellHunter[i][0]))
-                        {
                             player->learnSpell(classSpellHunter[i][0]);
-                        }
                     }
                     break;
                 case CLASS_ROGUE:
                     for (int i = 0; i < 113; i++)
                     {
                         if (player->getLevel() >= classSpellRogue[i][1] && !player->HasSpell(classSpellRogue[i][0]))
-                        {
                             player->learnSpell(classSpellRogue[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PRIEST:
                     for (int i = 0; i < 208; i++)
                     {
                         if (player->getLevel() >= classSpellPriest[i][1] && !player->HasSpell(classSpellPriest[i][0]))
-                        {
                             player->learnSpell(classSpellPriest[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DEATH_KNIGHT:
                     for (int i = 0; i < 69; i++)
                     {
                         if (player->getLevel() >= classSpellDeathKnight[i][1] && !player->HasSpell(classSpellDeathKnight[i][0]))
-                        {
                             player->learnSpell(classSpellDeathKnight[i][0]);
-                        }
                     }
                     break;
                 case CLASS_SHAMAN:
                     for (int i = 0; i < 266; i++)
                     {
                         if (player->getLevel() >= classSpellShaman[i][1] && !player->HasSpell(classSpellShaman[i][0]))
-                        {
                             player->learnSpell(classSpellShaman[i][0]);
-                        }
                     }
                     break;
                 case CLASS_MAGE:
                     for (int i = 0; i < 223; i++)
                     {
                         if (player->getLevel() >= classSpellMage[i][1] && !player->HasSpell(classSpellMage[i][0]))
-                        {
                             player->learnSpell(classSpellMage[i][0]);
-                        }
                     }
                     break;
                 case CLASS_WARLOCK:
                     for (int i = 0; i < 211; i++)
                     {
                         if (player->getLevel() >= classSpellWarlock[i][1] && !player->HasSpell(classSpellWarlock[i][0]))
-                        {
                             player->learnSpell(classSpellWarlock[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DRUID:
                     for (int i = 0; i < 276; i++)
                     {
                         if (player->getLevel() >= classSpellDruid[i][1] && !player->HasSpell(classSpellDruid[i][0]))
-                        {
                             player->learnSpell(classSpellDruid[i][0]);
-                        }
                     }
                     break;
             }
@@ -252,90 +212,70 @@ class LearnSpellOnLevelUp : public PlayerScript
                     for (int i = 0; i < 276; i++)
                     {
                         if (player->getLevel() >= talentSpellWarrior[i][1] && !player->HasSpell(talentSpellWarrior[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellWarrior[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PALADIN:
                     for (int i = 0; i < 16; i++)
                     {
                         if (player->getLevel() >= talentSpellPaladin[i][1] && !player->HasSpell(talentSpellPaladin[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellPaladin[i][0]);
-                        }
                     }
                     break;
                 case CLASS_HUNTER:
                     for (int i = 0; i < 26; i++)
                     {
                         if (player->getLevel() >= talentSpellHunter[i][1] && !player->HasSpell(talentSpellHunter[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellHunter[i][0]);
-                        }
                     }
                     break;
                 case CLASS_ROGUE:
                     for (int i = 0; i < 9; i++)
                     {
                         if (player->getLevel() >= talentSpellRogue[i][1] && !player->HasSpell(talentSpellRogue[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellRogue[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PRIEST:
                     for (int i = 0; i < 34; i++)
                     {
                         if (player->getLevel() >= talentSpellPriest[i][1] && !player->HasSpell(talentSpellPriest[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellPriest[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DEATH_KNIGHT:
                     for (int i = 0; i < 20; i++)
                     {
                         if (player->getLevel() >= talentSpellDeathKnight[i][1] && !player->HasSpell(talentSpellDeathKnight[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellDeathKnight[i][0]);
-                        }
                     }
                     break;
                 case CLASS_SHAMAN:
                     for (int i = 0; i < 13; i++)
                     {
                         if (player->getLevel() >= talentSpellShaman[i][1] && !player->HasSpell(talentSpellShaman[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellShaman[i][0]);
-                        }
                     }
                     break;
                 case CLASS_MAGE:
                     for (int i = 0; i < 35; i++)
                     {
                         if (player->getLevel() >= talentSpellMage[i][1] && !player->HasSpell(talentSpellMage[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellMage[i][0]);
-                        }
                     }
                     break;
                 case CLASS_WARLOCK:
                     for (int i = 0; i < 27; i++)
                     {
                         if (player->getLevel() >= talentSpellWarlock[i][1] && !player->HasSpell(talentSpellWarlock[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellWarlock[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DRUID:
                     for (int i = 0; i < 24; i++)
                     {
                         if (player->getLevel() >= talentSpellDruid[i][1] && !player->HasSpell(talentSpellDruid[i][0]) && player->HasSpell(talentSpellWarrior[i][2]))
-                        {
                             player->learnSpell(talentSpellDruid[i][0]);
-                        }
                     }
                     break;
             }
@@ -349,90 +289,70 @@ class LearnSpellOnLevelUp : public PlayerScript
                     for (int i = 0; i < 16; i++)
                     {
                         if (player->getLevel() >= proficiencySpellWarrior[i][1] && !player->HasSpell(proficiencySpellWarrior[i][0]))
-                        {
                             player->learnSpell(proficiencySpellWarrior[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PALADIN:
                     for (int i = 0; i < 9; i++)
                     {
                         if (player->getLevel() >= proficiencySpellPaladin[i][1] && !player->HasSpell(proficiencySpellPaladin[i][0]))
-                        {
                             player->learnSpell(proficiencySpellPaladin[i][0]);
-                        }
                     }
                     break;
                 case CLASS_HUNTER:
                     for (int i = 0; i < 14; i++)
                     {
                         if (player->getLevel() >= proficiencySpellHunter[i][1] && !player->HasSpell(proficiencySpellHunter[i][0]))
-                        {
                             player->learnSpell(proficiencySpellHunter[i][0]);
-                        }
                     }
                     break;
                 case CLASS_ROGUE:
                     for (int i = 0; i < 10; i++)
                     {
                         if (player->getLevel() >= proficiencySpellRogue[i][1] && !player->HasSpell(proficiencySpellRogue[i][0]))
-                        {
                             player->learnSpell(proficiencySpellRogue[i][0]);
-                        }
                     }
                     break;
                 case CLASS_PRIEST:
                     for (int i = 0; i < 4; i++)
                     {
                         if (player->getLevel() >= proficiencySpellPriest[i][1] && !player->HasSpell(proficiencySpellPriest[i][0]))
-                        {
                             player->learnSpell(proficiencySpellPriest[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DEATH_KNIGHT:
                     for (int i = 0; i < 10; i++)
                     {
                         if (player->getLevel() >= proficiencySpellDeathKnight[i][1] && !player->HasSpell(proficiencySpellDeathKnight[i][0]))
-                        {
                             player->learnSpell(proficiencySpellDeathKnight[i][0]);
-                        }
                     }
                     break;
                 case CLASS_SHAMAN:
                     for (int i = 0; i < 9; i++)
                     {
                         if (player->getLevel() >= proficiencySpellShaman[i][1] && !player->HasSpell(proficiencySpellShaman[i][0]))
-                        {
                             player->learnSpell(proficiencySpellShaman[i][0]);
-                        }
                     }
                     break;
                 case CLASS_MAGE:
                     for (int i = 0; i < 4; i++)
                     {
                         if (player->getLevel() >= proficiencySpellMage[i][1] && !player->HasSpell(proficiencySpellMage[i][0]))
-                        {
                             player->learnSpell(proficiencySpellMage[i][0]);
-                        }
                     }
                     break;
                 case CLASS_WARLOCK:
                     for (int i = 0; i < 4; i++)
                     {
                         if (player->getLevel() >= proficiencySpellWarlock[i][1] && !player->HasSpell(proficiencySpellWarlock[i][0]))
-                        {
                             player->learnSpell(proficiencySpellWarlock[i][0]);
-                        }
                     }
                     break;
                 case CLASS_DRUID:
                     for (int i = 0; i < 6; i++)
                     {
                         if (player->getLevel() >= proficiencySpellDruid[i][1] && !player->HasSpell(proficiencySpellDruid[i][0]))
-                        {
                             player->learnSpell(proficiencySpellDruid[i][0]);
-                        }
                     }
                     break;
             }
@@ -441,9 +361,7 @@ class LearnSpellOnLevelUp : public PlayerScript
         void MaxAllWeaponSkill(Player* player)
         {
             if (player->getLevel() <= sConfigMgr->GetIntDefault("Assistant.Spells.MaxSkill.MaxLevel", 80))
-            {
                 player->UpdateSkillsToMaxSkillsForLevel();
-            }
         }
 
         void LearnMountForNewLevel(Player* player)

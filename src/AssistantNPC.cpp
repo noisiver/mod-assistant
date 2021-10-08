@@ -29,30 +29,21 @@ class AssistantNPC : public CreatureScript
         bool OnGossipHello(Player* player, Creature* creature)
         {
             ClearGossipMenuFor(player);
+
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Heirlooms", 0))
-            {
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
-            }
 
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Glyphs", 0))
-            {
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
-            }
 
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Gems", 0))
-            {
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
-            }
 
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Containers", 0))
-            {
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
-            }
 
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Utilities", 0))
-            {
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
-            }
 
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
