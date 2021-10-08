@@ -16,6 +16,18 @@ Assistant.Gossip.Containers = 0
 
 # Obtain utilties from the assistant npc
 Assistant.Gossip.Utilities = 0
+
+# The amount of gold required to perform a name change
+Assistant.Gossip.Utilities.NameChange = 10
+
+# The amount of gold required to perform a change in appearance
+Assistant.Gossip.Utilities.Customization = 50
+
+# The amount of gold required to perform a race change
+Assistant.Gossip.Utilities.RaceChange = 500
+
+# The amount of gold required to perform a faction change
+Assistant.Gossip.Utilities.FactionChange = 1000
 ###########################################################################
 
 ###########################################################################

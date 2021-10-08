@@ -213,8 +213,87 @@ class AssistantNPC : public CreatureScript
             {
                 player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_CONTAINER);
             }
+            else if (action == ASSISTANT_GOSSIP_UTILITIES)
+            {
+                ClearGossipMenuFor(player);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my name", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES+1, "Do you wish to continue the transaction?", (sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.NameChange", 10) * 10000), false);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my appearance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES+2, "Do you wish to continue the transaction?", (sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.Customization", 50) * 10000), false);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my race", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES+3, "Do you wish to continue the transaction?", (sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.RaceChange", 500) * 10000), false);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my faction", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES+4, "Do you wish to continue the transaction?", (sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.FactionChange", 1000) * 10000), false);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
+                SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+            }
+            else if (action == ASSISTANT_GOSSIP_UTILITIES+1)
+            {
+                if (hasLoginFlag(player))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("You have to complete the previously activated feature before trying to perform another.");
+                    OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+                }
+                else
+                {
+                    player->ModifyMoney(-(sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.NameChange", 10) * 10000));
+                    player->SetAtLoginFlag(AT_LOGIN_RENAME);
+                    ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the name change.");
+                    ClearGossipMenuFor(player);
+                }
+            }
+            else if (action == ASSISTANT_GOSSIP_UTILITIES+2)
+            {
+                if (hasLoginFlag(player))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("You have to complete the previously activated feature before trying to perform another.");
+                    OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+                }
+                else
+                {
+                    player->ModifyMoney(-(sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.Customization", 50) * 10000));
+                    player->SetAtLoginFlag(AT_LOGIN_CUSTOMIZE);
+                    ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the customization.");
+                    ClearGossipMenuFor(player);
+                }
+            }
+            else if (action == ASSISTANT_GOSSIP_UTILITIES+3)
+            {
+                if (hasLoginFlag(player))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("You have to complete the previously activated feature before trying to perform another.");
+                    OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+                }
+                else
+                {
+                    player->ModifyMoney(-(sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.RaceChange", 500) * 10000));
+                    player->SetAtLoginFlag(AT_LOGIN_CHANGE_RACE);
+                    ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the race change.");
+                    ClearGossipMenuFor(player);
+                }
+            }
+            else if (action == ASSISTANT_GOSSIP_UTILITIES+4)
+            {
+                if (hasLoginFlag(player))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("You have to complete the previously activated feature before trying to perform another.");
+                    OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+                }
+                else
+                {
+                    player->ModifyMoney(-(sConfigMgr->GetIntDefault("Assistant.Gossip.Utilities.FactionChange", 1000) * 10000));
+                    player->SetAtLoginFlag(AT_LOGIN_CHANGE_FACTION);
+                    ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the faction change.");
+                    ClearGossipMenuFor(player);
+                }
+            }
 
             return true;
+        }
+
+    private:
+        bool hasLoginFlag(Player* player)
+        {
+            if (player->HasAtLoginFlag(AT_LOGIN_RENAME) || player->HasAtLoginFlag(AT_LOGIN_CUSTOMIZE) || player->HasAtLoginFlag(AT_LOGIN_CHANGE_RACE) || player->HasAtLoginFlag(AT_LOGIN_CHANGE_FACTION))
+                return true;
+
+            return false;
         }
 };
 
