@@ -79,29 +79,16 @@ int mountSpellTroll[13][4]             = {{8395, 20, MOUNT_APPRENTICE, 33388},{1
 int mountSpellBloodElf[14][4]          = {{34795, 20, MOUNT_APPRENTICE, 33388},{35018, 20, MOUNT_APPRENTICE, 33388},{35020, 20, MOUNT_APPRENTICE, 33388},{35022, 20, MOUNT_APPRENTICE, 33388},{33660, 40, MOUNT_JOURNEYMAN, 33391},{35025, 40, MOUNT_JOURNEYMAN, 33391},{35027, 40, MOUNT_JOURNEYMAN, 33391},{32243, 60, MOUNT_EXPERT, 34090},{32244, 60, MOUNT_EXPERT, 34090},{32245, 60, MOUNT_EXPERT, 34090},{32246, 70, MOUNT_ARTISAN, 34091},{32295, 70, MOUNT_ARTISAN, 34091},{32296, 70, MOUNT_ARTISAN, 34091},{32297, 70, MOUNT_ARTISAN, 34091}};
 int mountSpellDraenei[13][4]           = {{34406, 20, MOUNT_APPRENTICE, 33388},{35710, 20, MOUNT_APPRENTICE, 33388},{35711, 20, MOUNT_APPRENTICE, 33388},{35712, 40, MOUNT_JOURNEYMAN, 33391},{35713, 40, MOUNT_JOURNEYMAN, 33391},{35714, 40, MOUNT_JOURNEYMAN, 33391},{32239, 60, MOUNT_EXPERT, 34090},{32240, 60, MOUNT_EXPERT, 34090},{32235, 60, MOUNT_EXPERT, 34090},{32289, 70, MOUNT_ARTISAN, 34091},{32290, 70, MOUNT_ARTISAN, 34091},{32242, 70, MOUNT_ARTISAN, 34091},{32292, 70, MOUNT_ARTISAN, 34091}};
 
-class LearnSpellOnLevelUp : public PlayerScript
+class LearnSpellsOnLevelUp : public PlayerScript
 {
     public:
-        LearnSpellOnLevelUp() : PlayerScript("LearnSpellOnLevelUp") { }
+        LearnSpellsOnLevelUp() : PlayerScript("LearnSpellsOnLevelUp") { }
 
         void OnLogin(Player* player) override
         {
             if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLogin", 0))
             {
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
-                    LearnSpellForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Talent", 0))
-                    LearnTalentRankForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Proficiency", 0))
-                    LearnProficiencyForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
-                    LearnMountForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-                    MaxAllWeaponSkill(player);
+                LearnAllSpells(player);
             }
         }
 
@@ -109,25 +96,30 @@ class LearnSpellOnLevelUp : public PlayerScript
         {
             if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0) && sConfigMgr->GetBoolDefault("Assistant.Spells.OnLevelUp", 0))
             {
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
-                    LearnSpellForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Talent", 0))
-                    LearnTalentRankForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Proficiency", 0))
-                    LearnProficiencyForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
-                    LearnMountForNewLevel(player);
-
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
-                    MaxAllWeaponSkill(player);
+                LearnAllSpells(player);
             }
         }
 
     private:
-        void LearnSpellForNewLevel(Player* player)
+        void LearnAllSpells(Player* player)
+        {
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
+                LearnSpellsForNewLevel(player);
+
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Talent", 0))
+                LearnTalentRanksForNewLevel(player);
+
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Proficiency", 0))
+                LearnProficienciesForNewLevel(player);
+
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Enabled", 0))
+                LearnMountsForNewLevel(player);
+
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.MaxSkill.Enabled", 0))
+                MaxAllWeaponSkills(player);
+        }
+
+        void LearnSpellsForNewLevel(Player* player)
         {
             switch (player->getClass())
             {
@@ -143,6 +135,17 @@ class LearnSpellOnLevelUp : public PlayerScript
                     {
                         if (player->getLevel() >= classSpellPaladin[i][1] && !player->HasSpell(classSpellPaladin[i][0]))
                             player->learnSpell(classSpellPaladin[i][0]);
+                    }
+
+                    if (player->GetTeamId() == TEAM_ALLIANCE)
+                    {
+                        if (player->getLevel() >= 64 && !player->HasSpell(31801))
+                            player->learnSpell(31801);
+                    }
+                    else
+                    {
+                        if (player->getLevel() >= 66 && !player->HasSpell(53736))
+                            player->learnSpell(53736);
                     }
                     break;
                 case CLASS_HUNTER:
@@ -204,7 +207,7 @@ class LearnSpellOnLevelUp : public PlayerScript
             }
         }
 
-        void LearnTalentRankForNewLevel(Player* player)
+        void LearnTalentRanksForNewLevel(Player* player)
         {
             switch (player->getClass())
             {
@@ -281,7 +284,7 @@ class LearnSpellOnLevelUp : public PlayerScript
             }
         }
 
-        void LearnProficiencyForNewLevel(Player* player)
+        void LearnProficienciesForNewLevel(Player* player)
         {
             switch (player->getClass())
             {
@@ -358,13 +361,13 @@ class LearnSpellOnLevelUp : public PlayerScript
             }
         }
 
-        void MaxAllWeaponSkill(Player* player)
+        void MaxAllWeaponSkills(Player* player)
         {
             if (player->getLevel() <= sConfigMgr->GetIntDefault("Assistant.Spells.MaxSkill.MaxLevel", 80))
                 player->UpdateSkillsToMaxSkillsForLevel();
         }
 
-        void LearnMountForNewLevel(Player* player)
+        void LearnMountsForNewLevel(Player* player)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -540,5 +543,5 @@ class LearnSpellOnLevelUp : public PlayerScript
 
 void AddLearnSpellsOnLevelUpScripts()
 {
-    new LearnSpellOnLevelUp();
+    new LearnSpellsOnLevelUp();
 }
