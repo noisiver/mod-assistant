@@ -13,7 +13,7 @@ class SetSpawnPoint : public PlayerScript
                 if (player->getClass() == CLASS_DEATH_KNIGHT && !sConfigMgr->GetBoolDefault("Assistant.SpawnPoint.DeathKnight", 0))
                     return;
 
-                QueryResult result = WorldDatabase.PQuery("SELECT `map_id`, `pos_x`, `pos_y`, `pos_z`, `pos_o` FROM `assistant_spawn_point` WHERE `team_id`=%u", player->GetTeamId());
+                QueryResult result = WorldDatabase.PQuery("SELECT `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation` FROM `assistant_spawn_point` WHERE `team_id`=%u", player->GetTeamId());
 
                 if (!result || result->GetRowCount() == 0)
                     return;
