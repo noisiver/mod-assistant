@@ -46,11 +46,27 @@ CREATE TABLE `assistant_spells` (
 COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
 COLLATE='utf8mb4_general_ci';
 
+-- Mounts: Riding
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33388, 20, -1, 'Apprentice Riding');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33391, 40, 33388, 'Journeyman Riding');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 34090, 60, 33391, 'Expert Riding');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 34091, 70, 34090, 'Artisan Riding');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 54197, 77, 34090, 'Cold Weather Flying');
+-- Mounts: Human
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 458, 20, 33388, 'Brown Horse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 472, 20, 33388, 'Pinto');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 6648, 20, 33388, 'Chestnut Mare');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23227, 40, 33391, 'Swift Palomino');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23228, 40, 33391, 'Swift White Steed');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23229, 40, 33391, 'Swift Brown Steed');
+-- Mounts: Alliance
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32239, 60, 34090, 'Ebon Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32240, 60, 34090, 'Snowy Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32235, 60, 34090, 'Golden Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32289, 70, 34091, 'Swift Red Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32290, 70, 34091, 'Swift Green Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32242, 70, 34091, 'Swift Blue Gryphon');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32292, 70, 34091, 'Swift Purple Gryphon');
 
 -- Spawn points
 DROP TABLE IF EXISTS `assistant_spawn_points`;

@@ -64,23 +64,32 @@ class LearnSpellsOnLevelUp : public PlayerScript
         {
             for (int i = 0; i < assistantData->GetMountsCount(); i++)
             {
-                int32 raceId = assistantData->GetMounts()[i].RaceId;
-                uint32 spellId = assistantData->GetMounts()[i].SpellId;
-                uint32 requiredLevel = assistantData->GetMounts()[i].RequiredLevel;
-                uint32 requiredSpellId = assistantData->GetMounts()[i].RequiredSpellId;
+                if ((assistantData->GetMounts()[i].SpellId == 33388 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Apprentice", 0)) || 
+                    (assistantData->GetMounts()[i].SpellId == 33391 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Journeyman", 0)) || 
+                    (assistantData->GetMounts()[i].SpellId == 34090 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Expert", 0)) || 
+                    (assistantData->GetMounts()[i].SpellId == 34091 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Artisan", 0)) || 
+                    (assistantData->GetMounts()[i].SpellId == 54197 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.ColdWeather", 0)))
+                    continue;
 
-                if (((spellId == 33388 || requiredSpellId == 33388) && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Apprentice", 0)) || 
-                    ((spellId == 33391 || requiredSpellId == 33391) && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Journeyman", 0)) || 
-                    ((spellId == 34090 || requiredSpellId == 34090) && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Expert", 0)) || 
-                    ((spellId == 34091 || requiredSpellId == 34091) && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Artisan", 0)) || 
-                    (spellId == 54197 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.ColdWeather", 0)))
-                    break;
+                if (assistantData->GetMounts()[i].RaceId != -1 && assistantData->GetMounts()[i].RaceId != player->getRace())
+                    continue;
 
-                if (raceId == -1 || raceId == player->getRace())
-                    if (requiredSpellId == -1 || player->HasSpell(requiredSpellId))
-                        if (player->getLevel() >= requiredLevel)
-                            if (!player->HasSpell(spellId))
-                                player->learnSpell(spellId);
+                if (assistantData->GetMounts()[i].ClassId != -1 && assistantData->GetMounts()[i].ClassId != player->getClass())
+                    continue;
+
+                if (assistantData->GetMounts()[i].TeamId != -1 && assistantData->GetMounts()[i].TeamId != player->GetTeamId())
+                    continue;
+
+                if (assistantData->GetMounts()[i].RequiredSpellId != -1 && !player->HasSpell(assistantData->GetMounts()[i].RequiredSpellId))
+                    continue;
+
+                if (player->getLevel() < assistantData->GetMounts()[i].RequiredLevel)
+                    continue;
+
+                if (player->HasSpell(assistantData->GetMounts()[i].SpellId))
+                    continue;
+
+                player->learnSpell(assistantData->GetMounts()[i].SpellId);
             }
         }
 
