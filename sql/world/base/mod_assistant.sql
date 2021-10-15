@@ -28,6 +28,42 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry+1, @Entry, 1, 1676.62, -4423.69, 18.9152, 2.64126); -- Orgrimmar
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry+2, @Entry, 571, 5784.29, 623.186, 647.71, 5.75156); -- Dalaran
 
+-- Class spells, talent ranks, proficiencies and mounts
+DROP TABLE IF EXISTS `assistant_spells`;
+CREATE TABLE `assistant_spells` (
+    `type` INT NOT NULL,
+    `race_id` INT NOT NULL,
+	`class_id` INT NOT NULL,
+	`team_id` INT NOT NULL DEFAULT 0,
+	`spell_id` INT NOT NULL,
+	`required_level` INT NOT NULL,
+    `required_spell_id` INT NOT NULL DEFAULT 0,
+	`comment` CHAR(50) NULL DEFAULT '',
+	PRIMARY KEY (`class_id`, `spell_id`)
+)
+COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
+COLLATE='utf8mb4_general_ci';
+
+-- INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, 0, 0, -1, 0, 1, 0, 'Test row');
+
+-- Spawn points
+DROP TABLE IF EXISTS `assistant_spawn_point`;
+CREATE TABLE `assistant_spawn_point` (
+    `team_id` INT NOT NULL,
+    `map_id` INT NOT NULL,
+	`pos_x` FLOAT NOT NULL,
+	`pos_y` FLOAT NOT NULL,
+    `pos_z` FLOAT NOT NULL,
+    `pos_o` FLOAT NOT NULL,
+    `comment` CHAR(50) NULL DEFAULT '',
+	PRIMARY KEY (`team_id`)
+)
+COMMENT='Spawn points for Assistant'
+COLLATE='utf8mb4_general_ci';
+
+INSERT INTO `assistant_spawn_point` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `pos_o`, `comment`) VALUES (0, 0, -8830.44, 626.666, 93.9829, 0.682076, 'Alliance - Stormwind City');
+INSERT INTO `assistant_spawn_point` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `pos_o`, `comment`) VALUES (1, 1, 1630.78, -4412.99, 16.5677, 0.080535, 'Horde - Orgrimmar');
+
 -- Heirloom: Weapon
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry, 42943);

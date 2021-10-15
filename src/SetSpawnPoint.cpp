@@ -13,14 +13,13 @@ class SetSpawnPoint : public PlayerScript
                 if (player->getClass() == CLASS_DEATH_KNIGHT && !sConfigMgr->GetBoolDefault("Assistant.SpawnPoint.DeathKnight", 0))
                     return;
 
-                if (player->GetTeamId() == TEAM_ALLIANCE)
-                {
-                    player->TeleportTo(0, -8830.438477, 626.666199, 93.982887, 0.682076);
-                }
-                else if (player->GetTeamId() == TEAM_HORDE)
-                {
-                    player->TeleportTo(1, 1630.776001,  -4412.993652, 16.567701, 0.080535);
-                }
+                QueryResult result = WorldDatabase.PQuery("SELECT `map_id`, `pos_x`, `pos_y`, `pos_z`, `pos_o` FROM `assistant_spawn_point` WHERE `team_id`=%u", player->GetTeamId());
+
+                if (!result || result->GetRowCount() == 0)
+                    return;
+
+                Field* fields = result->Fetch();
+                player->TeleportTo(fields[0].GetUInt32(), fields[1].GetFloat(), fields[2].GetFloat(), fields[3].GetFloat(), fields[4].GetFloat());
             }
         }
 };
