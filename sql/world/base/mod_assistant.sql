@@ -31,24 +31,30 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 -- Class spells, talent ranks, proficiencies and mounts
 DROP TABLE IF EXISTS `assistant_spells`;
 CREATE TABLE `assistant_spells` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `type` INT NOT NULL,
     `race_id` INT NOT NULL,
 	`class_id` INT NOT NULL,
-	`team_id` INT NOT NULL DEFAULT 0,
+	`team_id` INT NOT NULL DEFAULT -1,
 	`spell_id` INT NOT NULL,
 	`required_level` INT NOT NULL,
-    `required_spell_id` INT NOT NULL DEFAULT 0,
+    `required_spell_id` INT NOT NULL DEFAULT -1,
 	`comment` CHAR(50) NULL DEFAULT '',
-	PRIMARY KEY (`class_id`, `spell_id`)
+	PRIMARY KEY (`class_id`, `spell_id`),
+    INDEX `id` (`id`) USING BTREE
 )
 COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
 COLLATE='utf8mb4_general_ci';
 
--- INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, 0, 0, -1, 0, 1, 0, 'Test row');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33388, 20, -1, 'Apprentice Riding');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33391, 40, 33388, 'Journeyman Riding');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 34090, 60, 33391, 'Expert Riding');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 34091, 70, 34090, 'Artisan Riding');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 54197, 77, 34090, 'Cold Weather Flying');
 
 -- Spawn points
-DROP TABLE IF EXISTS `assistant_spawn_point`;
-CREATE TABLE `assistant_spawn_point` (
+DROP TABLE IF EXISTS `assistant_spawn_points`;
+CREATE TABLE `assistant_spawn_points` (
     `team_id` INT NOT NULL,
     `map_id` INT NOT NULL,
 	`pos_x` FLOAT NOT NULL,
@@ -61,8 +67,8 @@ CREATE TABLE `assistant_spawn_point` (
 COMMENT='Spawn points for Assistant'
 COLLATE='utf8mb4_general_ci';
 
-INSERT INTO `assistant_spawn_point` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation`, `comment`) VALUES (0, 0, -8830.44, 626.666, 93.9829, 0.682076, 'Alliance - Stormwind City');
-INSERT INTO `assistant_spawn_point` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation`, `comment`) VALUES (1, 1, 1630.78, -4412.99, 16.5677, 0.080535, 'Horde - Orgrimmar');
+INSERT INTO `assistant_spawn_points` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation`, `comment`) VALUES (0, 0, -8830.44, 626.666, 93.9829, 0.682076, 'Alliance - Stormwind City');
+INSERT INTO `assistant_spawn_points` (`team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation`, `comment`) VALUES (1, 1, 1630.78, -4412.99, 16.5677, 0.080535, 'Horde - Orgrimmar');
 
 -- Heirloom: Weapon
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry;

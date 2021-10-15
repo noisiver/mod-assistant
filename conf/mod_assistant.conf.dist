@@ -55,7 +55,7 @@ Assistant.Spells.Proficiency = 0
 Assistant.Spells.MaxSkill.Enabled = 0
 
 # Max level where a player gets their skills maxed out
-Assistant.Spells.MaxSkill.MaxLevel = 80
+Assistant.Spells.MaxSkill.MaxLevel = 60
 
 # Learn riding and mount spells
 Assistant.Spells.Riding.Enabled = 0

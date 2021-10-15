@@ -4,10 +4,10 @@
 time_t t = time(NULL);
 tm* now = localtime(&t);
 
-class WeekendRates : public PlayerScript
+class WeekendBonus : public PlayerScript
 {
     public:
-        WeekendRates() : PlayerScript("WeekendRates") { }
+        WeekendBonus() : PlayerScript("WeekendBonus") { }
 
         void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override
         {
@@ -37,7 +37,7 @@ class WeekendRates : public PlayerScript
         }
 };
 
-void AddWeekendRatesScripts()
+void AddWeekendBonusScripts()
 {
-    new WeekendRates();
+    new WeekendBonus();
 }

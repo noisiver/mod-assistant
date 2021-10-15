@@ -1,12 +1,14 @@
+void AddAssistantDataScripts();
 void AddAssistantNPCScripts();
 void AddSetSpawnPointScripts();
 void AddLearnSpellsOnLevelUpScripts();
-void AddWeekendRatesScripts();
+void AddWeekendBonusScripts();
 
 void Addmod_assistantScripts()
 {
+    AddAssistantDataScripts();
     AddAssistantNPCScripts();
     AddSetSpawnPointScripts();
     AddLearnSpellsOnLevelUpScripts();
-    AddWeekendRatesScripts();
+    AddWeekendBonusScripts();
 }
