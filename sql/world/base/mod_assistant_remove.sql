@@ -73,6 +73,8 @@ DELETE FROM `npc_vendor` WHERE `entry`=@Entry+28;
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry+29;
 -- Container
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry+30;
+-- Totem
+DELETE FROM `npc_vendor` WHERE `entry`=@Entry+31;
 
 -- Prices
 -- Glyph: Warrior (Major)

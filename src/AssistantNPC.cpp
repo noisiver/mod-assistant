@@ -8,17 +8,19 @@ enum GossipId
     ASSISTANT_GOSSIP_GLYPH     = 200,
     ASSISTANT_GOSSIP_GEM       = 400,
     ASSISTANT_GOSSIP_CONTAINER = 500,
-    ASSISTANT_GOSSIP_UTILITIES = 600
+    ASSISTANT_GOSSIP_UTILITIES = 600,
+    ASSISTANT_GOSSIP_TOTEMS    = 700
 };
 
 enum VendorId
 {
     ASSISTANT_VENDOR_HEIRLOOM_WEAPON = 9000000,
-    ASSISTANT_VENDOR_HEIRLOOM_ARMOR = 9000001,
-    ASSISTANT_VENDOR_HEIRLOOM_OTHER = 9000002,
-    ASSISTANT_VENDOR_GLYPH = 9000003,
-    ASSISTANT_VENDOR_GEM = 9000023,
-    ASSISTANT_VENDOR_CONTAINER = 9000030
+    ASSISTANT_VENDOR_HEIRLOOM_ARMOR  = 9000001,
+    ASSISTANT_VENDOR_HEIRLOOM_OTHER  = 9000002,
+    ASSISTANT_VENDOR_GLYPH           = 9000003,
+    ASSISTANT_VENDOR_GEM             = 9000023,
+    ASSISTANT_VENDOR_CONTAINER       = 9000030,
+    ASSISTANT_VENDOR_TOTEM           = 9000031
 };
 
 class AssistantNPC : public CreatureScript
@@ -44,6 +46,9 @@ class AssistantNPC : public CreatureScript
 
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Utilities", 0))
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0) && player->getClass() == CLASS_SHAMAN)
+                AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
 
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
@@ -273,6 +278,10 @@ class AssistantNPC : public CreatureScript
                     ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the faction change.");
                     ClearGossipMenuFor(player);
                 }
+            }
+            else if (action == ASSISTANT_GOSSIP_TOTEMS)
+            {
+                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_TOTEM);
             }
 
             return true;
