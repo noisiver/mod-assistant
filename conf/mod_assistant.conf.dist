@@ -51,6 +51,9 @@ Assistant.Spells.Talent = 0
 # Learn weapon and defense skills
 Assistant.Spells.Proficiency = 0
 
+# Learn spells obtained through quests
+Assistant.Spells.Quest = 0
+
 # Set a players weapon skills to their max value
 Assistant.Spells.MaxSkill.Enabled = 0
 

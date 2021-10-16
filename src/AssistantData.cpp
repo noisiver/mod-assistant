@@ -1,6 +1,7 @@
 #include "AssistantData.h"
 
 std::vector<SpawnPoints> spawnPoints;
+std::vector<TalentRanks> talentRanks;
 std::vector<Proficiencies> proficiencies;
 std::vector<Mounts> mounts;
 
@@ -44,6 +45,41 @@ std::vector<SpawnPoints> AssistantData::GetSpawnPoints()
     return spawnPoints;
 }
 
+void LoadTalentRanks()
+{
+    QueryResult result = WorldDatabase.PQuery("SELECT `class_id`, `spell_id`, `required_level`, `required_spell_id` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_TALENT_RANKS);
+
+    if (!result)
+        return;
+
+    int i = 0;
+
+    do
+    {
+        Field* fields = result->Fetch();
+
+        talentRanks.push_back(TalentRanks());
+        talentRanks[i].ClassId = fields[0].GetInt32();
+        talentRanks[i].SpellId = fields[1].GetUInt32();
+        talentRanks[i].RequiredLevel = fields[2].GetUInt32();
+        talentRanks[i].RequiredSpellId = fields[3].GetUInt32();
+
+        i++;
+    } while (result->NextRow());
+
+    LOG_INFO("server.loading", ">> Loaded %u talent ranks", i);
+}
+
+std::vector<TalentRanks> AssistantData::GetTalentRanks()
+{
+    return talentRanks;
+}
+
+int AssistantData::GetTalentRankCount()
+{
+    return talentRanks.size();
+}
+
 void LoadProficiencies()
 {
     QueryResult result = WorldDatabase.PQuery("SELECT `class_id`, `spell_id`, `required_level` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_PROFICIENCIES);
@@ -80,7 +116,7 @@ int AssistantData::GetProficiencyCount()
 
 void LoadMounts()
 {
-    QueryResult result = WorldDatabase.PQuery("SELECT `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_MOUNTS);
+    QueryResult result = WorldDatabase.PQuery("SELECT `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_MOUNTS);
 
     if (!result)
         return;
@@ -98,6 +134,7 @@ void LoadMounts()
         mounts[i].SpellId = fields[3].GetUInt32();
         mounts[i].RequiredLevel = fields[4].GetUInt32();
         mounts[i].RequiredSpellId = fields[5].GetUInt32();
+        mounts[i].RequiresQuest = fields[6].GetUInt32();
 
         i++;
     } while (result->NextRow());
@@ -124,6 +161,7 @@ class AssistantWorldData : public WorldScript
         {
             LOG_INFO("server.loading", "Loading assistant data");
             LoadSpawnPoints();
+            LoadTalentRanks();
             LoadProficiencies();
             LoadMounts();
         }

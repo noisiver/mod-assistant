@@ -10,11 +10,9 @@ struct SpawnPoints
     float O;
 };
 
-struct Mounts
+struct TalentRanks
 {
-    int32 RaceId;
     int32 ClassId;
-    int32 TeamId;
     uint32 SpellId;
     uint32 RequiredLevel;
     uint32 RequiredSpellId;
@@ -27,10 +25,23 @@ struct Proficiencies
     uint32 RequiredLevel;
 };
 
+struct Mounts
+{
+    int32 RaceId;
+    int32 ClassId;
+    int32 TeamId;
+    uint32 SpellId;
+    uint32 RequiredLevel;
+    uint32 RequiredSpellId;
+    uint32 RequiresQuest;
+};
+
 class AssistantData
 {
     public:
         std::vector<SpawnPoints> GetSpawnPoints();
+        std::vector<TalentRanks> GetTalentRanks();
+        int GetTalentRankCount();
         std::vector<Proficiencies> GetProficiencies();
         int GetProficiencyCount();
         std::vector<Mounts> GetMounts();

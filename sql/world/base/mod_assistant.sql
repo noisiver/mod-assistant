@@ -34,18 +34,244 @@ CREATE TABLE `assistant_spells` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `type` INT NOT NULL,
     `race_id` INT NOT NULL,
-	`class_id` INT NOT NULL,
-	`team_id` INT NOT NULL DEFAULT -1,
-	`spell_id` INT NOT NULL,
-	`required_level` INT NOT NULL,
+    `class_id` INT NOT NULL,
+    `team_id` INT NOT NULL DEFAULT -1,
+    `spell_id` INT NOT NULL,
+    `required_level` INT NOT NULL,
     `required_spell_id` INT NOT NULL DEFAULT -1,
-	`comment` CHAR(50) NULL DEFAULT '',
-	PRIMARY KEY (`race_id`, `class_id`, `spell_id`),
+    `requires_quest` INT NOT NULL DEFAULT 0,
+    `comment` CHAR(50) NULL DEFAULT '',
+    PRIMARY KEY (`race_id`, `class_id`, `spell_id`),
     INDEX `id` (`id`) USING BTREE
 )
 COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
 COLLATE='utf8mb4_general_ci';
 
+-- Talents: Warrior
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 21551, 48, 12294, 'Mortal Strike Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 21552, 54, 21551, 'Mortal Strike Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 21553, 60, 21552, 'Mortal Strike Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 25248, 66, 21553, 'Mortal Strike Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 30330, 70, 25248, 'Mortal Strike Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 47485, 75, 30330, 'Mortal Strike Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 47486, 80, 47485, 'Mortal Strike Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 30016, 60, 20243, 'Devastate Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 30022, 70, 30016, 'Devastate Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 47497, 75, 30022, 'Devastate Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 1, -1, 47498, 80, 47497, 'Devastate Rank 5');
+-- Talents: Paladin
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 20929, 48, 20473, 'Holy Shock Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 20930, 56, 20929, 'Holy Shock Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 27174, 64, 20930, 'Holy Shock Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 33072, 70, 27174, 'Holy Shock Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48824, 75, 33072, 'Holy Shock Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48825, 80, 48824, 'Holy Shock Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 25899, 60, 20911, 'Greater Blessing of Sanctuary');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 20927, 50, 20925, 'Holy Shield Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 20928, 60, 20927, 'Holy Shield Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 27179, 70, 20928, 'Holy Shield Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48951, 75, 27179, 'Holy Shield Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48952, 80, 48951, 'Holy Shield Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 32699, 60, 31935, 'Avenger\'s Shield Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 32700, 70, 32699, 'Avenger\'s Shield Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48826, 75, 32700, 'Avenger\'s Shield Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 2, -1, 48827, 80, 48826, 'Avenger\'s Shield Rank 5');
+-- Talents: Hunter
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20900, 28, 19434, 'Aimed Shot Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20901, 36, 20900, 'Aimed Shot Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20902, 44, 20901, 'Aimed Shot Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20903, 52, 20902, 'Aimed Shot Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20904, 60, 20903, 'Aimed Shot Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 27065, 70, 20904, 'Aimed Shot Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 49049, 75, 27065, 'Aimed Shot Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 49050, 80, 49049, 'Aimed Shot Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20909, 42, 19306, 'Counterattack Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 20910, 54, 20909, 'Counterattack Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 27067, 66, 20910, 'Counterattack Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 48998, 72, 27067, 'Counterattack Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 48999, 78, 48998, 'Counterattack Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 24132, 50, 19386, 'Wyvern Sting Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 24133, 60, 24132, 'Wyvern Sting Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 27068, 70, 24133, 'Wyvern Sting Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 49011, 75, 27068, 'Wyvern Sting Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 49012, 80, 49011, 'Wyvern Sting Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 63668, 57, 3674, 'Black Arrow Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 63669, 63, 63668, 'Black Arrow Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 63670, 69, 63669, 'Black Arrow Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 63671, 75, 63670, 'Black Arrow Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 63672, 80, 63671, 'Black Arrow Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 60051, 70, 53301, 'Explosive Shot Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 60052, 75, 60051, 'Explosive Shot Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 3, -1, 60053, 80, 60052, 'Explosive Shot Rank 4');
+-- Talents: Rogue
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 34411, 50, 1329, 'Mutilate Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 34412, 60, 34411, 'Mutilate Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 34413, 70, 34412, 'Mutilate Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 48663, 75, 34413, 'Mutilate Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 48666, 80, 48663, 'Mutilate Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 17347, 46, 16511, 'Hemorrhage Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 17348, 58, 17347, 'Hemorrhage Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 26864, 70, 17348, 'Hemorrhage Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 4, -1, 48660, 80, 26864, 'Hemorrhage Rank 5');
+-- Talents: Priest
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 53005, 70, 47540, 'Penance Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 53006, 75, 53005, 'Penance Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 53007, 80, 53006, 'Penance Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 19238, 26, 19236, 'Desperate Prayer Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 19240, 34, 19238, 'Desperate Prayer Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 19241, 42, 19240, 'Desperate Prayer Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 19242, 50, 19241, 'Desperate Prayer Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 19243, 58, 19242, 'Desperate Prayer Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 25437, 66, 19243, 'Desperate Prayer Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48172, 73, 25437, 'Desperate Prayer Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48173, 80, 48172, 'Desperate Prayer Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 27870, 50, 724, 'Lightwell Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 27871, 60, 27870, 'Lightwell Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 28275, 70, 27871, 'Lightwell Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48086, 75, 28275, 'Lightwell Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48087, 80, 48086, 'Lightwell Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34863, 56, 34861, 'Circle of Healing Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34864, 60, 34863, 'Circle of Healing Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34865, 65, 34864, 'Circle of Healing Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34866, 70, 34865, 'Circle of Healing Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48088, 75, 34866, 'Circle of Healing Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48089, 80, 48088, 'Circle of Healing Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 17311, 28, 15407, 'Mind Flay Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 17312, 36, 17311, 'Mind Flay Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 17313, 44, 17312, 'Mind Flay Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 17314, 52, 17313, 'Mind Flay Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 18807, 60, 17314, 'Mind Flay Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 25387, 68, 18807, 'Mind Flay Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48155, 74, 25387, 'Mind Flay Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48156, 80, 48155, 'Mind Flay Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34916, 60, 34914, 'Vampiric Touch Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 34917, 70, 34916, 'Vampiric Touch Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48159, 75, 34917, 'Vampiric Touch Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 5, -1, 48160, 80, 48159, 'Vampiric Touch Rank 5');
+-- Talents: Death Knight
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55258, 59, 55050, 'Heart Strike Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55259, 64, 55258, 'Heart Strike Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55260, 69, 55259, 'Heart Strike Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55261, 74, 55260, 'Heart Strike Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55262, 80, 55261, 'Heart Strike Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51416, 60, 49143, 'Frost Strike Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51417, 65, 51416, 'Frost Strike Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51418, 70, 51417, 'Frost Strike Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51419, 75, 51418, 'Frost Strike Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55268, 80, 51419, 'Frost Strike Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51409, 70, 49184, 'Howling Blast Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51410, 75, 51409, 'Howling Blast Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51411, 80, 51410, 'Howling Blast Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51325, 60, 49158, 'Corpse Explosion Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51326, 70, 51325, 'Corpse Explosion Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51327, 75, 51326, 'Corpse Explosion Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 51328, 80, 51327, 'Corpse Explosion Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55265, 67, 55090, 'Scourge Strike Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55270, 73, 55265, 'Scourge Strike Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 6, -1, 55271, 79, 55270, 'Scourge Strike Rank 4');
+-- Talents: Shaman
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 57720, 60, 30706, 'Totem of Wrath Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 57721, 70, 57720, 'Totem of Wrath Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 57722, 80, 57721, 'Totem of Wrath Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 59156, 70, 51490, 'Thunderstorm Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 59158, 75, 59156, 'Thunderstorm Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 59159, 80, 59158, 'Thunderstorm Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 32593, 60, 974, 'Earth Shield Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 32594, 70, 32593, 'Earth Shield Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 49283, 75, 32594, 'Earth Shield Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 49284, 80, 49283, 'Earth Shield Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 61299, 70, 61295, 'Riptide Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 61300, 75, 61299, 'Riptide Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 7, -1, 61301, 80, 61300, 'Riptide Rank 4');
+-- Talents: Mage
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 44780, 70, 44425, 'Arcane Barrage Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 44781, 80, 44780, 'Arcane Barrage Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12505, 24, 11366, 'Pyroblast Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12522, 30, 12505, 'Pyroblast Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12523, 36, 12522, 'Pyroblast Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12524, 42, 12523, 'Pyroblast Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12525, 48, 12524, 'Pyroblast Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 12526, 54, 12525, 'Pyroblast Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 18809, 60, 12526, 'Pyroblast Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 27132, 66, 18809, 'Pyroblast Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33938, 70, 27132, 'Pyroblast Rank 10');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42890, 73, 33938, 'Pyroblast Rank 11');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42891, 77, 42890, 'Pyroblast Rank 12');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13018, 36, 11113, 'Blast Wave Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13019, 44, 13018, 'Blast Wave Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13020, 52, 13019, 'Blast Wave Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13021, 60, 13020, 'Blast Wave Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 27133, 65, 13021, 'Blast Wave Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33933, 70, 27133, 'Blast Wave Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42944, 75, 33933, 'Blast Wave Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42945, 80, 42944, 'Blast Wave Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33041, 56, 31661, 'Dragon\'s Breath Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33042, 64, 33041, 'Dragon\'s Breath Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33043, 70, 33042, 'Dragon\'s Breath Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42949, 75, 33043, 'Dragon\'s Breath Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 42950, 80, 42949, 'Dragon\'s Breath Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 55359, 70, 44457, 'Living Bomb Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 55360, 80, 55359, 'Living Bomb Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13031, 46, 11426, 'Ice Barrier Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13032, 52, 13031, 'Ice Barrier Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 13033, 58, 13032, 'Ice Barrier Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 27134, 64, 13033, 'Ice Barrier Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 33405, 70, 27134, 'Ice Barrier Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 43038, 75, 33405, 'Ice Barrier Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 8, -1, 43039, 80, 43038, 'Ice Barrier Rank 8');
+-- Talents: Warlock
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18937, 50, 18220, 'Dark Pact Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18938, 60, 18937, 'Dark Pact Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 27265, 70, 18938, 'Dark Pact Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59092, 80, 27265, 'Dark Pact Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 30404, 60, 30108, 'Unstable Affliction Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 30405, 70, 30404, 'Unstable Affliction Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47841, 75, 30405, 'Unstable Affliction Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47843, 80, 47841, 'Unstable Affliction Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59161, 70, 48181, 'Haunt Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59163, 75, 59161, 'Haunt Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59164, 80, 59163, 'Haunt Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18867, 24, 17877, 'Shadowburn Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18868, 32, 18867, 'Shadowburn Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18869, 40, 18868, 'Shadowburn Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18870, 48, 18869, 'Shadowburn Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 18871, 56, 18870, 'Shadowburn Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 27263, 63, 18871, 'Shadowburn Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 30546, 70, 27263, 'Shadowburn Rank 8');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47826, 75, 30546, 'Shadowburn Rank 9');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47827, 80, 47826, 'Shadowburn Rank 10');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 30413, 60, 30283, 'Shadowfury Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 30414, 70, 30413, 'Shadowfury Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47846, 75, 30414, 'Shadowfury Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 47847, 80, 47846, 'Shadowfury Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59170, 70, 50796, 'Chaos Bolt Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59171, 75, 59170, 'Chaos Bolt Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 9, -1, 59172, 80, 59171, 'Chaos Bolt Rank 4');
+-- Talents: Druid
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 24974, 30, 5570, 'Insect Swarm Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 24975, 40, 24974, 'Insect Swarm Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 24976, 50, 24975, 'Insect Swarm Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 24977, 60, 24976, 'Insect Swarm Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 27013, 70, 24977, 'Insect Swarm Rank 6');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 48468, 80, 27013, 'Insect Swarm Rank 7');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53223, 60, 50516, 'Typhoon Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53225, 70, 53223, 'Typhoon Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53226, 75, 53225, 'Typhoon Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 61384, 80, 53226, 'Typhoon Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53199, 70, 48505, 'Starfall Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53200, 75, 53199, 'Starfall Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53201, 80, 53200, 'Starfall Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 33986, 58, 33878, 'Mangle (Bear) Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 33987, 68, 33986, 'Mangle (Bear) Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 48563, 75, 33987, 'Mangle (Bear) Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 48564, 80, 48563, 'Mangle (Bear) Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 33982, 58, 33876, 'Mangle (Cat) Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 33983, 68, 33982, 'Mangle (Cat) Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 48565, 75, 33983, 'Mangle (Cat) Rank 4');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 48566, 80, 48565, 'Mangle (Cat) Rank 5');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53248, 70, 48438, 'Wild Growth Rank 2');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53249, 75, 53248, 'Wild Growth Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (1, -1, 11, -1, 53251, 80, 53249, 'Wild Growth Rank 4');
 -- Proficiencies: Warrior
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 196, 0, -1, 'One-Handed Axes');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 197, 0, -1, 'Two-Handed Axes');
@@ -241,30 +467,30 @@ INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32297, 70, 34091, 'Swift Purple Wind Rider');
 -- Mounts: Paladin
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, 2, 1, 13819, 20, 33388, 'Warhorse');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, 2, 1, 34767, 40, 33391, 'Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest`, `comment`) VALUES (3, 10, 2, 1, 34767, 40, 33391, 1, 'Charger');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, 2, 0, 23214, 40, 33388, 'Summon Charger');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, 2, 0, 23214, 40, 33388, 'Summon Charger');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, 2, 0, 23214, 40, 33388, 'Summon Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest`, `comment`) VALUES (3, 1, 2, 0, 23214, 40, 33391, 1, 'Summon Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest`, `comment`) VALUES (3, 3, 2, 0, 23214, 40, 33391, 1, 'Summon Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest`, `comment`) VALUES (3, 11, 2, 0, 23214, 40, 33391, 1, 'Summon Charger');
 -- Mounts: Death Knight
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 6, -1, 48778, 60, 33391, 'Acherus Deathcharger');
 -- Mounts: Warlock
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 9, -1, 5784, 20, 33388, 'Felsteed');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 9, -1, 23161, 40, 33391, 'Dreadsteed');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest`, `comment`) VALUES (3, -1, 9, -1, 23161, 40, 33391, 1, 'Dreadsteed');
 
 -- Spawn points
 DROP TABLE IF EXISTS `assistant_spawn_points`;
 CREATE TABLE `assistant_spawn_points` (
     `team_id` INT NOT NULL,
     `map_id` INT NOT NULL,
-	`pos_x` FLOAT NOT NULL,
-	`pos_y` FLOAT NOT NULL,
+    `pos_x` FLOAT NOT NULL,
+    `pos_y` FLOAT NOT NULL,
     `pos_z` FLOAT NOT NULL,
     `orientation` FLOAT NOT NULL,
     `comment` CHAR(50) NULL DEFAULT '',
-	PRIMARY KEY (`team_id`)
+    PRIMARY KEY (`team_id`)
 )
 COMMENT='Spawn points for Assistant'
 COLLATE='utf8mb4_general_ci';

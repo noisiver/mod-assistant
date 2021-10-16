@@ -48,6 +48,14 @@ class LearnSpellsOnLevelUp : public PlayerScript
 
         void LearnTalentRanksForNewLevel(Player* player)
         {
+            for (int i = 0; i < assistantData->GetTalentRankCount(); i++)
+            {
+                if (assistantData->GetTalentRanks()[i].ClassId == player->getClass())
+                    if (player->getLevel() >= assistantData->GetTalentRanks()[i].RequiredLevel)
+                        if (player->HasSpell(assistantData->GetTalentRanks()[i].RequiredSpellId))
+                            if (!player->HasSpell(assistantData->GetTalentRanks()[i].SpellId))
+                                player->learnSpell(assistantData->GetTalentRanks()[i].SpellId);
+            }
         }
 
         void LearnProficienciesForNewLevel(Player* player)
@@ -75,7 +83,8 @@ class LearnSpellsOnLevelUp : public PlayerScript
                     (assistantData->GetMounts()[i].SpellId == 33391 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Journeyman", 0)) || 
                     (assistantData->GetMounts()[i].SpellId == 34090 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Expert", 0)) || 
                     (assistantData->GetMounts()[i].SpellId == 34091 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.Artisan", 0)) || 
-                    (assistantData->GetMounts()[i].SpellId == 54197 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.ColdWeather", 0)))
+                    (assistantData->GetMounts()[i].SpellId == 54197 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.ColdWeather", 0)) || 
+                    (assistantData->GetMounts()[i].RequiresQuest == 1 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0)))
                     continue;
 
                 if (assistantData->GetMounts()[i].RaceId == -1 || assistantData->GetMounts()[i].RaceId == player->getRace())
