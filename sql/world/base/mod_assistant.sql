@@ -40,7 +40,7 @@ CREATE TABLE `assistant_spells` (
 	`required_level` INT NOT NULL,
     `required_spell_id` INT NOT NULL DEFAULT -1,
 	`comment` CHAR(50) NULL DEFAULT '',
-	PRIMARY KEY (`class_id`, `spell_id`),
+	PRIMARY KEY (`race_id`, `class_id`, `spell_id`),
     INDEX `id` (`id`) USING BTREE
 )
 COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
@@ -59,6 +59,74 @@ INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23227, 40, 33391, 'Swift Palomino');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23228, 40, 33391, 'Swift White Steed');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, -1, 0, 23229, 40, 33391, 'Swift Brown Steed');
+-- Mounts: Orc
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 580, 20, 33388, 'Timber Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 6653, 20, 33388, 'Dire Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 6654, 20, 33388, 'Brown Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 64658, 20, 33388, 'Black Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 23250, 40, 33391, 'Swift Brown Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 23251, 40, 33391, 'Swift Timber Wolf');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 2, -1, 1, 23252, 40, 33391, 'Swift Gray Wolf');
+-- Mounts: Dwarf
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 6777, 20, 33388, 'Gray Ram');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 6898, 20, 33388, 'White Ram');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 6899, 20, 33388, 'Brown Ram');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 23238, 40, 33391, 'Swift Brown Ram');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 23239, 40, 33391, 'Swift Gray Ram');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, -1, 0, 23240, 40, 33391, 'Swift White Ram');
+-- Mounts: Night Elf
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 8394, 20, 33388, 'Striped Frostsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 10789, 20, 33388, 'Spotted Frostsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 10793, 20, 33388, 'Striped Nightsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 66847, 20, 33388, 'Striped Dawnsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 23219, 40, 33391, 'Swift Mistsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 23221, 40, 33391, 'Swift Frostsaber');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 4, -1, 0, 23338, 40, 33391, 'Swift Stormsaber');
+-- Mounts: Undead
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 17462, 20, 33388, 'Red Skeletal Horse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 17463, 20, 33388, 'Blue Skeletal Horse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 17464, 20, 33388, 'Brown Skeletal Horse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 64977, 20, 33388, 'Black Skeletal Horse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 17465, 40, 33391, 'Green Skeletal Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 23246, 40, 33391, 'Purple Skeletal Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 5, -1, 1, 66846, 40, 33391, 'Ochre Skeletal Warhorse');
+-- Mounts: Tauren
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 18989, 20, 33388, 'Gray Kodo');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 18990, 20, 33388, 'Brown Kodo');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 64657, 20, 33388, 'White Kodo');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 23247, 40, 33391, 'Great White Kodo');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 23248, 40, 33391, 'Great Gray Kodo');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 6, -1, 1, 23249, 40, 33391, 'Great Brown Kodo');
+-- Mounts: Gnome
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 10873, 20, 33388, 'Red Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 10969, 20, 33388, 'Blue Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 17453, 20, 33388, 'Green Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 17454, 20, 33388, 'Unpainted Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 23222, 40, 33391, 'Swift Yellow Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 23223, 40, 33391, 'Swift White Mechanostrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 7, -1, 0, 23225, 40, 33391, 'Swift Green Mechanostrider');
+-- Mounts: Troll
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 8395, 20, 33388, 'Emerald Raptor');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 10796, 20, 33388, 'Turquoise Raptor');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 10799, 20, 33388, 'Violet Raptor');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 23241, 40, 33391, 'Swift Blue Raptor');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 23242, 40, 33391, 'Swift Olive Raptor');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 8, -1, 1, 23243, 40, 33391, 'Swift Orange Raptor');
+-- Mounts: Blood Elf
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 34795, 20, 33388, 'Red Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 35018, 20, 33388, 'Purple Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 35020, 20, 33388, 'Blue Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 35022, 20, 33388, 'Black Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 33660, 40, 33391, 'Swift Pink Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 35025, 40, 33391, 'Swift Green Hawkstrider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, -1, 1, 35027, 40, 33391, 'Swift Purple Hawkstrider');
+-- Mounts: Draenei
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 34406, 20, 33388, 'Brown Elekk');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 35710, 20, 33388, 'Gray Elekk');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 35711, 20, 33388, 'Purple Elekk');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 35712, 40, 33391, 'Great Green Elekk');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 35713, 40, 33391, 'Great Blue Elekk');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, -1, 0, 35714, 40, 33391, 'Great Purple Elekk');
 -- Mounts: Alliance
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32239, 60, 34090, 'Ebon Gryphon');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32240, 60, 34090, 'Snowy Gryphon');
@@ -67,6 +135,28 @@ INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32290, 70, 34091, 'Swift Green Gryphon');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32242, 70, 34091, 'Swift Blue Gryphon');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 0, 32292, 70, 34091, 'Swift Purple Gryphon');
+-- Mounts: Horde
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32243, 60, 34090, 'Tawny Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32244, 60, 34090, 'Blue Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32245, 60, 34090, 'Green Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32246, 70, 34091, 'Swift Red Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32295, 70, 34091, 'Swift Green Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32296, 70, 34091, 'Swift Yellow Wind Rider');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, 1, 32297, 70, 34091, 'Swift Purple Wind Rider');
+-- Mounts: Paladin
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, 2, 1, 13819, 20, 33388, 'Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 10, 2, 1, 34767, 40, 33391, 'Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, 2, 0, 34769, 20, 33388, 'Summon Warhorse');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 1, 2, 0, 23214, 40, 33388, 'Summon Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 3, 2, 0, 23214, 40, 33388, 'Summon Charger');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, 11, 2, 0, 23214, 40, 33388, 'Summon Charger');
+-- Mounts: Death Knight
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 6, -1, 48778, 60, 33391, 'Acherus Deathcharger');
+-- Mounts: Warlock
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 9, -1, 5784, 20, 33388, 'Felsteed');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, 9, -1, 23161, 40, 33391, 'Dreadsteed');
 
 -- Spawn points
 DROP TABLE IF EXISTS `assistant_spawn_points`;

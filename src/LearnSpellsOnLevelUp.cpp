@@ -71,25 +71,13 @@ class LearnSpellsOnLevelUp : public PlayerScript
                     (assistantData->GetMounts()[i].SpellId == 54197 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Riding.ColdWeather", 0)))
                     continue;
 
-                if (assistantData->GetMounts()[i].RaceId != -1 && assistantData->GetMounts()[i].RaceId != player->getRace())
-                    continue;
-
-                if (assistantData->GetMounts()[i].ClassId != -1 && assistantData->GetMounts()[i].ClassId != player->getClass())
-                    continue;
-
-                if (assistantData->GetMounts()[i].TeamId != -1 && assistantData->GetMounts()[i].TeamId != player->GetTeamId())
-                    continue;
-
-                if (assistantData->GetMounts()[i].RequiredSpellId != -1 && !player->HasSpell(assistantData->GetMounts()[i].RequiredSpellId))
-                    continue;
-
-                if (player->getLevel() < assistantData->GetMounts()[i].RequiredLevel)
-                    continue;
-
-                if (player->HasSpell(assistantData->GetMounts()[i].SpellId))
-                    continue;
-
-                player->learnSpell(assistantData->GetMounts()[i].SpellId);
+                if (assistantData->GetMounts()[i].RaceId == -1 || assistantData->GetMounts()[i].RaceId == player->getRace())
+                    if (assistantData->GetMounts()[i].ClassId == -1 || assistantData->GetMounts()[i].ClassId == player->getClass())
+                        if (assistantData->GetMounts()[i].TeamId == -1 || assistantData->GetMounts()[i].TeamId == player->GetTeamId())
+                            if (assistantData->GetMounts()[i].RequiredSpellId == -1 || player->HasSpell(assistantData->GetMounts()[i].RequiredSpellId))
+                                if (player->getLevel() >= assistantData->GetMounts()[i].RequiredLevel)
+                                    if (!player->HasSpell(assistantData->GetMounts()[i].SpellId))
+                                        player->learnSpell(assistantData->GetMounts()[i].SpellId);
             }
         }
 
