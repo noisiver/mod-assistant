@@ -44,6 +44,18 @@ class LearnSpellsOnLevelUp : public PlayerScript
 
         void LearnSpellsForNewLevel(Player* player)
         {
+            for (int i = 0; i < assistantData->GetClassSpellCount(); i++)
+            {
+                if (assistantData->GetClassSpells()[i].RequiresQuest == 1 && !sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0))
+                    continue;
+
+                if (assistantData->GetClassSpells()[i].RaceId == -1 || assistantData->GetClassSpells()[i].RaceId == player->getRace())
+                    if (assistantData->GetClassSpells()[i].ClassId == player->getClass())
+                        if (player->getLevel() >= assistantData->GetClassSpells()[i].RequiredLevel)
+                            if (assistantData->GetClassSpells()[i].RequiredSpellId == -1 || player->HasSpell(assistantData->GetClassSpells()[i].RequiredSpellId))
+                                if (!player->HasSpell(assistantData->GetClassSpells()[i].SpellId))
+                                    player->learnSpell(assistantData->GetClassSpells()[i].SpellId);
+            }
         }
 
         void LearnTalentRanksForNewLevel(Player* player)

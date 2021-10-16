@@ -1,6 +1,7 @@
 #include "AssistantData.h"
 
 std::vector<SpawnPoints> spawnPoints;
+std::vector<ClassSpells> classSpells;
 std::vector<TalentRanks> talentRanks;
 std::vector<Proficiencies> proficiencies;
 std::vector<Mounts> mounts;
@@ -43,6 +44,43 @@ void LoadSpawnPoints()
 std::vector<SpawnPoints> AssistantData::GetSpawnPoints()
 {
     return spawnPoints;
+}
+
+void LoadClassSpells()
+{
+    QueryResult result = WorldDatabase.PQuery("SELECT `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `requires_quest` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_CLASS_SPELLS);
+
+    if (!result)
+        return;
+
+    int i = 0;
+
+    do
+    {
+        Field* fields = result->Fetch();
+
+        classSpells.push_back(ClassSpells());
+        classSpells[i].RaceId = fields[0].GetInt32();
+        classSpells[i].ClassId = fields[1].GetInt32();
+        classSpells[i].SpellId = fields[2].GetUInt32();
+        classSpells[i].RequiredLevel = fields[3].GetUInt32();
+        classSpells[i].RequiredSpellId = fields[4].GetUInt32();
+        classSpells[i].RequiresQuest = fields[5].GetUInt32();
+
+        i++;
+    } while (result->NextRow());
+
+    LOG_INFO("server.loading", ">> Loaded %u class spells", i);
+}
+
+std::vector<ClassSpells> AssistantData::GetClassSpells()
+{
+    return classSpells;
+}
+
+int AssistantData::GetClassSpellCount()
+{
+    return classSpells.size();
 }
 
 void LoadTalentRanks()
@@ -161,6 +199,7 @@ class AssistantWorldData : public WorldScript
         {
             LOG_INFO("server.loading", "Loading assistant data");
             LoadSpawnPoints();
+            LoadClassSpells();
             LoadTalentRanks();
             LoadProficiencies();
             LoadMounts();
