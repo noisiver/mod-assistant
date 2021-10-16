@@ -52,6 +52,13 @@ class LearnSpellsOnLevelUp : public PlayerScript
 
         void LearnProficienciesForNewLevel(Player* player)
         {
+            for (int i = 0; i < assistantData->GetProficiencyCount(); i++)
+            {
+                if (assistantData->GetProficiencies()[i].ClassId == player->getClass())
+                    if (player->getLevel() >= assistantData->GetProficiencies()[i].RequiredLevel)
+                        if (!player->HasSpell(assistantData->GetProficiencies()[i].SpellId))
+                            player->learnSpell(assistantData->GetProficiencies()[i].SpellId);
+            }
         }
 
         void MaxAllWeaponSkills(Player* player)

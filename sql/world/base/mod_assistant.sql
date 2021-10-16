@@ -46,6 +46,102 @@ CREATE TABLE `assistant_spells` (
 COMMENT='Class spells, talent ranks, proficiencies and mounts for Assistant'
 COLLATE='utf8mb4_general_ci';
 
+-- Proficiencies: Warrior
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 197, 0, -1, 'Two-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 199, 0, -1, 'Two-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 200, 0, -1, 'Polearms');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 202, 0, -1, 'Two-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 264, 0, -1, 'Bows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 266, 0, -1, 'Guns');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 5011, 0, -1, 'Crossbows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 15590, 0, -1, 'Fist Weapons');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 3127, 6, -1, 'Parry');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 674, 20, -1, 'Dual Wield');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 1, -1, 750, 40, -1, 'Plate Mail');
+-- Proficiencies: Paladin
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 197, 0, -1, 'Two-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 199, 0, -1, 'Two-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 200, 0, -1, 'Polearms');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 202, 0, -1, 'Two-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 3127, 8, -1, 'Parry');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 2, -1, 750, 40, -1, 'Plate Mail');
+-- Proficiencies: Hunter
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 197, 0, -1, 'Two-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 200, 0, -1, 'Polearms');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 202, 0, -1, 'Two-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 264, 0, -1, 'Bows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 266, 0, -1, 'Guns');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 5011, 0, -1, 'Crossbows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 15590, 0, -1, 'Fist Weapons');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 3127, 8, -1, 'Parry');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 674, 20, -1, 'Dual Wield');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 3, -1, 8737, 40, -1, 'Mail');
+-- Proficiencies: Rogue
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 264, 0, -1, 'Bows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 266, 0, -1, 'Guns');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 5011, 0, -1, 'Crossbows');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 15590, 0, -1, 'Fist Weapons');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 674, 10, -1, 'Dual Wield');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 4, -1, 3127, 12, -1, 'Parry');
+-- Proficiencies: Priest
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 5, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 5, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 5, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 5, -1, 5009, 0, -1, 'Wands');
+-- Proficiencies: Death Knight
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 197, 0, -1, 'Two-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 199, 0, -1, 'Two-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 200, 0, -1, 'Polearms');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 202, 0, -1, 'Two-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 3127, 12, -1, 'Parry');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 674, 20, -1, 'Dual Wield');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 6, -1, 750, 40, -1, 'Plate Mail');
+-- Proficiencies: Shaman
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 196, 0, -1, 'One-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 197, 0, -1, 'Two-Handed Axes');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 199, 0, -1, 'Two-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 674, 0, -1, 'Dual Wield');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 15590, 0, -1, 'Fist Weapons');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 7, -1, 8737, 40, -1, 'Mail');
+-- Proficiencies: Mage
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 8, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 8, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 8, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 8, -1, 5009, 0, -1, 'Wands');
+-- Proficiencies: Warlock
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 9, -1, 201, 0, -1, 'One-Handed Swords');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 9, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 9, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 9, -1, 5009, 0, -1, 'Wands');
+-- Proficiencies: Druid
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 198, 0, -1, 'One-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 199, 0, -1, 'Two-Handed Maces');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 200, 0, -1, 'Polearms');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 227, 0, -1, 'Staves');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 1180, 0, -1, 'Daggers');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_Spell_id`, `comment`) VALUES (2, -1, 11, -1, 15590, 0, -1, 'Fist Weapons');
 -- Mounts: Riding
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33388, 20, -1, 'Apprentice Riding');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `team_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (3, -1, -1, -1, 33391, 40, 33388, 'Journeyman Riding');

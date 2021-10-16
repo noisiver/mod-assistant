@@ -20,10 +20,19 @@ struct Mounts
     uint32 RequiredSpellId;
 };
 
+struct Proficiencies
+{
+    int32 ClassId;
+    uint32 SpellId;
+    uint32 RequiredLevel;
+};
+
 class AssistantData
 {
     public:
         std::vector<SpawnPoints> GetSpawnPoints();
+        std::vector<Proficiencies> GetProficiencies();
+        int GetProficiencyCount();
         std::vector<Mounts> GetMounts();
         int GetMountsCount();
 };

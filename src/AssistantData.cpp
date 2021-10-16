@@ -1,6 +1,7 @@
 #include "AssistantData.h"
 
 std::vector<SpawnPoints> spawnPoints;
+std::vector<Proficiencies> proficiencies;
 std::vector<Mounts> mounts;
 
 enum SpellTypes
@@ -41,6 +42,40 @@ void LoadSpawnPoints()
 std::vector<SpawnPoints> AssistantData::GetSpawnPoints()
 {
     return spawnPoints;
+}
+
+void LoadProficiencies()
+{
+    QueryResult result = WorldDatabase.PQuery("SELECT `class_id`, `spell_id`, `required_level` FROM `assistant_spells` WHERE `type`=%u ORDER BY `id` ASC", TYPE_PROFICIENCIES);
+
+    if (!result)
+        return;
+
+    int i = 0;
+
+    do
+    {
+        Field* fields = result->Fetch();
+
+        proficiencies.push_back(Proficiencies());
+        proficiencies[i].ClassId = fields[0].GetInt32();
+        proficiencies[i].SpellId = fields[1].GetUInt32();
+        proficiencies[i].RequiredLevel = fields[2].GetUInt32();
+
+        i++;
+    } while (result->NextRow());
+
+    LOG_INFO("server.loading", ">> Loaded %u proficiency spells", i);
+}
+
+std::vector<Proficiencies> AssistantData::GetProficiencies()
+{
+    return proficiencies;
+}
+
+int AssistantData::GetProficiencyCount()
+{
+    return proficiencies.size();
 }
 
 void LoadMounts()
@@ -89,6 +124,7 @@ class AssistantWorldData : public WorldScript
         {
             LOG_INFO("server.loading", "Loading assistant data");
             LoadSpawnPoints();
+            LoadProficiencies();
             LoadMounts();
         }
 };
