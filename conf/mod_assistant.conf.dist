@@ -82,7 +82,7 @@ Assistant.Spells.Riding.ColdWeather = 0
 ###########################################################################
 # Set spawn point of new characters
 ###########################################################################
-# Set spawn point to Stormwind and Orgrimmar
+# Set spawn point to locations specified in the database table
 Assistant.SpawnPoint.Enabled = 0
 
 # Set spawn point for death knight
