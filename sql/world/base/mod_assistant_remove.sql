@@ -1,7 +1,7 @@
 SET @Entry := 9000000;
 -- Creature template
 DELETE FROM `creature_template` WHERE `entry`=@Entry;
--- Spawn points for Stormwind, Orgrimmar and Dalaran
+-- Delete spawn points
 DELETE FROM `creature` WHERE `id`=@Entry;
 
 -- Class spells, talent ranks, proficiencies and mounts
