@@ -8,7 +8,7 @@ DELETE FROM `creature` WHERE `id`=@Entry;
 DROP TABLE IF EXISTS `assistant_spells`;
 
 -- Spawn points
-DROP TABLE IF EXISTS `assistant_spawn_point`;
+DROP TABLE IF EXISTS `assistant_spawn_points`;
 
 -- Vendor entries
 -- Heirloom: Weapon
