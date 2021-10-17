@@ -226,7 +226,7 @@ INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `requ
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19888, 32, -1, 'Frost Resistance Aura Rank 1');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19836, 32, 19835, 'Blessing of Might Rank 4');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 642, 34, -1, 'Divine Shield');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19852, 34, 19850 'Blessing of Wisdom Rank 3');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19852, 34, 19850, 'Blessing of Wisdom Rank 3');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19940, 34, 19939, 'Flash of Light Rank 3');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 10299, 36, 10298, 'Retribution Aura Rank 3');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 2, 19891, 36, -1, 'Fire Resistance Aura Rank 1');
