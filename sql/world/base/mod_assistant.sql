@@ -1319,7 +1319,7 @@ INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `requ
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 32796, 70, 28609, 'Frost Ward Rank 6');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 33717, 70, 28612, 'Conjure Food Rank 8');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 38692, 70, 27070, 'Fireball Rank 14');
-INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 38697, 70, 27072 'Frostbolt Rank 14');
+INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 38697, 70, 27072, 'Frostbolt Rank 14');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 38704, 70, 38699, 'Arcane Missiles Rank 11');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 43987, 70, -1, 'Ritual of Refreshment');
 INSERT INTO `assistant_spells` (`type`, `race_id`, `class_id`, `spell_id`, `required_level`, `required_spell_id`, `comment`) VALUES (0, -1, 8, 42894, 71, 30451, 'Arcane Blast Rank 2');
