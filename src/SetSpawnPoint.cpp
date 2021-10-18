@@ -16,12 +16,16 @@ class SetSpawnPoint : public PlayerScript
                     return;
 
                 uint32 mapId = assistantData->GetSpawnPoints()[player->GetTeamId()].MapId;
+                uint32 areaId = assistantData->GetSpawnPoints()[player->GetTeamId()].AreaId;
                 float x = assistantData->GetSpawnPoints()[player->GetTeamId()].X;
                 float y = assistantData->GetSpawnPoints()[player->GetTeamId()].Y;
                 float z = assistantData->GetSpawnPoints()[player->GetTeamId()].Z;
                 float orientation = assistantData->GetSpawnPoints()[player->GetTeamId()].O;
 
+                const WorldLocation &location = WorldLocation(mapId, x, y, z, orientation);
+
                 player->TeleportTo(mapId, x, y, z, orientation);
+                player->SetHomebind(location, areaId);
             }
         }
 

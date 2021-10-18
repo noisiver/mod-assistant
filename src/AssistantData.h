@@ -4,6 +4,7 @@
 struct SpawnPoints
 {
     uint32 MapId;
+    uint32 AreaId;
     float X;
     float Y;
     float Z;

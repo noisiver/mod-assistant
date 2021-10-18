@@ -16,7 +16,7 @@ enum SpellTypes
 
 void LoadSpawnPoints()
 {
-    QueryResult result = WorldDatabase.Query("SELECT `team_id`, `map_id`, `pos_x`, `pos_y`, `pos_z`, `orientation` FROM `assistant_spawn_points`");
+    QueryResult result = WorldDatabase.Query("SELECT `team_id`, `map_id`, `area_id`, `pos_x`, `pos_y`, `pos_z`, `orientation` FROM `assistant_spawn_points`");
 
     if (!result)
         return;
@@ -30,10 +30,11 @@ void LoadSpawnPoints()
 
         spawnPoints.push_back(SpawnPoints());
         spawnPoints[TeamId].MapId = fields[1].GetUInt32();
-        spawnPoints[TeamId].X = fields[2].GetFloat();
-        spawnPoints[TeamId].Y = fields[3].GetFloat();
-        spawnPoints[TeamId].Z = fields[4].GetFloat();
-        spawnPoints[TeamId].O = fields[5].GetFloat();
+        spawnPoints[TeamId].AreaId = fields[2].GetUInt32();
+        spawnPoints[TeamId].X = fields[3].GetFloat();
+        spawnPoints[TeamId].Y = fields[4].GetFloat();
+        spawnPoints[TeamId].Z = fields[5].GetFloat();
+        spawnPoints[TeamId].O = fields[6].GetFloat();
 
         i++;
     } while (result->NextRow());
