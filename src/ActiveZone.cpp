@@ -37,7 +37,7 @@ class ActiveZone : public AllCreatureScript
                 {
                     creature->CustomData.Set("ActiveCreature", new ActiveCreature(creature->GetGUID()));
                     creature->setActive(true);
-                    LOG_INFO("server.loading", "Creature %s (zone: %u) is now active", creature->GetName().c_str(), creature->GetZoneId());
+                    //LOG_INFO("server.loading", "Creature %s (zone: %u) is now active", creature->GetName().c_str(), creature->GetZoneId());
                 }
             }
             else
