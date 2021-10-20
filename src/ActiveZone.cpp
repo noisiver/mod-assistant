@@ -16,8 +16,7 @@ class ActiveZone : public AllCreatureScript
         void OnAllCreatureUpdate(Creature* creature, uint32 diff) override
         {
             if (sConfigMgr->GetBoolDefault("Assistant.Creature.SetActive", 0))
-                if (sWorld->getBoolConfig(CONFIG_PRELOAD_ALL_NON_INSTANCED_MAP_GRIDS))
-                    SetActiveCreature(creature);
+                SetActiveCreature(creature);
         }
 
     private:
@@ -38,6 +37,7 @@ class ActiveZone : public AllCreatureScript
                 {
                     creature->CustomData.Set("ActiveCreature", new ActiveCreature(creature->GetGUID()));
                     creature->setActive(true);
+                    LOG_INFO("server.loading", "Creature %s (zone: %u) is now active", creature->GetName().c_str(), creature->GetZoneId());
                 }
             }
             else

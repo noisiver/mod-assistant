@@ -100,7 +100,6 @@ Assistant.Rate.Weekend.Enabled = 0
 # Active creatures
 ###########################################################################
 # Set all creatures in zones that have players to active
-# Requires PreloadAllNonInstancedMapGrids to be enabled
 # Only affect Eastern Kingdoms, Kalimdor, Outland and Northrend
 Assistant.Creature.SetActive = 0
 ###########################################################################
