@@ -15,7 +15,7 @@ class ActiveZone : public AllCreatureScript
 
         void OnAllCreatureUpdate(Creature* creature, uint32 diff) override
         {
-            if (sConfigMgr->GetBoolDefault("Assistant.Creature.SetActive", 0))
+            if (sConfigMgr->GetBoolDefault("Assistant.Zone.Activate", 0))
                 SetActiveCreature(creature);
         }
 
