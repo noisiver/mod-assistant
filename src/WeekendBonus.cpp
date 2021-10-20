@@ -27,7 +27,7 @@ class WeekendBonus : public PlayerScript
         {
             if (sConfigMgr->GetBoolDefault("Assistant.Rate.Weekend.Enabled", 0))
                 if (now->tm_wday == 5 /*Friday*/ || now->tm_wday == 6 /*Saturday*/ || now->tm_wday == 0 /*Sunday*/)
-                ChatHandler(player->GetSession()).PSendSysMessage("The weekend bonus is active, doubling the experience and reputation received!");
+                    ChatHandler(player->GetSession()).PSendSysMessage("The weekend bonus is active, doubling the experience and reputation received!");
         }
 };
 
