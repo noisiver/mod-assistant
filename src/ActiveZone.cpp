@@ -46,6 +46,7 @@ class ActiveZone : public AllCreatureScript
                 {
                     creature->CustomData.GetDefault<ActiveCreature>("ActiveCreature")->isActive = false;
                     creature->setActive(false);
+                    //LOG_INFO("server.loading", "Creature %s (zone: %u) is no longer active", creature->GetName().c_str(), creature->GetZoneId());
                 }
             }
         }

@@ -140,7 +140,7 @@ void LoadProficiencies()
         i++;
     } while (result->NextRow());
 
-    LOG_INFO("server.loading", ">> Loaded %u proficiency spells", i);
+    LOG_INFO("server.loading", ">> Loaded %u proficiencies", i);
 }
 
 std::vector<Proficiencies> AssistantData::GetProficiencies()
@@ -178,7 +178,7 @@ void LoadMounts()
         i++;
     } while (result->NextRow());
 
-    LOG_INFO("server.loading", ">> Loaded %u mount spells", i);
+    LOG_INFO("server.loading", ">> Loaded %u mounts", i);
 }
 
 std::vector<Mounts> AssistantData::GetMounts()
