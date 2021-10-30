@@ -47,8 +47,11 @@ class AssistantNPC : public CreatureScript
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Utilities", 0))
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0) && player->getClass() == CLASS_SHAMAN)
-                AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
+            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0))
+                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
+                    if (sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0))
+                        if (player->getClass() == CLASS_SHAMAN)
+                            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
 
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
