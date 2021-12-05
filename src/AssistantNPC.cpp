@@ -1,5 +1,8 @@
-#include "Player.h"
+#include "Chat.h"
 #include "Config.h"
+#include "Player.h"
+#include "ScriptMgr.h"
+#include "ScriptedGossip.h"
 
 enum GossipId
 {

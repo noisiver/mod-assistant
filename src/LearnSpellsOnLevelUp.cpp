@@ -1,5 +1,6 @@
-#include "Player.h"
 #include "Config.h"
+#include "Player.h"
+#include "ScriptMgr.h"
 
 #include "AssistantData.h"
 

@@ -1,5 +1,7 @@
-#include "Player.h"
+#include "Chat.h"
 #include "Config.h"
+#include "Player.h"
+#include "ScriptMgr.h"
 
 class WeekendBonus : public PlayerScript
 {

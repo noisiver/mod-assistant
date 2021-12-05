@@ -1,4 +1,5 @@
 #include "Config.h"
+#include "ScriptMgr.h"
 
 class ActiveCreature : public DataMap::Base
 {

@@ -1,3 +1,5 @@
+#include "ScriptMgr.h"
+
 #include "AssistantData.h"
 
 std::vector<SpawnPoints> spawnPoints;
