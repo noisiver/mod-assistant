@@ -4,12 +4,6 @@ DELETE FROM `creature_template` WHERE `entry`=@Entry;
 -- Delete spawn points
 DELETE FROM `creature` WHERE `id`=@Entry;
 
--- Class spells, talent ranks, proficiencies and mounts
-DROP TABLE IF EXISTS `assistant_spells`;
-
--- Spawn points
-DROP TABLE IF EXISTS `assistant_spawn_points`;
-
 -- Vendor entries
 -- Heirloom: Weapon
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry;

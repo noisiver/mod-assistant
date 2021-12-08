@@ -26,10 +26,10 @@ enum VendorId
     ASSISTANT_VENDOR_TOTEM           = 9000031
 };
 
-class AssistantNPC : public CreatureScript
+class Assistant : public CreatureScript
 {
     public:
-        AssistantNPC() : CreatureScript("npc_assistant") { }
+        Assistant() : CreatureScript("npc_assistant") { }
 
         bool OnGossipHello(Player* player, Creature* creature)
         {
@@ -50,11 +50,9 @@ class AssistantNPC : public CreatureScript
             if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Utilities", 0))
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-            if (sConfigMgr->GetBoolDefault("Assistant.Spells.Enabled", 0))
-                if (sConfigMgr->GetBoolDefault("Assistant.Spells.Class", 0))
-                    if (sConfigMgr->GetBoolDefault("Assistant.Spells.Quest", 0))
-                        if (player->getClass() == CLASS_SHAMAN)
-                            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
+            if (sConfigMgr->GetBoolDefault("Assistant.Gossip.Totems", 0))
+                if (player->getClass() == CLASS_SHAMAN)
+                    AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
 
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
@@ -303,7 +301,7 @@ class AssistantNPC : public CreatureScript
         }
 };
 
-void AddAssistantNPCScripts()
+void AddAssistantScripts()
 {
-    new AssistantNPC();
+    new Assistant();
 }
