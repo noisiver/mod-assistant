@@ -3,32 +3,32 @@
 # Assistant NPC
 ###########################################################################
 # Obtain heirlooms from the assistant npc
-Assistant.Gossip.Heirlooms = 0
+Assistant.Heirlooms = 0
 
 # Obtain glyphs from the assistant npc
-Assistant.Gossip.Glyphs = 0
+Assistant.Glyphs = 0
 
 # Obtain gems from the assistant npc
-Assistant.Gossip.Gems = 0
+Assistant.Gems = 0
 
 # Obtain containers from the assistant npc
-Assistant.Gossip.Containers = 0
+Assistant.Containers = 0
 
 # Obtain utilties from the assistant npc
-Assistant.Gossip.Utilities = 0
+Assistant.Utilities = 0
 
 # The amount of gold required to perform a name change
-Assistant.Gossip.Utilities.NameChange = 10
+Assistant.Utilities.NameChange = 10
 
 # The amount of gold required to perform a change in appearance
-Assistant.Gossip.Utilities.Customization = 50
+Assistant.Utilities.Customization = 50
 
 # The amount of gold required to perform a race change
-Assistant.Gossip.Utilities.RaceChange = 500
+Assistant.Utilities.RaceChange = 500
 
 # The amount of gold required to perform a faction change
-Assistant.Gossip.Utilities.FactionChange = 1000
+Assistant.Utilities.FactionChange = 1000
 
 # Obtain shaman totems from the assistant npc
-Assistant.Gossip.Totems = 0
+Assistant.Totems = 0
 ###########################################################################
