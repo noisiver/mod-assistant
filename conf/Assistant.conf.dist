@@ -1,7 +1,5 @@
 [worldserver]
-###########################################################################
-# Assistant NPC
-###########################################################################
+
 # Obtain heirlooms from the assistant npc
 Assistant.Heirlooms = 0
 
@@ -31,4 +29,3 @@ Assistant.Utilities.FactionChange = 1000
 
 # Obtain shaman totems from the assistant npc
 Assistant.Totems = 0
-###########################################################################
