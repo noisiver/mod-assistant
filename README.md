@@ -17,6 +17,8 @@ This module is part of my collection of modules.
 
 [LearnSpells](https://github.com/tkn963/mod-learnspells) : Lets players learn class spells, talent ranks, proficiencies and mounts when leveling up or logging into the world.
 
+[LevelReward](https://github.com/tkn963/mod-levelreward) : Gives players a reward of gold when reaching specific levels.
+
 [RecruitAFriend](https://github.com/tkn963/mod-recruitafriend) : Lets players activate recruit a friend with an in-game command.
 
 [SpawnPoints](https://github.com/tkn963/mod-spawnpoints) : Makes new characters spawn in specified locations when entering the world for the first time.
