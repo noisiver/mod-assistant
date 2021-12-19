@@ -40,7 +40,7 @@ uint32 costFactionChange;
 class AssistantCreature : public CreatureScript
 {
     public:
-        AssistantCreature() : CreatureScript("AssistantCreature") { }
+        AssistantCreature() : CreatureScript("npc_assistant") { }
 
         bool OnGossipHello(Player* player, Creature* creature)
         {
