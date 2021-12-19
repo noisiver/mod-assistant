@@ -26,31 +26,42 @@ enum VendorId
     ASSISTANT_VENDOR_TOTEM           = 9000031
 };
 
-class Assistant : public CreatureScript
+bool enableHeirlooms;
+bool enableGlyphs;
+bool enableGems;
+bool enableContainers;
+bool enableUtilities;
+bool enableTotems;
+uint32 costNameChange;
+uint32 costCustomization;
+uint32 costRaceChange;
+uint32 costFactionChange;
+
+class AssistantCreature : public CreatureScript
 {
     public:
-        Assistant() : CreatureScript("npc_assistant") { }
+        AssistantCreature() : CreatureScript("AssistantCreature") { }
 
         bool OnGossipHello(Player* player, Creature* creature)
         {
             ClearGossipMenuFor(player);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 0))
+            if (enableHeirlooms)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Glyphs", 0))
+            if (enableGlyphs)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Gems", 0))
+            if (enableGems)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Containers", 0))
+            if (enableContainers)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Utilities", 0))
+            if (enableUtilities)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-            if (sConfigMgr->GetOption<bool>("Assistant.Totems", 0))
+            if (enableTotems)
                 if (player->getClass() == CLASS_SHAMAN)
                     AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
 
@@ -232,7 +243,7 @@ class Assistant : public CreatureScript
                 }
                 else
                 {
-                    player->ModifyMoney(-(sConfigMgr->GetOption<int32>("Assistant.Utilities.NameChange", 10) * 10000));
+                    player->ModifyMoney(-(costNameChange * 10000));
                     player->SetAtLoginFlag(AT_LOGIN_RENAME);
                     ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the name change.");
                     ClearGossipMenuFor(player);
@@ -247,7 +258,7 @@ class Assistant : public CreatureScript
                 }
                 else
                 {
-                    player->ModifyMoney(-(sConfigMgr->GetOption<int32>("Assistant.Utilities.Customization", 50) * 10000));
+                    player->ModifyMoney(-(costCustomization * 10000));
                     player->SetAtLoginFlag(AT_LOGIN_CUSTOMIZE);
                     ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the customization.");
                     ClearGossipMenuFor(player);
@@ -262,7 +273,7 @@ class Assistant : public CreatureScript
                 }
                 else
                 {
-                    player->ModifyMoney(-(sConfigMgr->GetOption<int32>("Assistant.Utilities.RaceChange", 500) * 10000));
+                    player->ModifyMoney(-(costRaceChange * 10000));
                     player->SetAtLoginFlag(AT_LOGIN_CHANGE_RACE);
                     ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the race change.");
                     ClearGossipMenuFor(player);
@@ -277,7 +288,7 @@ class Assistant : public CreatureScript
                 }
                 else
                 {
-                    player->ModifyMoney(-(sConfigMgr->GetOption<int32>("Assistant.Utilities.FactionChange", 1000) * 10000));
+                    player->ModifyMoney(-(costFactionChange * 10000));
                     player->SetAtLoginFlag(AT_LOGIN_CHANGE_FACTION);
                     ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the faction change.");
                     ClearGossipMenuFor(player);
@@ -301,7 +312,28 @@ class Assistant : public CreatureScript
         }
 };
 
+class AssistantWorld : public WorldScript
+{
+    public:
+        AssistantWorld() : WorldScript("AssistantWorld") {}
+
+    void OnAfterConfigLoad(bool /*reload*/) override
+    {
+        enableHeirlooms = sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 0);
+        enableGlyphs = sConfigMgr->GetOption<bool>("Assistant.Glyphs", 0);
+        enableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 0);
+        enableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 0);
+        enableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 0);
+        enableTotems = sConfigMgr->GetOption<bool>("Assistant.Totems", 0);
+        costNameChange = sConfigMgr->GetOption<int32>("Assistant.Utilities.NameChange", 10);
+        costCustomization = sConfigMgr->GetOption<int32>("Assistant.Utilities.Customization", 50);
+        costRaceChange = sConfigMgr->GetOption<int32>("Assistant.Utilities.RaceChange", 500);
+        costFactionChange = sConfigMgr->GetOption<int32>("Assistant.Utilities.FactionChange", 1000);
+    }
+};
+
 void AddAssistantScripts()
 {
-    new Assistant();
+    new AssistantCreature();
+    new AssistantWorld();
 }
