@@ -612,10 +612,3 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 23162);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 41597);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 44447);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 44448);
-
--- Totem
-DELETE FROM `npc_vendor` WHERE `entry`=@Entry+31;
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+31, 5175);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+31, 5176);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+31, 5177);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+31, 5178);

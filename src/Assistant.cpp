@@ -12,7 +12,6 @@ enum GossipId
     ASSISTANT_GOSSIP_GEM       = 400,
     ASSISTANT_GOSSIP_CONTAINER = 500,
     ASSISTANT_GOSSIP_UTILITIES = 600,
-    ASSISTANT_GOSSIP_TOTEMS    = 700
 };
 
 enum VendorId
@@ -23,7 +22,6 @@ enum VendorId
     ASSISTANT_VENDOR_GLYPH           = 9000003,
     ASSISTANT_VENDOR_GEM             = 9000023,
     ASSISTANT_VENDOR_CONTAINER       = 9000030,
-    ASSISTANT_VENDOR_TOTEM           = 9000031
 };
 
 bool enableHeirlooms;
@@ -31,7 +29,6 @@ bool enableGlyphs;
 bool enableGems;
 bool enableContainers;
 bool enableUtilities;
-bool enableTotems;
 uint32 costNameChange;
 uint32 costCustomization;
 uint32 costRaceChange;
@@ -60,10 +57,6 @@ class AssistantCreature : public CreatureScript
 
             if (enableUtilities)
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
-
-            if (enableTotems)
-                if (player->getClass() == CLASS_SHAMAN)
-                    AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want totems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_TOTEMS);
 
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             return true;
@@ -294,10 +287,6 @@ class AssistantCreature : public CreatureScript
                     ClearGossipMenuFor(player);
                 }
             }
-            else if (action == ASSISTANT_GOSSIP_TOTEMS)
-            {
-                player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_TOTEM);
-            }
 
             return true;
         }
@@ -324,7 +313,6 @@ class AssistantWorld : public WorldScript
         enableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 0);
         enableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 0);
         enableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 0);
-        enableTotems = sConfigMgr->GetOption<bool>("Assistant.Totems", 0);
         costNameChange = sConfigMgr->GetOption<int32>("Assistant.Utilities.NameChange", 10);
         costCustomization = sConfigMgr->GetOption<int32>("Assistant.Utilities.Customization", 50);
         costRaceChange = sConfigMgr->GetOption<int32>("Assistant.Utilities.RaceChange", 500);
