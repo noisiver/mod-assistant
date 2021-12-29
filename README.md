@@ -11,11 +11,7 @@ All the features listed above are enabled, or disabled, through the configuratio
 # Additional information
 This module is part of my collection of modules.
 
-[ActivateZones](https://github.com/tkn963/mod-activatezones) : Set creatures as active in zones that has players in it.
-
 [Assistant](https://github.com/tkn963/mod-assistant) : Allows players to obtain certain items and utilities from an NPC.
-
-[DynamicRates](https://github.com/tkn963/mod-dynamicrates) : Increases the gained experience and reputation based on the players current level.
 
 [GroupQuests](https://github.com/tkn963/mod-groupquests) : Makes quest items drop for all members of a group. In some cases it also help certain objectives count for all members of a group.
 
