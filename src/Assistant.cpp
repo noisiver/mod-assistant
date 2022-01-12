@@ -404,12 +404,14 @@ class AssistantCreature : public CreatureScript
         {
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 75) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 75) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 75) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 75) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 75) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 75) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 75) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 75) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 75) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 75) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 75) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 75)) &&
                 enableApprenticeProfession)
@@ -417,12 +419,14 @@ class AssistantCreature : public CreatureScript
 
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 150) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 150) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 150) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 150) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 150) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 150) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 150) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 150) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 150) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 150) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 150) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 150)) &&
                 enableJourneymanProfession)
@@ -430,12 +434,14 @@ class AssistantCreature : public CreatureScript
 
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 225) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 225) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 225) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 225) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 225) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 225) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 225) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 225) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 225) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 225) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 225) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 225)) &&
                 enableExpertProfession)
@@ -443,12 +449,14 @@ class AssistantCreature : public CreatureScript
 
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 300) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 300) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 300) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 300) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 300) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 300) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 300) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 300) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 300) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 300) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 300) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 300)) &&
                 enableArtisanProfession)
@@ -456,12 +464,14 @@ class AssistantCreature : public CreatureScript
 
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 375) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 375) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 375) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 375) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 375) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 375) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 375) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 375) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 375) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 375) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 375) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 375)) &&
                 enableMasterProfession)
@@ -469,12 +479,14 @@ class AssistantCreature : public CreatureScript
 
             if (((player->HasSkill(SKILL_FIRST_AID) && player->GetSkillValue(SKILL_FIRST_AID) < 450) ||
                 (player->HasSkill(SKILL_BLACKSMITHING) && player->GetSkillValue(SKILL_BLACKSMITHING) < 450) ||
+                (player->HasSkill(SKILL_LEATHERWORKING) && player->GetSkillValue(SKILL_LEATHERWORKING) < 450) ||
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 450) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 450) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 450) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 450) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 450) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 450) ||
+                (player->HasSkill(SKILL_SKINNING) && player->GetSkillValue(SKILL_SKINNING) < 450) ||
                 (player->HasSkill(SKILL_INSCRIPTION) && player->GetSkillValue(SKILL_INSCRIPTION) < 450) ||
                 (player->HasSkill(SKILL_JEWELCRAFTING) && player->GetSkillValue(SKILL_JEWELCRAFTING) < 450)) &&
                 enableGrandMasterProfession)
