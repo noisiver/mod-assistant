@@ -314,14 +314,16 @@ class AssistantCreature : public CreatureScript
                 ClearGossipMenuFor(player);
                 addProfessionToList(player, SKILL_FIRST_AID, "I want to increase my first aid", ASSISTANT_GOSSIP_PROFESSIONS + 1);
                 addProfessionToList(player, SKILL_BLACKSMITHING, "I want to increase my blacksmithing", ASSISTANT_GOSSIP_PROFESSIONS + 2);
-                addProfessionToList(player, SKILL_HERBALISM, "I want to increase my herbalism", ASSISTANT_GOSSIP_PROFESSIONS + 3);
-                addProfessionToList(player, SKILL_COOKING, "I want to increase my cooking", ASSISTANT_GOSSIP_PROFESSIONS + 4);
-                addProfessionToList(player, SKILL_MINING, "I want to increase my mining", ASSISTANT_GOSSIP_PROFESSIONS + 5);
-                addProfessionToList(player, SKILL_ENGINEERING, "I want to increase my engineering", ASSISTANT_GOSSIP_PROFESSIONS + 6);
-                addProfessionToList(player, SKILL_ENCHANTING, "I want to increase my enchanting", ASSISTANT_GOSSIP_PROFESSIONS + 7);
-                addProfessionToList(player, SKILL_FISHING, "I want to increase my fishing", ASSISTANT_GOSSIP_PROFESSIONS + 8);
-                addProfessionToList(player, SKILL_INSCRIPTION, "I want to increase my inscription", ASSISTANT_GOSSIP_PROFESSIONS + 9);
-                addProfessionToList(player, SKILL_JEWELCRAFTING, "I want to increase my jewelcrafting", ASSISTANT_GOSSIP_PROFESSIONS + 10);
+                addProfessionToList(player, SKILL_LEATHERWORKING, "I want to increase my leatherworking", ASSISTANT_GOSSIP_PROFESSIONS + 3);
+                addProfessionToList(player, SKILL_HERBALISM, "I want to increase my herbalism", ASSISTANT_GOSSIP_PROFESSIONS + 4);
+                addProfessionToList(player, SKILL_COOKING, "I want to increase my cooking", ASSISTANT_GOSSIP_PROFESSIONS + 5);
+                addProfessionToList(player, SKILL_MINING, "I want to increase my mining", ASSISTANT_GOSSIP_PROFESSIONS + 6);
+                addProfessionToList(player, SKILL_ENGINEERING, "I want to increase my engineering", ASSISTANT_GOSSIP_PROFESSIONS + 7);
+                addProfessionToList(player, SKILL_ENCHANTING, "I want to increase my enchanting", ASSISTANT_GOSSIP_PROFESSIONS + 8);
+                addProfessionToList(player, SKILL_FISHING, "I want to increase my fishing", ASSISTANT_GOSSIP_PROFESSIONS + 9);
+                addProfessionToList(player, SKILL_SKINNING, "I want to increase my skinning", ASSISTANT_GOSSIP_PROFESSIONS + 10);
+                addProfessionToList(player, SKILL_INSCRIPTION, "I want to increase my inscription", ASSISTANT_GOSSIP_PROFESSIONS + 11);
+                addProfessionToList(player, SKILL_JEWELCRAFTING, "I want to increase my jewelcrafting", ASSISTANT_GOSSIP_PROFESSIONS + 12);
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             }
@@ -337,40 +339,50 @@ class AssistantCreature : public CreatureScript
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 3)
             {
-                increaseProfessionSkill(player, SKILL_HERBALISM);
+                increaseProfessionSkill(player, SKILL_LEATHERWORKING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 4)
             {
-                increaseProfessionSkill(player, SKILL_COOKING);
+                increaseProfessionSkill(player, SKILL_HERBALISM);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 5)
             {
-                increaseProfessionSkill(player, SKILL_MINING);
+                increaseProfessionSkill(player, SKILL_COOKING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 6)
             {
-                increaseProfessionSkill(player, SKILL_ENGINEERING);
+                increaseProfessionSkill(player, SKILL_MINING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 7)
             {
-                increaseProfessionSkill(player, SKILL_ENCHANTING);
+                increaseProfessionSkill(player, SKILL_ENGINEERING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 8)
             {
-                increaseProfessionSkill(player, SKILL_FISHING);
+                increaseProfessionSkill(player, SKILL_ENCHANTING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 9)
             {
-                increaseProfessionSkill(player, SKILL_INSCRIPTION);
+                increaseProfessionSkill(player, SKILL_FISHING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 10)
+            {
+                increaseProfessionSkill(player, SKILL_SKINNING);
+                CloseGossipMenuFor(player);
+            }
+            else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 11)
+            {
+                increaseProfessionSkill(player, SKILL_INSCRIPTION);
+                CloseGossipMenuFor(player);
+            }
+            else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 12)
             {
                 increaseProfessionSkill(player, SKILL_JEWELCRAFTING);
                 CloseGossipMenuFor(player);
