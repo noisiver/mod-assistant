@@ -318,12 +318,13 @@ class AssistantCreature : public CreatureScript
                 addProfessionToList(player, SKILL_HERBALISM, "I want to increase my herbalism", ASSISTANT_GOSSIP_PROFESSIONS + 4);
                 addProfessionToList(player, SKILL_COOKING, "I want to increase my cooking", ASSISTANT_GOSSIP_PROFESSIONS + 5);
                 addProfessionToList(player, SKILL_MINING, "I want to increase my mining", ASSISTANT_GOSSIP_PROFESSIONS + 6);
-                addProfessionToList(player, SKILL_ENGINEERING, "I want to increase my engineering", ASSISTANT_GOSSIP_PROFESSIONS + 7);
-                addProfessionToList(player, SKILL_ENCHANTING, "I want to increase my enchanting", ASSISTANT_GOSSIP_PROFESSIONS + 8);
-                addProfessionToList(player, SKILL_FISHING, "I want to increase my fishing", ASSISTANT_GOSSIP_PROFESSIONS + 9);
-                addProfessionToList(player, SKILL_SKINNING, "I want to increase my skinning", ASSISTANT_GOSSIP_PROFESSIONS + 10);
-                addProfessionToList(player, SKILL_INSCRIPTION, "I want to increase my inscription", ASSISTANT_GOSSIP_PROFESSIONS + 11);
-                addProfessionToList(player, SKILL_JEWELCRAFTING, "I want to increase my jewelcrafting", ASSISTANT_GOSSIP_PROFESSIONS + 12);
+                addProfessionToList(player, SKILL_TAILORING, "I want to increase my tailoring", ASSISTANT_GOSSIP_PROFESSIONS + 7);
+                addProfessionToList(player, SKILL_ENGINEERING, "I want to increase my engineering", ASSISTANT_GOSSIP_PROFESSIONS + 8);
+                addProfessionToList(player, SKILL_ENCHANTING, "I want to increase my enchanting", ASSISTANT_GOSSIP_PROFESSIONS + 9);
+                addProfessionToList(player, SKILL_FISHING, "I want to increase my fishing", ASSISTANT_GOSSIP_PROFESSIONS + 10);
+                addProfessionToList(player, SKILL_SKINNING, "I want to increase my skinning", ASSISTANT_GOSSIP_PROFESSIONS + 11);
+                addProfessionToList(player, SKILL_INSCRIPTION, "I want to increase my inscription", ASSISTANT_GOSSIP_PROFESSIONS + 12);
+                addProfessionToList(player, SKILL_JEWELCRAFTING, "I want to increase my jewelcrafting", ASSISTANT_GOSSIP_PROFESSIONS + 13);
                 AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
                 SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
             }
@@ -359,30 +360,35 @@ class AssistantCreature : public CreatureScript
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 7)
             {
-                increaseProfessionSkill(player, SKILL_ENGINEERING);
+                increaseProfessionSkill(player, SKILL_TAILORING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 8)
             {
-                increaseProfessionSkill(player, SKILL_ENCHANTING);
+                increaseProfessionSkill(player, SKILL_ENGINEERING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 9)
             {
-                increaseProfessionSkill(player, SKILL_FISHING);
+                increaseProfessionSkill(player, SKILL_ENCHANTING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 10)
             {
-                increaseProfessionSkill(player, SKILL_SKINNING);
+                increaseProfessionSkill(player, SKILL_FISHING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 11)
             {
-                increaseProfessionSkill(player, SKILL_INSCRIPTION);
+                increaseProfessionSkill(player, SKILL_SKINNING);
                 CloseGossipMenuFor(player);
             }
             else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 12)
+            {
+                increaseProfessionSkill(player, SKILL_INSCRIPTION);
+                CloseGossipMenuFor(player);
+            }
+            else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 13)
             {
                 increaseProfessionSkill(player, SKILL_JEWELCRAFTING);
                 CloseGossipMenuFor(player);
@@ -408,6 +414,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 75) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 75) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 75) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 75) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 75) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 75) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 75) ||
@@ -423,6 +430,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 150) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 150) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 150) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 150) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 150) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 150) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 150) ||
@@ -438,6 +446,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 225) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 225) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 225) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 225) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 225) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 225) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 225) ||
@@ -453,6 +462,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 300) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 300) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 300) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 300) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 300) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 300) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 300) ||
@@ -468,6 +478,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 375) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 375) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 375) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 375) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 375) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 375) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 375) ||
@@ -483,6 +494,7 @@ class AssistantCreature : public CreatureScript
                 (player->HasSkill(SKILL_HERBALISM) && player->GetSkillValue(SKILL_HERBALISM) < 450) ||
                 (player->HasSkill(SKILL_COOKING) && player->GetSkillValue(SKILL_COOKING) < 450) ||
                 (player->HasSkill(SKILL_MINING) && player->GetSkillValue(SKILL_MINING) < 450) ||
+                (player->HasSkill(SKILL_TAILORING) && player->GetSkillValue(SKILL_TAILORING) < 450) ||
                 (player->HasSkill(SKILL_ENGINEERING) && player->GetSkillValue(SKILL_ENGINEERING) < 450) ||
                 (player->HasSkill(SKILL_ENCHANTING) && player->GetSkillValue(SKILL_ENCHANTING) < 450) ||
                 (player->HasSkill(SKILL_FISHING) && player->GetSkillValue(SKILL_FISHING) < 450) ||
