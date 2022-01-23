@@ -23,6 +23,4 @@ This module is part of my collection of modules.
 
 [SpawnPoints](https://github.com/tkn963/mod-spawnpoints) : Makes new characters spawn in specified locations when entering the world for the first time.
 
-[StartHelper](https://github.com/tkn963/mod-starthelper) : Gives new players a full set of equipment and set their level to 60 upon request.
-
 [WeekendBonus](https://github.com/tkn963/mod-weekendbonus) : Increases the experience and reputation gained on weekends.
