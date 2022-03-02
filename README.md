@@ -2,7 +2,7 @@
 This is a module for [AzerothCore](https://github.com/azerothcore/azerothcore-wotlk).
 
 # Features
-The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, utilities like faction change and race change, and totems for the shaman class.
+The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, utilities like faction change and race change, and totems for the shaman class. The player can also spend gold in order to increase their profession skills. It will be set to the current max value each time the feature is used.
 
 All items obtained from the Assistant are free to purchase, however users can easily add a cost by modifying the values of the item template table.
 
