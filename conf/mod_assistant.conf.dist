@@ -30,3 +30,24 @@ Assistant.Utilities.RaceChange = 500
 # The amount of gold required to perform a faction change
 Assistant.Utilities.FactionChange = 1000
 ###
+
+### PROFESSIONS ###
+# Increase profession skills by spending gold
+Assistant.Professions = 0
+
+# Enable specific ranks
+Assistant.Professions.Apprentice.Enabled = 1
+Assistant.Professions.Journeyman.Enabled = 1
+Assistant.Professions.Expert.Enabled = 1
+Assistant.Professions.Artisan.Enabled = 1
+Assistant.Professions.Master.Enabled = 0
+Assistant.Professions.GrandMaster.Enabled = 0
+
+# The gold required for each rank
+Assistant.Professions.Apprentice.Cost = 100
+Assistant.Professions.Journeyman.Cost = 250
+Assistant.Professions.Expert.Cost = 500
+Assistant.Professions.Artisan.Cost = 750
+Assistant.Professions.Master.Cost = 1250
+Assistant.Professions.GrandMaster.Cost = 2500
+###
