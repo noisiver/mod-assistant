@@ -13,7 +13,7 @@ SET
 @Rank     := 0,
 @Type     := 7,
 @TypeFlags := 0,
-@FlagsExtra := 2,
+@FlagsExtra := 16777218,
 @Script     := "npc_assistant";
 
 -- Creature template
