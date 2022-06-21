@@ -1,9 +1,10 @@
-# Assistant
-This is a module for [AzerothCore](https://github.com/azerothcore/azerothcore-wotlk).
-
+# Warning
 This module has been ported to LUA, used by installing the [Eluna](https://github.com/azerothcore/mod-eluna) module, and will not receive any new features.
 
 The LUA script can be found at [Assistant](https://github.com/tkn963/lua-assistant).
+
+# Assistant
+This is a module for [AzerothCore](https://github.com/azerothcore/azerothcore-wotlk).
 
 # Features
 The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, utilities like faction change and race change. The player can also spend gold in order to increase their profession skills. It will be set to the current max value each time the feature is used.
