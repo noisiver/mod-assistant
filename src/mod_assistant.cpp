@@ -87,21 +87,7 @@ public:
         if (enableUtilities)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-        if (enableProfessions && (enableApprenticeProfession || enableJourneymanProfession || enableExpertProfession || enableArtisanProfession || enableMasterProfession || enableGrandMasterProfession))
-            if (player->HasSkill(SKILL_FIRST_AID) ||
-                player->HasSkill(SKILL_BLACKSMITHING) ||
-                player->HasSkill(SKILL_LEATHERWORKING) ||
-                player->HasSkill(SKILL_ALCHEMY) ||
-                player->HasSkill(SKILL_HERBALISM) ||
-                player->HasSkill(SKILL_COOKING) ||
-                player->HasSkill(SKILL_MINING) ||
-                player->HasSkill(SKILL_TAILORING) ||
-                player->HasSkill(SKILL_ENGINEERING) ||
-                player->HasSkill(SKILL_ENCHANTING) ||
-                player->HasSkill(SKILL_FISHING) ||
-                player->HasSkill(SKILL_SKINNING) ||
-                player->HasSkill(SKILL_INSCRIPTION) ||
-                player->HasSkill(SKILL_JEWELCRAFTING))
+        if (enableProfessions && hasValidProfession(player))
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want help with my professions", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
 
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
@@ -337,746 +323,88 @@ public:
         {
             ClearGossipMenuFor(player);
 
-            if (player->HasSkill(SKILL_FIRST_AID))
+            if (isValidProfession(player, SKILL_FIRST_AID))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_FIRST_AID);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FIRST_AID);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_FIRST_AID);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in First Aid", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 1, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_FIRST_AID);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in First Aid", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 1, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_BLACKSMITHING))
+            if (isValidProfession(player, SKILL_BLACKSMITHING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_BLACKSMITHING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_BLACKSMITHING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_BLACKSMITHING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Blacksmithing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 2, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_BLACKSMITHING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Blacksmithing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 2, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_LEATHERWORKING))
+            if (isValidProfession(player, SKILL_LEATHERWORKING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_LEATHERWORKING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_LEATHERWORKING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_LEATHERWORKING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Leatherworking", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 3, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_LEATHERWORKING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Leatherworking", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 3, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_ALCHEMY))
+            if (isValidProfession(player, SKILL_ALCHEMY))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_ALCHEMY);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ALCHEMY);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ALCHEMY);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Alchemy", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 4, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_ALCHEMY);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Alchemy", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 4, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_HERBALISM))
+            if (isValidProfession(player, SKILL_HERBALISM))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_HERBALISM);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_HERBALISM);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_HERBALISM);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Herbalism", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 5, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_HERBALISM);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Herbalism", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 5, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_COOKING))
+            if (isValidProfession(player, SKILL_COOKING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_COOKING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_COOKING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_COOKING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Cooking", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 6, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_COOKING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Cooking", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 6, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_MINING))
+            if (isValidProfession(player, SKILL_MINING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_MINING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_MINING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_MINING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Mining", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 7, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_MINING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Mining", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 7, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_TAILORING))
+            if (isValidProfession(player, SKILL_TAILORING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_TAILORING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_TAILORING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_TAILORING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Tailoring", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 8, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_TAILORING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Tailoring", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 8, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_ENGINEERING))
+            if (isValidProfession(player, SKILL_ENGINEERING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_ENGINEERING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENGINEERING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ENGINEERING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Engineering", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 9, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_ENGINEERING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Engineering", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 9, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_ENCHANTING))
+            if (isValidProfession(player, SKILL_ENCHANTING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_ENCHANTING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENCHANTING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ENCHANTING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Enchanting", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 10, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_ENCHANTING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Enchanting", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 10, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_FISHING))
+            if (isValidProfession(player, SKILL_FISHING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_FISHING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FISHING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_FISHING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Fishing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 11, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_FISHING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Fishing", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 11, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_SKINNING))
+            if (isValidProfession(player, SKILL_SKINNING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_SKINNING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_SKINNING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_SKINNING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Skinning", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 12, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_SKINNING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Skinning", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 12, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_INSCRIPTION))
+            if (isValidProfession(player, SKILL_INSCRIPTION))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_INSCRIPTION);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_INSCRIPTION);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_INSCRIPTION);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Inscription", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 13, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_INSCRIPTION);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Inscription", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 13, "Do you wish to continue the transaction?", cost, false);
             }
 
-            if (player->HasSkill(SKILL_JEWELCRAFTING))
+            if (isValidProfession(player, SKILL_JEWELCRAFTING))
             {
-                uint16 currentSkillValue = player->GetSkillValue(SKILL_JEWELCRAFTING);
-                uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_JEWELCRAFTING);
-                uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_JEWELCRAFTING);
-
-                if (currentSkillValue < maxSkillValue)
-                {
-                    bool allowUpgrade = false;
-                    uint32 professionCost = 0;
-
-                    if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                    {
-                        professionCost = costApprenticeProfession * GOLD;
-                        if (enableApprenticeProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                    {
-                        professionCost = costJourneymanProfession * GOLD;
-                        if (enableJourneymanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                    {
-                        professionCost = costExpertProfession * GOLD;
-                        if (enableExpertProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                    {
-                        professionCost = costArtisanProfession * GOLD;
-                        if (enableArtisanProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                    {
-                        professionCost = costMasterProfession * GOLD;
-                        if (enableMasterProfession)
-                            allowUpgrade = true;
-                    }
-                    else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                    {
-                        professionCost = costGrandMasterProfession * GOLD;
-                        if (enableGrandMasterProfession)
-                            allowUpgrade = true;
-                    }
-
-                    if (allowUpgrade)
-                        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want to increase my skill in Jewelcrafting", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 14, "Do you wish to continue the transaction?", professionCost, false);
-                }
+                uint32 cost = getProfessionCost(player, SKILL_JEWELCRAFTING);
+                AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "I want help with my skill in Jewelcrafting", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS + 14, "Do you wish to continue the transaction?", cost, false);
             }
 
             AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
@@ -1084,325 +412,185 @@ public:
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 1)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FIRST_AID);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_FIRST_AID);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FIRST_AID);
+            uint32 professionCost = getProfessionCost(player, SKILL_FIRST_AID);
 
             player->SetSkill(SKILL_FIRST_AID, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 2)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_BLACKSMITHING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_BLACKSMITHING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_BLACKSMITHING);
+            uint32 professionCost = getProfessionCost(player, SKILL_BLACKSMITHING);
 
             player->SetSkill(SKILL_BLACKSMITHING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 3)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_LEATHERWORKING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_LEATHERWORKING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_LEATHERWORKING);
+            uint32 professionCost = getProfessionCost(player, SKILL_LEATHERWORKING);
 
             player->SetSkill(SKILL_LEATHERWORKING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 4)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ALCHEMY);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ALCHEMY);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ALCHEMY);
+            uint32 professionCost = getProfessionCost(player, SKILL_ALCHEMY);
 
             player->SetSkill(SKILL_ALCHEMY, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 5)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_HERBALISM);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_HERBALISM);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_HERBALISM);
+            uint32 professionCost = getProfessionCost(player, SKILL_HERBALISM);
 
             player->SetSkill(SKILL_HERBALISM, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 6)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_COOKING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_COOKING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_COOKING);
+            uint32 professionCost = getProfessionCost(player, SKILL_COOKING);
 
             player->SetSkill(SKILL_COOKING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 7)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_MINING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_MINING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_MINING);
+            uint32 professionCost = getProfessionCost(player, SKILL_MINING);
 
             player->SetSkill(SKILL_MINING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 8)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_TAILORING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_TAILORING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_TAILORING);
+            uint32 professionCost = getProfessionCost(player, SKILL_TAILORING);
 
             player->SetSkill(SKILL_TAILORING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 9)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENGINEERING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ENGINEERING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENGINEERING);
+            uint32 professionCost = getProfessionCost(player, SKILL_ENGINEERING);
 
             player->SetSkill(SKILL_ENGINEERING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 10)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENCHANTING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_ENCHANTING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_ENCHANTING);
+            uint32 professionCost = getProfessionCost(player, SKILL_ENCHANTING);
 
             player->SetSkill(SKILL_ENCHANTING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 11)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FISHING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_FISHING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_FISHING);
+            uint32 professionCost = getProfessionCost(player, SKILL_FISHING);
 
             player->SetSkill(SKILL_FISHING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 12)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_SKINNING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_SKINNING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_SKINNING);
+            uint32 professionCost = getProfessionCost(player, SKILL_SKINNING);
 
             player->SetSkill(SKILL_SKINNING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 13)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_INSCRIPTION);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_INSCRIPTION);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_INSCRIPTION);
+            uint32 professionCost = getProfessionCost(player, SKILL_INSCRIPTION);
 
             player->SetSkill(SKILL_INSCRIPTION, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 14)
         {
-            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_JEWELCRAFTING);
-            uint16 pureMaxSkillValue = player->GetPureMaxSkillValue(SKILL_JEWELCRAFTING);
-            uint32 professionCost = 0;
+            ClearGossipMenuFor(player);
 
-            if (pureMaxSkillValue == PROFESSION_LEVEL_APPRENTICE)
-                professionCost = costApprenticeProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_JOURNEYMAN)
-                professionCost = costJourneymanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_EXPERT)
-                professionCost = costExpertProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_ARTISAN)
-                professionCost = costArtisanProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_MASTER)
-                professionCost = costMasterProfession * GOLD;
-            else if (pureMaxSkillValue == PROFESSION_LEVEL_GRAND_MASTER)
-                professionCost = costGrandMasterProfession * GOLD;
+            uint16 maxSkillValue = player->GetMaxSkillValue(SKILL_JEWELCRAFTING);
+            uint32 professionCost = getProfessionCost(player, SKILL_JEWELCRAFTING);
 
             player->SetSkill(SKILL_JEWELCRAFTING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
-            CloseGossipMenuFor(player);
+
+            //OnGossipHello(player, creature);
+            OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
 
         return true;
@@ -1415,6 +603,57 @@ private:
             return true;
 
         return false;
+    }
+
+    bool hasValidProfession(Player* player)
+    {
+        if (enableApprenticeProfession || enableJourneymanProfession || enableExpertProfession || enableArtisanProfession || enableMasterProfession || enableGrandMasterProfession)
+        {
+            if (isValidProfession(player, SKILL_FIRST_AID) || isValidProfession(player, SKILL_BLACKSMITHING) || isValidProfession(player, SKILL_LEATHERWORKING) || isValidProfession(player, SKILL_ALCHEMY) || isValidProfession(player, SKILL_HERBALISM) || isValidProfession(player, SKILL_COOKING) || isValidProfession(player, SKILL_MINING) || isValidProfession(player, SKILL_TAILORING) || isValidProfession(player, SKILL_ENGINEERING) || isValidProfession(player, SKILL_ENCHANTING) || isValidProfession(player, SKILL_FISHING) || isValidProfession(player, SKILL_SKINNING) || isValidProfession(player, SKILL_INSCRIPTION) || isValidProfession(player, SKILL_JEWELCRAFTING))
+                return true;
+        }
+
+        return false;
+    }
+
+    bool isValidProfession(Player* player, uint32 skillId)
+    {
+        if (player->HasSkill(skillId) && ((player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_APPRENTICE && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_APPRENTICE && enableApprenticeProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_JOURNEYMAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_JOURNEYMAN && enableJourneymanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_EXPERT && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_EXPERT && enableExpertProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_ARTISAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_ARTISAN && enableArtisanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_MASTER && enableMasterProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_GRAND_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_GRAND_MASTER && enableGrandMasterProfession)))
+            return true;
+
+        return false;
+    }
+
+    int getProfessionCost(Player* player, uint32 skill)
+    {
+        int cost = 0;
+
+        if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_APPRENTICE)
+        {
+            cost = costApprenticeProfession;
+        }
+        else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_JOURNEYMAN)
+        {
+            cost = costJourneymanProfession;
+        }
+        else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_EXPERT)
+        {
+            cost = costExpertProfession;
+        }
+        else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_ARTISAN)
+        {
+            cost = costArtisanProfession;
+        }
+        else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_MASTER)
+        {
+            cost = costMasterProfession;
+        }
+        else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_GRAND_MASTER)
+        {
+            cost = costGrandMasterProfession;
+        }
+
+        return cost * 10000;
     }
 };
 
