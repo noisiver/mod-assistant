@@ -33,8 +33,6 @@ Assistant.Utilities.FactionChange = 1000
 
 ### PROFESSIONS ###
 # Increase profession skills by spending gold
-Assistant.Professions = 0
-
 # Enable specific ranks
 Assistant.Professions.Apprentice.Enabled = 1
 Assistant.Professions.Journeyman.Enabled = 1

@@ -49,7 +49,6 @@ uint32 costRaceChange;
 uint32 costFactionChange;
 
 // Professions
-bool enableProfessions;
 bool enableApprenticeProfession;
 bool enableJourneymanProfession;
 bool enableExpertProfession;
@@ -87,7 +86,7 @@ public:
         if (enableUtilities)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-        if (enableProfessions && hasValidProfession(player))
+        if (hasValidProfession(player))
                 AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want help with my professions", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
 
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
@@ -678,7 +677,6 @@ public:
         costFactionChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.FactionChange", 1000) * 10000;
 
         // Professions
-        enableProfessions = sConfigMgr->GetOption<bool>("Assistant.Professions", 0);
         enableApprenticeProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Apprentice.Enabled", 1);
         enableJourneymanProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Journeyman.Enabled", 1);
         enableExpertProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Expert.Enabled", 1);
