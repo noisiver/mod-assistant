@@ -36,31 +36,31 @@ enum Profession
 };
 
 // Vendors
-bool enableHeirlooms;
-bool enableGlyphs;
-bool enableGems;
-bool enableContainers;
+bool aEnableHeirlooms;
+bool aEnableGlyphs;
+bool aEnableGems;
+bool aEnableContainers;
 
 // Utilities
-bool enableUtilities;
-uint32 costNameChange;
-uint32 costCustomization;
-uint32 costRaceChange;
-uint32 costFactionChange;
+bool aEnableUtilities;
+uint32 aCostNameChange;
+uint32 aCostCustomization;
+uint32 aCostRaceChange;
+uint32 aCostFactionChange;
 
 // Professions
-bool enableApprenticeProfession;
-bool enableJourneymanProfession;
-bool enableExpertProfession;
-bool enableArtisanProfession;
-bool enableMasterProfession;
-bool enableGrandMasterProfession;
-uint32 costApprenticeProfession;
-uint32 costJourneymanProfession;
-uint32 costExpertProfession;
-uint32 costArtisanProfession;
-uint32 costMasterProfession;
-uint32 costGrandMasterProfession;
+bool aEnableApprenticeProfession;
+bool aEnableJourneymanProfession;
+bool aEnableExpertProfession;
+bool aEnableArtisanProfession;
+bool aEnableMasterProfession;
+bool aEnableGrandMasterProfession;
+uint32 aCostApprenticeProfession;
+uint32 aCostJourneymanProfession;
+uint32 aCostExpertProfession;
+uint32 aCostArtisanProfession;
+uint32 aCostMasterProfession;
+uint32 aCostGrandMasterProfession;
 
 class Assistant : public CreatureScript
 {
@@ -71,19 +71,19 @@ public:
     {
         ClearGossipMenuFor(player);
 
-        if (enableHeirlooms)
+        if (aEnableHeirlooms)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
 
-        if (enableGlyphs)
+        if (aEnableGlyphs)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
 
-        if (enableGems)
+        if (aEnableGems)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
 
-        if (enableContainers)
+        if (aEnableContainers)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
 
-        if (enableUtilities)
+        if (aEnableUtilities)
             AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
         if (hasValidProfession(player))
@@ -251,10 +251,10 @@ public:
         else if (action == ASSISTANT_GOSSIP_UTILITIES)
         {
             ClearGossipMenuFor(player);
-            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my name", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 1, "Do you wish to continue the transaction?", costNameChange, false);
-            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my appearance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 2, "Do you wish to continue the transaction?", costCustomization, false);
-            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my race", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 3, "Do you wish to continue the transaction?", costRaceChange, false);
-            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my faction", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 4, "Do you wish to continue the transaction?", costFactionChange, false);
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my name", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 1, "Do you wish to continue the transaction?", aCostNameChange, false);
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my appearance", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 2, "Do you wish to continue the transaction?", aCostCustomization, false);
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my race", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 3, "Do you wish to continue the transaction?", aCostRaceChange, false);
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "I want to change my faction", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 4, "Do you wish to continue the transaction?", aCostFactionChange, false);
             AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
             SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
         }
@@ -267,7 +267,7 @@ public:
             }
             else
             {
-                player->ModifyMoney(-costNameChange);
+                player->ModifyMoney(-aCostNameChange);
                 player->SetAtLoginFlag(AT_LOGIN_RENAME);
                 ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the name change.");
                 CloseGossipMenuFor(player);
@@ -282,7 +282,7 @@ public:
             }
             else
             {
-                player->ModifyMoney(-costCustomization);
+                player->ModifyMoney(-aCostCustomization);
                 player->SetAtLoginFlag(AT_LOGIN_CUSTOMIZE);
                 ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the customization.");
                 CloseGossipMenuFor(player);
@@ -297,7 +297,7 @@ public:
             }
             else
             {
-                player->ModifyMoney(-costRaceChange);
+                player->ModifyMoney(-aCostRaceChange);
                 player->SetAtLoginFlag(AT_LOGIN_CHANGE_RACE);
                 ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the race change.");
                 CloseGossipMenuFor(player);
@@ -312,7 +312,7 @@ public:
             }
             else
             {
-                player->ModifyMoney(-costFactionChange);
+                player->ModifyMoney(-aCostFactionChange);
                 player->SetAtLoginFlag(AT_LOGIN_CHANGE_FACTION);
                 ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to apply the faction change.");
                 CloseGossipMenuFor(player);
@@ -606,7 +606,7 @@ private:
 
     bool hasValidProfession(Player* player)
     {
-        if (enableApprenticeProfession || enableJourneymanProfession || enableExpertProfession || enableArtisanProfession || enableMasterProfession || enableGrandMasterProfession)
+        if (aEnableApprenticeProfession || aEnableJourneymanProfession || aEnableExpertProfession || aEnableArtisanProfession || aEnableMasterProfession || aEnableGrandMasterProfession)
         {
             if (isValidProfession(player, SKILL_FIRST_AID) || isValidProfession(player, SKILL_BLACKSMITHING) || isValidProfession(player, SKILL_LEATHERWORKING) || isValidProfession(player, SKILL_ALCHEMY) || isValidProfession(player, SKILL_HERBALISM) || isValidProfession(player, SKILL_COOKING) || isValidProfession(player, SKILL_MINING) || isValidProfession(player, SKILL_TAILORING) || isValidProfession(player, SKILL_ENGINEERING) || isValidProfession(player, SKILL_ENCHANTING) || isValidProfession(player, SKILL_FISHING) || isValidProfession(player, SKILL_SKINNING) || isValidProfession(player, SKILL_INSCRIPTION) || isValidProfession(player, SKILL_JEWELCRAFTING))
                 return true;
@@ -617,7 +617,7 @@ private:
 
     bool isValidProfession(Player* player, uint32 skillId)
     {
-        if (player->HasSkill(skillId) && ((player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_APPRENTICE && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_APPRENTICE && enableApprenticeProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_JOURNEYMAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_JOURNEYMAN && enableJourneymanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_EXPERT && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_EXPERT && enableExpertProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_ARTISAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_ARTISAN && enableArtisanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_MASTER && enableMasterProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_GRAND_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_GRAND_MASTER && enableGrandMasterProfession)))
+        if (player->HasSkill(skillId) && ((player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_APPRENTICE && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_APPRENTICE && aEnableApprenticeProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_JOURNEYMAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_JOURNEYMAN && aEnableJourneymanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_EXPERT && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_EXPERT && aEnableExpertProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_ARTISAN && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_ARTISAN && aEnableArtisanProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_MASTER && aEnableMasterProfession) || (player->GetPureSkillValue(skillId) < PROFESSION_LEVEL_GRAND_MASTER && player->GetPureMaxSkillValue(skillId) == PROFESSION_LEVEL_GRAND_MASTER && aEnableGrandMasterProfession)))
             return true;
 
         return false;
@@ -629,27 +629,27 @@ private:
 
         if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_APPRENTICE)
         {
-            cost = costApprenticeProfession;
+            cost = aCostApprenticeProfession;
         }
         else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_JOURNEYMAN)
         {
-            cost = costJourneymanProfession;
+            cost = aCostJourneymanProfession;
         }
         else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_EXPERT)
         {
-            cost = costExpertProfession;
+            cost = aCostExpertProfession;
         }
         else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_ARTISAN)
         {
-            cost = costArtisanProfession;
+            cost = aCostArtisanProfession;
         }
         else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_MASTER)
         {
-            cost = costMasterProfession;
+            cost = aCostMasterProfession;
         }
         else if (player->GetPureMaxSkillValue(skill) == PROFESSION_LEVEL_GRAND_MASTER)
         {
-            cost = costGrandMasterProfession;
+            cost = aCostGrandMasterProfession;
         }
 
         return cost * 10000;
@@ -664,31 +664,31 @@ public:
     void OnAfterConfigLoad(bool /*reload*/) override
     {
         // Vendors
-        enableHeirlooms = sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 1);
-        enableGlyphs = sConfigMgr->GetOption<bool>("Assistant.Glyphs", 1);
-        enableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 1);
-        enableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 1);
+        aEnableHeirlooms = sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 1);
+        aEnableGlyphs = sConfigMgr->GetOption<bool>("Assistant.Glyphs", 1);
+        aEnableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 1);
+        aEnableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 1);
 
         // Utilities
-        enableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 1);
-        costNameChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.NameChange", 10) * 10000;
-        costCustomization = sConfigMgr->GetOption<uint32>("Assistant.Utilities.Customization", 50) * 10000;
-        costRaceChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.RaceChange", 500) * 10000;
-        costFactionChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.FactionChange", 1000) * 10000;
+        aEnableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 1);
+        aCostNameChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.NameChange", 10) * 10000;
+        aCostCustomization = sConfigMgr->GetOption<uint32>("Assistant.Utilities.Customization", 50) * 10000;
+        aCostRaceChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.RaceChange", 500) * 10000;
+        aCostFactionChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.FactionChange", 1000) * 10000;
 
         // Professions
-        enableApprenticeProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Apprentice.Enabled", 1);
-        enableJourneymanProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Journeyman.Enabled", 1);
-        enableExpertProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Expert.Enabled", 1);
-        enableArtisanProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Artisan.Enabled", 1);
-        enableMasterProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Master.Enabled", 0);
-        enableGrandMasterProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.GrandMaster.Enabled", 0);
-        costApprenticeProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Apprentice.Cost", 100);
-        costJourneymanProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Journeyman.Cost", 250);
-        costExpertProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Expert.Cost", 500);
-        costArtisanProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Artisan.Cost", 750);
-        costMasterProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Master.Cost", 1250);
-        costGrandMasterProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.GrandMaster.Cost", 2500);
+        aEnableApprenticeProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Apprentice.Enabled", 1);
+        aEnableJourneymanProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Journeyman.Enabled", 1);
+        aEnableExpertProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Expert.Enabled", 1);
+        aEnableArtisanProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Artisan.Enabled", 1);
+        aEnableMasterProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.Master.Enabled", 0);
+        aEnableGrandMasterProfession = sConfigMgr->GetOption<bool>("Assistant.Professions.GrandMaster.Enabled", 0);
+        aCostApprenticeProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Apprentice.Cost", 100);
+        aCostJourneymanProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Journeyman.Cost", 250);
+        aCostExpertProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Expert.Cost", 500);
+        aCostArtisanProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Artisan.Cost", 750);
+        aCostMasterProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.Master.Cost", 1250);
+        aCostGrandMasterProfession = sConfigMgr->GetOption<uint32>("Assistant.Professions.GrandMaster.Cost", 2500);
     }
 };
 
