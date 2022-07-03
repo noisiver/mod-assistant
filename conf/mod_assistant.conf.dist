@@ -2,21 +2,21 @@
 
 ### VENDORS ###
 # Obtain heirlooms from the assistant npc
-Assistant.Heirlooms = 0
+Assistant.Heirlooms = 1
 
 # Obtain glyphs from the assistant npc
-Assistant.Glyphs = 0
+Assistant.Glyphs = 1
 
 # Obtain gems from the assistant npc
-Assistant.Gems = 0
+Assistant.Gems = 1
 
 # Obtain containers from the assistant npc
-Assistant.Containers = 0
+Assistant.Containers = 1
 ###
 
 ### UTILTIIES ###
 # Obtain utilties from the assistant npc
-Assistant.Utilities = 0
+Assistant.Utilities = 1
 
 # The amount of gold required to perform a name change
 Assistant.Utilities.NameChange = 10

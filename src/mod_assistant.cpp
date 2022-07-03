@@ -664,13 +664,13 @@ public:
     void OnAfterConfigLoad(bool /*reload*/) override
     {
         // Vendors
-        enableHeirlooms = sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 0);
-        enableGlyphs = sConfigMgr->GetOption<bool>("Assistant.Glyphs", 0);
-        enableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 0);
-        enableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 0);
+        enableHeirlooms = sConfigMgr->GetOption<bool>("Assistant.Heirlooms", 1);
+        enableGlyphs = sConfigMgr->GetOption<bool>("Assistant.Glyphs", 1);
+        enableGems = sConfigMgr->GetOption<bool>("Assistant.Gems", 1);
+        enableContainers = sConfigMgr->GetOption<bool>("Assistant.Containers", 1);
 
         // Utilities
-        enableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 0);
+        enableUtilities = sConfigMgr->GetOption<bool>("Assistant.Utilities", 1);
         costNameChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.NameChange", 10) * 10000;
         costCustomization = sConfigMgr->GetOption<uint32>("Assistant.Utilities.Customization", 50) * 10000;
         costRaceChange = sConfigMgr->GetOption<uint32>("Assistant.Utilities.RaceChange", 500) * 10000;
