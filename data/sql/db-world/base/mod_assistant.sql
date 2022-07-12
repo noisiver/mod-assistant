@@ -325,7 +325,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+10, 45739);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+10, 45740);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+10, 50045);
 -- Glyph: Warlock (Major)
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (42453, 42454, 42455, 42456, 42457, 42458, 42459, 42460, 42461, 42462, 42463, 42464, 42465, 42466, 42467, 42468, 42469, 42470, 42471, 42473, 42742, 45779, 45780, 45781, 45782, 45783, 45785, 45789, 50077);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (42453, 42454, 42455, 42456, 42457, 42458, 42459, 42460, 42461, 42462, 42463, 42464, 42465, 42466, 42467, 42468, 42469, 42470, 42471, 42473, 45779, 45780, 45781, 45782, 45783, 45785, 45789, 50077);
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry+11;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42453);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42454);
@@ -347,7 +347,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42469);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42470);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42471);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42473);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 42742);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 45779);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 45780);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+11, 45781);
