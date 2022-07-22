@@ -31,6 +31,7 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry, 1, -1271.36, 132.402, 132.023, 4.57086); -- Thunder Bluff
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry, 0, 1555.03, 246.513, -43.1027, 0.073205); -- Undercity
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry, 530, 9469.83, -7294.44, 14.3078, 0.105431); -- Silvermoon City
+INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry, 530, -1832.44, 5389.19, -12.4279, 2.3428); -- Shattrath
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES (@Entry, 571, 5792.65, 636.492, 647.39, 0.00637221); -- Dalaran
 
 -- Heirloom: Weapon
