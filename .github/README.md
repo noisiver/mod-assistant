@@ -1,5 +1,5 @@
 # Assistant
-This is a module for [AzerothCore](https://github.com/azerothcore/azerothcore-wotlk).
+[![core-build](https://github.com/tkn963/mod-assistant/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/tkn963/mod-assistant/actions?query=workflow%3Acore-build+branch%3Amaster+event%3Apush)
 
 # Features
 The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, utilities like faction change and race change. The player can also spend gold in order to increase their profession skills. It will be set to the current max value each time the feature is used.
