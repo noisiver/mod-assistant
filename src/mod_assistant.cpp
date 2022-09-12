@@ -419,7 +419,6 @@ public:
             player->SetSkill(SKILL_FIRST_AID, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 2)
@@ -432,7 +431,6 @@ public:
             player->SetSkill(SKILL_BLACKSMITHING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 3)
@@ -445,7 +443,6 @@ public:
             player->SetSkill(SKILL_LEATHERWORKING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 4)
@@ -458,7 +455,6 @@ public:
             player->SetSkill(SKILL_ALCHEMY, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 5)
@@ -471,7 +467,6 @@ public:
             player->SetSkill(SKILL_HERBALISM, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 6)
@@ -484,7 +479,6 @@ public:
             player->SetSkill(SKILL_COOKING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 7)
@@ -497,7 +491,6 @@ public:
             player->SetSkill(SKILL_MINING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 8)
@@ -510,7 +503,6 @@ public:
             player->SetSkill(SKILL_TAILORING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 9)
@@ -523,7 +515,6 @@ public:
             player->SetSkill(SKILL_ENGINEERING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 10)
@@ -536,7 +527,6 @@ public:
             player->SetSkill(SKILL_ENCHANTING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 11)
@@ -549,7 +539,6 @@ public:
             player->SetSkill(SKILL_FISHING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 12)
@@ -562,7 +551,6 @@ public:
             player->SetSkill(SKILL_SKINNING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 13)
@@ -575,7 +563,6 @@ public:
             player->SetSkill(SKILL_INSCRIPTION, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
         else if (action == ASSISTANT_GOSSIP_PROFESSIONS + 14)
@@ -588,7 +575,6 @@ public:
             player->SetSkill(SKILL_JEWELCRAFTING, 0, maxSkillValue, maxSkillValue);
             player->ModifyMoney(-professionCost);
 
-            //OnGossipHello(player, creature);
             OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
         }
 
@@ -607,10 +593,8 @@ private:
     bool hasValidProfession(Player* player)
     {
         if (aEnableApprenticeProfession || aEnableJourneymanProfession || aEnableExpertProfession || aEnableArtisanProfession || aEnableMasterProfession || aEnableGrandMasterProfession)
-        {
             if (isValidProfession(player, SKILL_FIRST_AID) || isValidProfession(player, SKILL_BLACKSMITHING) || isValidProfession(player, SKILL_LEATHERWORKING) || isValidProfession(player, SKILL_ALCHEMY) || isValidProfession(player, SKILL_HERBALISM) || isValidProfession(player, SKILL_COOKING) || isValidProfession(player, SKILL_MINING) || isValidProfession(player, SKILL_TAILORING) || isValidProfession(player, SKILL_ENGINEERING) || isValidProfession(player, SKILL_ENCHANTING) || isValidProfession(player, SKILL_FISHING) || isValidProfession(player, SKILL_SKINNING) || isValidProfession(player, SKILL_INSCRIPTION) || isValidProfession(player, SKILL_JEWELCRAFTING))
                 return true;
-        }
 
         return false;
     }
