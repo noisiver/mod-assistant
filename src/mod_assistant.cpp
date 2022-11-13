@@ -72,22 +72,22 @@ public:
         ClearGossipMenuFor(player);
 
         if (aEnableHeirlooms)
-            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
 
         if (aEnableGlyphs)
-            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
 
         if (aEnableGems)
-            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
 
         if (aEnableContainers)
-            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
 
         if (aEnableUtilities)
-            AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
         if (hasValidProfession(player))
-                AddGossipItemFor(player, GOSSIP_ICON_TALK, "I want help with my professions", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want help with my professions", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
 
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
         return true;
