@@ -49,3 +49,21 @@ Assistant.Professions.Artisan.Cost = 750
 Assistant.Professions.Master.Cost = 1250
 Assistant.Professions.GrandMaster.Cost = 2500
 ###
+
+### FLIGHT PATHS ###
+# Unlock flight paths based on the players level
+# Enable specific continents
+Assistant.FlightPaths.Vanilla.Enabled = 1
+Assistant.FlightPaths.BurningCrusade.Enabled = 1
+Assistant.FlightPaths.WrathOfTheLichKing.Enabled = 0
+
+# The level required to unlock flight paths of a continent
+Assistant.FlightPaths.Vanilla.RequiredLevel = 60
+Assistant.FlightPaths.BurningCrusade.RequiredLevel = 70
+Assistant.FlightPaths.WrathOfTheLichKing.RequiredLevel = 80
+
+# The gold required to unlock flight paths of a continent
+Assistant.FlightPaths.Vanilla.Cost = 25
+Assistant.FlightPaths.BurningCrusade.Cost = 100
+Assistant.FlightPaths.WrathOfTheLichKing.Cost = 250
+###
