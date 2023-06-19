@@ -1,69 +1,71 @@
 [worldserver]
 
-### VENDORS ###
-# Obtain heirlooms from the assistant npc
-Assistant.Heirlooms = 1
+#################################
+#
+# Enable different items to be purchased
+# Heirlooms include armor pieces, weapons and tome of cold weather flight
+# Glyphs include every major and minor glyph for all classes
+# Gems include all glyphs relevant for level 80 classes
+# Containers include the lowest amount of slot bags by default
+#
 
-# Obtain glyphs from the assistant npc
-Assistant.Glyphs = 1
+Assistant.Heirlooms.Enabled  = 1
+Assistant.Glyphs.Enabled     = 1
+Assistant.Gems.Enabled       = 1
+Assistant.Containers.Enabled = 1
 
-# Obtain gems from the assistant npc
-Assistant.Gems = 1
+#################################
 
-# Obtain containers from the assistant npc
-Assistant.Containers = 1
-###
+#################################
+#
+# Enable utility features
+# This includes name change, character customization, race change and faction change
+# The cost is set in copper
+#
 
-### UTILTIIES ###
-# Obtain utilties from the assistant npc
-Assistant.Utilities = 1
+Assistant.Utilities.Enabled            = 1
+Assistant.Utilities.NameChange.Cost    = 100000
+Assistant.Utilities.Customize.Cost     = 500000
+Assistant.Utilities.RaceChange.Cost    = 5000000
+Assistant.Utilities.FactionChange.Cost = 10000000
 
-# The amount of gold required to perform a name change
-Assistant.Utilities.NameChange = 10
+#################################
 
-# The amount of gold required to perform a change in appearance
-Assistant.Utilities.Customization = 50
-
-# The amount of gold required to perform a race change
-Assistant.Utilities.RaceChange = 500
-
-# The amount of gold required to perform a faction change
-Assistant.Utilities.FactionChange = 1000
-###
-
-### PROFESSIONS ###
+#################################
+#
 # Increase profession skills by spending gold
-# Enable specific ranks
-Assistant.Professions.Apprentice.Enabled = 1
-Assistant.Professions.Journeyman.Enabled = 1
-Assistant.Professions.Expert.Enabled = 1
-Assistant.Professions.Artisan.Enabled = 1
-Assistant.Professions.Master.Enabled = 0
+# The cost is set in copper
+#
+
+Assistant.Professions.Apprentice.Enabled  = 1
+Assistant.Professions.Apprentice.Cost     = 1000000
+Assistant.Professions.Journeyman.Enabled  = 1
+Assistant.Professions.Journeyman.Cost     = 2500000
+Assistant.Professions.Expert.Enabled      = 1
+Assistant.Professions.Expert.Cost         = 5000000
+Assistant.Professions.Artisan.Enabled     = 1
+Assistant.Professions.Artisan.Cost        = 7500000
+Assistant.Professions.Master.Enabled      = 0
+Assistant.Professions.Master.Cost         = 12500000
 Assistant.Professions.GrandMaster.Enabled = 0
+Assistant.Professions.GrandMaster.Cost    = 25000000
 
-# The gold required for each rank
-Assistant.Professions.Apprentice.Cost = 100
-Assistant.Professions.Journeyman.Cost = 250
-Assistant.Professions.Expert.Cost = 500
-Assistant.Professions.Artisan.Cost = 750
-Assistant.Professions.Master.Cost = 1250
-Assistant.Professions.GrandMaster.Cost = 2500
-###
+#################################
 
-### FLIGHT PATHS ###
+#################################
+#
 # Unlock flight paths based on the players level
-# Enable specific continents
-Assistant.FlightPaths.Vanilla.Enabled = 1
-Assistant.FlightPaths.BurningCrusade.Enabled = 1
-Assistant.FlightPaths.WrathOfTheLichKing.Enabled = 0
+# The cost is set in copper
+#
 
-# The level required to unlock flight paths of a continent
-Assistant.FlightPaths.Vanilla.RequiredLevel = 60
-Assistant.FlightPaths.BurningCrusade.RequiredLevel = 70
+Assistant.FlightPaths.Vanilla.Enabled                  = 1
+Assistant.FlightPaths.Vanilla.RequiredLevel            = 60
+Assistant.FlightPaths.Vanilla.Cost                     = 250000
+Assistant.FlightPaths.BurningCrusade.Enabled           = 1
+Assistant.FlightPaths.BurningCrusade.RequiredLevel     = 70
+Assistant.FlightPaths.BurningCrusade.Cost              = 1000000
+Assistant.FlightPaths.WrathOfTheLichKing.Enabled       = 0
 Assistant.FlightPaths.WrathOfTheLichKing.RequiredLevel = 80
+Assistant.FlightPaths.WrathOfTheLichKing.Cost          = 2500000
 
-# The gold required to unlock flight paths of a continent
-Assistant.FlightPaths.Vanilla.Cost = 25
-Assistant.FlightPaths.BurningCrusade.Cost = 100
-Assistant.FlightPaths.WrathOfTheLichKing.Cost = 250
-###
+#################################
