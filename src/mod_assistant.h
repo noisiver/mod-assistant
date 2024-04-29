@@ -17,6 +17,7 @@ enum GossipId
     ASSISTANT_GOSSIP_FLIGHT_PATHS    = 600,
     ASSISTANT_GOSSIP_UTILITIES       = 700,
     ASSISTANT_GOSSIP_PROFESSIONS     = 800,
+    ASSISTANT_GOSSIP_PORTALS         = 900,
 };
 
 enum VendorId
@@ -73,6 +74,11 @@ private:
 
     uint32 GetGlyphId(uint32 /*id*/, bool /*major*/);
 
+    // Portals
+    bool PortalsEnabled;
+    uint32 PortalCost;
+    std::vector<uint32> HordePortals {11417, 11418, 11420, 32267, 33691, 49361, 53142};
+
     // Utilities
     bool UtilitiesEnabled;
     uint32 NameChangeCost;
@@ -112,6 +118,8 @@ private:
     bool HasValidProfession(Player* /*player*/);
     bool IsValidProfession(Player* /*player*/, uint32 /*id*/);
     uint32 GetProfessionCost(Player* /*player*/, uint32 /*id*/);
+
+
 };
 
 #endif

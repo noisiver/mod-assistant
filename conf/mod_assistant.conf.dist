@@ -18,6 +18,16 @@ Assistant.Containers.Enabled = 1
 
 #################################
 #
+# Enable portal training
+# Allows non-mage characters to learn portals to major cities
+# The cost is set in copper (default: 100000)
+#
+
+Assistant.Portals.Enabled = 1
+Assistant.Portals.Cost    = 100000
+
+#################################
+#
 # Enable utility features
 # This includes name change, character customization, race change and faction change
 # The cost is set in copper

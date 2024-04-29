@@ -8,6 +8,10 @@ void Assistant::OnAfterConfigLoad(bool /*reload*/)
     GemsEnabled = sConfigMgr->GetOption<bool>("Assistant.Gems.Enabled", 1);
     ContainersEnabled = sConfigMgr->GetOption<bool>("Assistant.Containers.Enabled", 1);
 
+    // Portals
+    PortalsEnabled = sConfigMgr->GetOption<bool>("Assistant.Portals.Enabled", 1);
+    PortalCost = sConfigMgr->GetOption<uint32>("Assistant.Portals.Cost", 100000);
+
     // Utilities
     UtilitiesEnabled = sConfigMgr->GetOption<bool>("Assistant.Utilities.Enabled", 1);
     NameChangeCost = sConfigMgr->GetOption<uint32>("Assistant.Utilities.NameChange.Cost", 100000);
