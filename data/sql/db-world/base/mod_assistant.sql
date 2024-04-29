@@ -617,10 +617,11 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40162);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+29, 40163);
 
 -- Container
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243, 51809);
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 DELETE FROM `npc_vendor` WHERE `entry`=@Entry+30;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 1729);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 3604);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 3605);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 22243);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (@Entry+30, 51809);
