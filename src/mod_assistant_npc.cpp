@@ -19,7 +19,7 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
     if (UtilitiesEnabled)
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
 
-    if (PortalsEnabled)
+    if (CanBuyPortals(player))
         AddGossipItemFor(player, GOSSIP_ICON_TAXI, "I want to be a mage!", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PORTALS, "Do you wish to continue?", PortalCost, false);
 
     if (CanUnlockFlightPaths(player))
@@ -316,16 +316,16 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
     }
     else if (action == ASSISTANT_GOSSIP_PORTALS) {
-        std::vector<uint32> portals;
-        if (player->GetTeamId() == TEAM_HORDE) {
-            portals = HordePortals;
-        }
+        std::vector<uint32> portals = player->GetTeamId() == TEAM_HORDE ? HordePortals : AlliancePortals;
+        portals.insert(portals.end(), NeutralPortals.begin(), NeutralPortals.end());
 
         for(const uint32 p : portals) {
             player->learnSpell(p);
         }
 
-        player->ModifyMoney(-PortalCost);
+        if (player->HasEnoughMoney(PortalCost)) {
+            player->ModifyMoney(-PortalCost);
+        }
     }
 
     return true;

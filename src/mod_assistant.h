@@ -77,7 +77,18 @@ private:
     // Portals
     bool PortalsEnabled;
     uint32 PortalCost;
-    std::vector<uint32> HordePortals {11417, 11418, 11420, 32267, 33691, 49361, 53142};
+    bool CanBuyPortals(Player* player) const;
+
+    static std::vector<uint32> ParsePortalIds(const std::string &configStr);
+    std::string HordePortalIdConfig;
+    std::string AlliancePortalIdConfig;
+    std::string NeutralPortalIdConfig;
+    void ConfigurePortals();
+
+    std::vector<uint32> HordePortals {};
+    std::vector<uint32> AlliancePortals {};
+    std::vector<uint32> NeutralPortals {};
+
 
     // Utilities
     bool UtilitiesEnabled;
@@ -118,8 +129,6 @@ private:
     bool HasValidProfession(Player* /*player*/);
     bool IsValidProfession(Player* /*player*/, uint32 /*id*/);
     uint32 GetProfessionCost(Player* /*player*/, uint32 /*id*/);
-
-
 };
 
 #endif
