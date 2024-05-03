@@ -319,11 +319,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         std::vector<uint32> portals = player->GetTeamId() == TEAM_HORDE ? HordePortals : AlliancePortals;
         portals.insert(portals.end(), NeutralPortals.begin(), NeutralPortals.end());
 
-        for(const uint32 p : portals) {
-            player->learnSpell(p);
-        }
-
         if (player->HasEnoughMoney(PortalCost)) {
+            for(const uint32 p : portals) {
+                player->learnSpell(p);
+            }
             player->ModifyMoney(-PortalCost);
         }
     }
