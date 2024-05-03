@@ -18,6 +18,25 @@ Assistant.Containers.Enabled = 1
 
 #################################
 #
+# Enable portal training
+# Allows Any character to learn portals to major cities
+#
+# Defaults:
+# Assistant.Portals.Enabled    = 1
+# Assistant.Portals.Cost       = 100000
+# Assistant.Portals.Horde      = "11417,11418,11420,32267,49361"
+# Assistant.Portals.Alliance   = "10059,11416,11419,32266,49360"
+# Assistant.Portals.Neutral    = "33691,53142"
+#
+
+Assistant.Portals.Enabled    = 1
+Assistant.Portals.Cost       = 100000
+Assistant.Portals.Horde      = "11417,11418,11420,32267,49361"
+Assistant.Portals.Alliance   = "10059,11416,11419,32266,49360"
+Assistant.Portals.Neutral    = "33691,53142"
+
+#################################
+#
 # Enable utility features
 # This includes name change, character customization, race change and faction change
 # The cost is set in copper

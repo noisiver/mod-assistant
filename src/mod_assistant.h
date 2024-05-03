@@ -17,6 +17,7 @@ enum GossipId
     ASSISTANT_GOSSIP_FLIGHT_PATHS    = 600,
     ASSISTANT_GOSSIP_UTILITIES       = 700,
     ASSISTANT_GOSSIP_PROFESSIONS     = 800,
+    ASSISTANT_GOSSIP_PORTALS         = 900,
 };
 
 enum VendorId
@@ -72,6 +73,22 @@ private:
     bool ContainersEnabled;
 
     uint32 GetGlyphId(uint32 /*id*/, bool /*major*/);
+
+    // Portals
+    bool PortalsEnabled;
+    uint32 PortalCost;
+    bool CanBuyPortals(Player* player) const;
+
+    static std::vector<uint32> ParsePortalIds(const std::string &configStr);
+    std::string HordePortalIdConfig;
+    std::string AlliancePortalIdConfig;
+    std::string NeutralPortalIdConfig;
+    void ConfigurePortals();
+
+    std::vector<uint32> HordePortals {};
+    std::vector<uint32> AlliancePortals {};
+    std::vector<uint32> NeutralPortals {};
+
 
     // Utilities
     bool UtilitiesEnabled;
