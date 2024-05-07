@@ -8,7 +8,9 @@ uint32 Assistant::GetGlyphId(uint32 id, bool major)
 bool Assistant::HasLoginFlag(Player* player)
 {
     if (player->HasAtLoginFlag(AT_LOGIN_RENAME) || player->HasAtLoginFlag(AT_LOGIN_CUSTOMIZE) || player->HasAtLoginFlag(AT_LOGIN_CHANGE_RACE) || player->HasAtLoginFlag(AT_LOGIN_CHANGE_FACTION))
+    {
         return true;
+    }
 
     return false;
 }
@@ -29,7 +31,9 @@ void Assistant::SetLoginFlag(Player* player, AtLoginFlags flag, uint32 cost)
 bool Assistant::CanUnlockFlightPaths(Player* player)
 {
     if ((FlightPathsEnabled[EXPANSION_CLASSIC] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_CLASSIC] && HasAvailableFlightPaths(player, EXPANSION_CLASSIC)) || (FlightPathsEnabled[EXPANSION_THE_BURNING_CRUSADE] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_THE_BURNING_CRUSADE] && HasAvailableFlightPaths(player, EXPANSION_THE_BURNING_CRUSADE)) || (FlightPathsEnabled[EXPANSION_WRATH_OF_THE_LICH_KING] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_WRATH_OF_THE_LICH_KING] && HasAvailableFlightPaths(player, EXPANSION_WRATH_OF_THE_LICH_KING)))
+    {
         return true;
+    }
 
     return false;
 }
@@ -229,11 +233,17 @@ bool Assistant::HasAvailableFlightPaths(Player* player, uint8 expansion)
     std::vector<int> flightpaths = GetAvailableFlightPaths(player, expansion);
 
     if (flightpaths.empty())
+    {
         return false;
+    }
 
     for (auto& flightpath : flightpaths)
+    {
         if (!player->m_taxi.IsTaximaskNodeKnown(flightpath))
+        {
             return true;
+        }
+    }
 
     return false;
 }
@@ -245,10 +255,14 @@ void Assistant::UnlockFlightPaths(Player* player, uint8 expansion)
     std::vector<int> flightpaths = GetAvailableFlightPaths(player, expansion);
 
     if (flightpaths.empty())
+    {
         return;
+    }
 
     for (auto& flightpath : flightpaths)
+    {
         player->GetSession()->SendDiscoverNewTaxiNode(flightpath);
+    }
 
     player->ModifyMoney(-cost);
 }
@@ -336,7 +350,9 @@ void Assistant::SetProfession(Player* player, uint32 id)
 bool Assistant::HasValidProfession(Player* player)
 {
     if (IsValidProfession(player, SKILL_FIRST_AID) || IsValidProfession(player, SKILL_BLACKSMITHING) || IsValidProfession(player, SKILL_LEATHERWORKING) || IsValidProfession(player, SKILL_ALCHEMY) || IsValidProfession(player, SKILL_HERBALISM) || IsValidProfession(player, SKILL_COOKING) || IsValidProfession(player, SKILL_MINING) || IsValidProfession(player, SKILL_TAILORING) || IsValidProfession(player, SKILL_ENGINEERING) || IsValidProfession(player, SKILL_ENCHANTING) || IsValidProfession(player, SKILL_FISHING) || IsValidProfession(player, SKILL_SKINNING) || IsValidProfession(player, SKILL_INSCRIPTION) || IsValidProfession(player, SKILL_JEWELCRAFTING))
+    {
         return true;
+    }
 
     return false;
 }
@@ -344,7 +360,9 @@ bool Assistant::HasValidProfession(Player* player)
 bool Assistant::IsValidProfession(Player* player, uint32 id)
 {
     if (player->HasSkill(id) && ((player->GetPureSkillValue(id) < PROFESSION_LEVEL_APPRENTICE && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_APPRENTICE && ApprenticeProfessionEnabled) || (player->GetPureSkillValue(id) < PROFESSION_LEVEL_JOURNEYMAN && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_JOURNEYMAN && JourneymanProfessionEnabled) || (player->GetPureSkillValue(id) < PROFESSION_LEVEL_EXPERT && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_EXPERT && ExpertProfessionEnabled) || (player->GetPureSkillValue(id) < PROFESSION_LEVEL_ARTISAN && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_ARTISAN && ArtisanProfessionEnabled) || (player->GetPureSkillValue(id) < PROFESSION_LEVEL_MASTER && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_MASTER && MasterProfessionEnabled) || (player->GetPureSkillValue(id) < PROFESSION_LEVEL_GRAND_MASTER && player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_GRAND_MASTER && GrandMasterProfessionEnabled)))
+    {
         return true;
+    }
 
     return false;
 }
@@ -352,17 +370,29 @@ bool Assistant::IsValidProfession(Player* player, uint32 id)
 uint32 Assistant::GetProfessionCost(Player* player, uint32 id)
 {
     if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_APPRENTICE)
+    {
         return ApprenticeProfessionCost;
+    }
     else if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_JOURNEYMAN)
+    {
         return JourneymanProfessionCost;
+    }
     else if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_EXPERT)
+    {
         return ExpertProfessionCost;
+    }
     else if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_ARTISAN)
+    {
         return ArtisanProfessionCost;
+    }
     else if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_MASTER)
+    {
         return MasterProfessionCost;
+    }
     else if (player->GetPureMaxSkillValue(id) == PROFESSION_LEVEL_GRAND_MASTER)
+    {
         return GrandMasterProfessionCost;
+    }
 
     return 0;
 }

@@ -5,25 +5,39 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
     ClearGossipMenuFor(player);
 
     if (HeirloomsEnabled)
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want heirlooms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
+    }
 
     if (GlyphsEnabled)
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want glyphs", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
+    }
 
     if (GemsEnabled)
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want gems", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
+    }
 
     if (ContainersEnabled)
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want containers", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
+    }
 
     if (UtilitiesEnabled)
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want utilities", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+    }
 
     if (CanUnlockFlightPaths(player))
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want to unlock flight paths", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS);
+    }
 
     if (HasValidProfession(player))
+    {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "I want help with my professions", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
+    }
 
     SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     return true;
@@ -32,7 +46,9 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
 bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action)
 {
     if (sender != GOSSIP_SENDER_MAIN)
+    {
         return false;
+    }
 
     if (action == 1)
     {
@@ -79,7 +95,9 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         bool major = true;
 
         if (action == ASSISTANT_GOSSIP_GLYPH + 2)
+        {
             major = false;
+        }
 
         uint32 id = 0;
 
@@ -212,13 +230,19 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         ClearGossipMenuFor(player);
 
         if (FlightPathsEnabled[EXPANSION_CLASSIC] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_CLASSIC] && HasAvailableFlightPaths(player, EXPANSION_CLASSIC))
+        {
             AddGossipItemFor(player, GOSSIP_ICON_TAXI, "Kalimdor & Eastern Kingdoms", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 1, "Do you wish to continue the transaction?", FlightPathsCost[EXPANSION_CLASSIC], false);
+        }
 
         if (FlightPathsEnabled[EXPANSION_THE_BURNING_CRUSADE] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_THE_BURNING_CRUSADE]  && HasAvailableFlightPaths(player, EXPANSION_THE_BURNING_CRUSADE))
+        {
             AddGossipItemFor(player, GOSSIP_ICON_TAXI, "Outland", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 2, "Do you wish to continue the transaction?", FlightPathsCost[EXPANSION_THE_BURNING_CRUSADE], false);
+        }
 
         if (FlightPathsEnabled[EXPANSION_WRATH_OF_THE_LICH_KING] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_WRATH_OF_THE_LICH_KING] && HasAvailableFlightPaths(player, EXPANSION_WRATH_OF_THE_LICH_KING))
+        {
             AddGossipItemFor(player, GOSSIP_ICON_TAXI, "Northrend", GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 3, "Do you wish to continue the transaction?", FlightPathsCost[EXPANSION_WRATH_OF_THE_LICH_KING], false);
+        }
 
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Previous Page", GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
@@ -230,9 +254,13 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         uint8 expansion = EXPANSION_CLASSIC;
 
         if (action == ASSISTANT_GOSSIP_FLIGHT_PATHS + 2)
+        {
             expansion = EXPANSION_THE_BURNING_CRUSADE;
+        }
         else if (action == ASSISTANT_GOSSIP_FLIGHT_PATHS + 3)
+        {
             expansion = EXPANSION_WRATH_OF_THE_LICH_KING;
+        }
 
         UnlockFlightPaths(player, expansion);
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
