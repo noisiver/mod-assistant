@@ -4,3 +4,5 @@ The assistant is a npc spawned in the world and lets a player obtain heirlooms, 
 All items obtained from the Assistant are free to purchase, however users can easily add a cost by modifying the values of the item template table.
 
 All the features listed above are enabled, or disabled, through the configuration - allowing a user to only use the features they want.
+
+The entry of the assistant is **9000000**.
