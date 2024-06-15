@@ -1,3 +1,5 @@
+[![core-build](https://github.com/noisiver/mod-assistant/actions/workflows/core-build.yml/badge.svg)](https://github.com/noisiver/mod-assistant/actions/workflows/core-build.yml)
+
 # Features
 The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, utilities like faction change and race change. The player can also spend gold in order to increase their profession skills. It will be set to the current max value each time the feature is used. They can even unlock flight paths!
 
