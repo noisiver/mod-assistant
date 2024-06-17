@@ -1,25 +1,26 @@
 SET
-@Entry := 9000000,
-@Model := 27822,
-@Name  := "Gabriella",
-@Title := "The Assistant",
-@Icon  := "Speak",
-@GossipMenu := 0,
-@MinLevel := 30,
-@MaxLevel := 30,
-@Faction  := 35,
-@NPCFlag  := 129,
-@Scale    := 1.0,
-@Rank     := 0,
-@Type     := 7,
-@TypeFlags := 0,
+@Entry      := 9000000,
+@Model      := 27822,
+@Name       := "Gabriella",
+@Title      := "The Assistant",
+@Icon       := "Speak",
+@MinLevel   := 30,
+@MaxLevel   := 30,
+@Faction    := 35,
+@NPCFlag    := 129,
+@Type       := 7,
 @FlagsExtra := 16777218,
 @Script     := "npc_assistant";
 
 -- Creature template
 DELETE FROM `creature_template` WHERE `entry`=@Entry;
-INSERT INTO `creature_template` (`entry`, `modelid1`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `ScriptName`) VALUES
-(@Entry, @Model, @Name, @Title, @Icon, @GossipMenu, @MinLevel, @MaxLevel, @Faction, @NPCFlag, 1, 1, @Scale, @Rank, 1, 2, @Type, @TypeFlags, 1, @FlagsExtra, @Script);
+INSERT INTO `creature_template` (`entry`, `name`, `subname`, `IconName`, `minlevel`, `maxlevel`, `faction`, `npcflag`, `unit_class`, `unit_flags`, `type`, `flags_extra`, `ScriptName`) VALUES
+(@Entry, @Name, @Title, @Icon, @MinLevel, @MaxLevel, @Faction, @NPCFlag, 1, 2, @Type, @FlagsExtra, @Script);
+
+-- Creature Template Model
+DELETE FROM `creature_template_model` WHERE `CreatureID`=@Entry;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`) VALUES
+(@Entry, 0, @Model, 1, 1);
 
 -- Spawn points
 DELETE FROM `creature` WHERE `id1`=@Entry;
