@@ -1,3 +1,5 @@
+#include "Tokenize.h"
+#include "Log.h"
 #include "mod_assistant.h"
 
 uint32 Assistant::GetGlyphId(uint32 id, bool major)
@@ -395,4 +397,41 @@ uint32 Assistant::GetProfessionCost(Player* player, uint32 id)
     }
 
     return 0;
+}
+
+bool Assistant::CanBuyPortals(Player* player) const {
+    if (!PortalsEnabled) {
+        return false;
+    }
+
+    PlayerSpellMap spells = player->GetSpellMap();
+    auto portalIds = player->GetTeamId() == TEAM_HORDE ? HordePortals : AlliancePortals;
+
+    return std::any_of(portalIds.begin(), portalIds.end(), [&](const uint32 &item) {
+        return !spells.contains(item);
+    });
+}
+
+std::vector<uint32> Assistant::ParsePortalIds(const std::string& configStr) {
+    auto stringViews = Acore::Tokenize(configStr, ',', false);
+    std::vector<uint32> portalIds;
+    portalIds.reserve(stringViews.size());
+
+    for (const auto& view : stringViews) {
+        portalIds.push_back(Acore::StringTo<uint32>(view).value());
+    }
+
+    return portalIds;
+}
+
+void Assistant::ConfigurePortals() {
+    LOG_INFO("server", "Loading portals...");
+
+    HordePortals = ParsePortalIds(HordePortalIdConfig);
+    AlliancePortals = ParsePortalIds(AlliancePortalIdConfig);
+    NeutralPortals = ParsePortalIds(NeutralPortalIdConfig);
+
+    LOG_INFO("server", Acore::StringFormatFmt("Horde Portal IDs: {}", HordePortalIdConfig));
+    LOG_INFO("server", Acore::StringFormatFmt("Alliance Portal IDs: {}", AlliancePortalIdConfig));
+    LOG_INFO("server", Acore::StringFormatFmt("Neutral Portal IDs: {}", NeutralPortalIdConfig));
 }
