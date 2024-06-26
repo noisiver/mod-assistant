@@ -21,6 +21,7 @@ Assistant.Containers.Enabled = 1
 # Enable utility features
 # This includes name change, character customization, race change and faction change
 # The cost is set in copper
+# It is free if cost is set to 0
 #
 
 Assistant.Utilities.Enabled            = 1
@@ -35,6 +36,7 @@ Assistant.Utilities.FactionChange.Cost = 10000000
 #
 # Unlock flight paths based on the players level
 # The cost is set in copper
+# It is free if cost is set to 0
 #
 
 Assistant.FlightPaths.Vanilla.Enabled                  = 1
@@ -53,6 +55,7 @@ Assistant.FlightPaths.WrathOfTheLichKing.Cost          = 2500000
 #
 # Increase profession skills by spending gold
 # The cost is set in copper
+# It is free if cost is set to 0
 #
 
 Assistant.Professions.Apprentice.Enabled  = 1
@@ -67,5 +70,20 @@ Assistant.Professions.Master.Enabled      = 0
 Assistant.Professions.Master.Cost         = 12500000
 Assistant.Professions.GrandMaster.Enabled = 0
 Assistant.Professions.GrandMaster.Cost    = 25000000
+
+#################################
+
+#################################
+#
+# Reset instances by spending gold
+# The cost is set in copper
+# It is free if cost is set to 0
+#
+
+Assistant.Instances.Enabled         = 1
+Assistant.Instances.Heroic.Enabled  = 1
+Assistant.Instances.Heroic.Cost     = 100000
+Assistant.Instances.Raid.Enabled    = 1
+Assistant.Instances.Raid.Cost       = 1000000
 
 #################################

@@ -39,4 +39,11 @@ void Assistant::OnAfterConfigLoad(bool /*reload*/)
     MasterProfessionCost = sConfigMgr->GetOption<uint32>("Assistant.Professions.Master.Cost", 12500000);
     GrandMasterProfessionEnabled = sConfigMgr->GetOption<bool>("Assistant.Professions.GrandMaster.Enabled", 0);
     GrandMasterProfessionCost = sConfigMgr->GetOption<uint32>("Assistant.Professions.GrandMaster.Cost", 25000000);
+
+    // Instances
+    HeroicInstanceEnabled = sConfigMgr->GetOption<bool>("Assistant.Instances.Heroic.Enabled", 1);
+    HeroicInstanceCost = sConfigMgr->GetOption<uint32>("Assistant.Instances.Heroic.Cost", 100000);
+    RaidInstanceEnabled = sConfigMgr->GetOption<bool>("Assistant.Instances.Raid.Enabled", 1);
+    RaidInstanceCost = sConfigMgr->GetOption<uint32>("Assistant.Instances.Raid.Cost", 1000000);
+
 }

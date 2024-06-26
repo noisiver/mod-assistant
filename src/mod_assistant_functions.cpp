@@ -19,13 +19,13 @@ void Assistant::SetLoginFlag(Player* player, AtLoginFlags flag, uint32 cost)
 {
     if (HasLoginFlag(player))
     {
-        ChatHandler(player->GetSession()).PSendSysMessage("You must complete the previously activated feature before trying to perform another.");
+        ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_UTILITIES_IN_PROGRESS);
         return;
     }
 
     player->ModifyMoney(-cost);
     player->SetAtLoginFlag(flag);
-    ChatHandler(player->GetSession()).PSendSysMessage("You can now log out to continue using the activated feature.");
+    ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_UTILITIES_DONE);
 }
 
 bool Assistant::CanUnlockFlightPaths(Player* player)
@@ -278,64 +278,64 @@ void Assistant::ListProfession(Player* player, uint32 id)
         switch (id)
         {
         case SKILL_FIRST_AID:
-            name = "First Aid";
+            name = GOSSIP_PROFESSIONS_FIRST_AID;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 1;
             break;
         case SKILL_BLACKSMITHING:
-            name = "Blacksmithing";
+            name = GOSSIP_PROFESSIONS_BLACKSMITHING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 2;
             break;
         case SKILL_LEATHERWORKING:
-            name = "Leatherworking";
+            name = GOSSIP_PROFESSIONS_LEATHERWORKING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 3;
             break;
         case SKILL_ALCHEMY:
-            name = "Alchemy";
+            name = GOSSIP_PROFESSIONS_ALCHEMY;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 4;
             break;
         case SKILL_HERBALISM:
-            name = "Herbalism";
+            name = GOSSIP_PROFESSIONS_HERBALISM;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 5;
             break;
         case SKILL_COOKING:
-            name = "Cooking";
+            name = GOSSIP_PROFESSIONS_COOKING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 6;
             break;
         case SKILL_MINING:
-            name = "Mining";
+            name = GOSSIP_PROFESSIONS_MINING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 7;
             break;
         case SKILL_TAILORING:
-            name = "Tailoring";
+            name = GOSSIP_PROFESSIONS_TAILORING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 8;
             break;
         case SKILL_ENGINEERING:
-            name = "Engineering";
+            name = GOSSIP_PROFESSIONS_ENGINEERING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 9;
             break;
         case SKILL_ENCHANTING:
-            name = "Enchanting";
+            name = GOSSIP_PROFESSIONS_ENCHANTING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 10;
             break;
         case SKILL_FISHING:
-            name = "Fishing";
+            name = GOSSIP_PROFESSIONS_FISHING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 11;
             break;
         case SKILL_SKINNING:
-            name = "Skinning";
+            name = GOSSIP_PROFESSIONS_SKINNING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 12;
             break;
         case SKILL_INSCRIPTION:
-            name = "Inscription";
+            name = GOSSIP_PROFESSIONS_INSCRIPTION;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 13;
             break;
         case SKILL_JEWELCRAFTING:
-            name = "Jewelcrafting";
+            name = GOSSIP_PROFESSIONS_JEWELCRAFTING;
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 14;
             break;
         }
 
-        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("I want help with my skill in %s", name), GOSSIP_SENDER_MAIN, menu, "Do you wish to continue the transaction?", cost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("%s %s", GOSSIP_PROFESSIONS_CHOOSE, name), GOSSIP_SENDER_MAIN, menu, GOSSIP_CONTINUE_TRANSACTION, cost, false);
     }
 }
 
@@ -395,4 +395,50 @@ uint32 Assistant::GetProfessionCost(Player* player, uint32 id)
     }
 
     return 0;
+}
+
+bool Assistant::CanResetInstances(Player* player)
+{
+    if ((HasSavedInstances(player, INSTANCE_TYPE_HEROIC) && HeroicInstanceEnabled) || (HasSavedInstances(player, INSTANCE_TYPE_RAID) && RaidInstanceEnabled))
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool Assistant::HasSavedInstances(Player* player, uint8 type)
+{
+    for (uint8 i = 0; i < MAX_DIFFICULTY; ++i)
+    {
+        BoundInstancesMap const& instances = sInstanceSaveMgr->PlayerGetBoundInstances(player->GetGUID(), Difficulty(i));
+        for (BoundInstancesMap::const_iterator itr = instances.begin(); itr != instances.end(); ++itr)
+        {
+            InstanceSave* save = itr->second.save;
+
+            if ((save->GetMapEntry()->IsRaid() && type == INSTANCE_TYPE_RAID) || (save->GetMapEntry()->IsNonRaidDungeon() && save->GetDifficulty() == DUNGEON_DIFFICULTY_HEROIC && type == INSTANCE_TYPE_HEROIC))
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+void Assistant::ResetInstances(Player* player, uint8 type)
+{
+    for (uint8 i = 0; i < MAX_DIFFICULTY; ++i)
+    {
+        BoundInstancesMap const& instances = sInstanceSaveMgr->PlayerGetBoundInstances(player->GetGUID(), Difficulty(i));
+        for (BoundInstancesMap::const_iterator itr = instances.begin(); itr != instances.end(); ++itr)
+        {
+            InstanceSave* save = itr->second.save;
+
+            if ((save->GetMapEntry()->IsRaid() && type == INSTANCE_TYPE_RAID) || (save->GetMapEntry()->IsNonRaidDungeon() && save->GetDifficulty() == DUNGEON_DIFFICULTY_HEROIC && type == INSTANCE_TYPE_HEROIC))
+            {
+                sInstanceSaveMgr->PlayerUnbindInstance(player->GetGUID(), itr->first, Difficulty(i), true, player);
+            }
+        }
+    }
 }
