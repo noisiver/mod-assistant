@@ -4,44 +4,47 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
 {
     ClearGossipMenuFor(player);
 
+    WorldSession* session = player->GetSession();
+    LocaleConstant locale = session->GetSessionDbLocaleIndex();
+
     if (HeirloomsEnabled)
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_HEIRLOOMS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "heirlooms"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM);
     }
 
     if (GlyphsEnabled)
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_GLYPHS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "glyphs"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH);
     }
 
     if (GemsEnabled)
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_GEMS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "gems"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
     }
 
     if (ContainersEnabled)
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_CONTAINERS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "containers"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
     }
 
     if (UtilitiesEnabled)
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_UTILITIES, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "utilities"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES);
     }
 
     if (CanUnlockFlightPaths(player))
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_FLIGHT_PATHS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "flight_paths"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS);
     }
 
     if (HasValidProfession(player))
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PROFESSIONS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "professions"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
     }
 
     if (CanResetInstances(player))
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_INSTANCES, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "instances"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES);
     }
 
     SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
@@ -50,6 +53,9 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
 
 bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action)
 {
+    WorldSession* session = player->GetSession();
+    LocaleConstant locale = session->GetSessionDbLocaleIndex();
+
     if (sender != GOSSIP_SENDER_MAIN)
     {
         return false;
@@ -62,10 +68,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_HEIRLOOM)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_HEIRLOOMS_WEAPONS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 1);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_HEIRLOOMS_ARMOR, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 2);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_HEIRLOOMS_OTHER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 3);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "heirlooms_weapons"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "heirlooms_armors"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "heirlooms_others"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_HEIRLOOM + 3);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_HEIRLOOM + 1 && action <= ASSISTANT_GOSSIP_HEIRLOOM + 3)
@@ -90,9 +96,9 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_GLYPH)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GLYPHS_MAJOR, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH + 1);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GLYPHS_MINOR, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH + 2);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "glyphs_major"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH + 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "glyphs_minor"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GLYPH + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_GLYPH + 1 && action <= ASSISTANT_GOSSIP_GLYPH + 2)
@@ -145,14 +151,14 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_GEM)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_META, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 1);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_RED, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 2);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_BLUE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 3);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_YELLOW, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 4);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_PURPLE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 5);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_GREEN, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 6);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_GEMS_ORANGE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 7);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_meta"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_red"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_blue"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 3);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_yellow"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 4);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_purple"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 5);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_green"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 6);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "gems_orange"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM + 7);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_GEM + 1 && action <= ASSISTANT_GOSSIP_GEM + 7)
@@ -193,11 +199,11 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_UTILITIES)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_UTILITIES_NAME, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 1, GOSSIP_CONTINUE_TRANSACTION, NameChangeCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_UTILITIES_APPEARANCE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 2, GOSSIP_CONTINUE_TRANSACTION, CustomizeCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_UTILITIES_RACE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 3, GOSSIP_CONTINUE_TRANSACTION, RaceChangeCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_UTILITIES_FACTION, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 4, GOSSIP_CONTINUE_TRANSACTION, FactionChangeCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "utilities_name"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 1, GetAssistantLocaleText(locale, "continue_transaction"), NameChangeCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "utilities_appearance"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 2, GetAssistantLocaleText(locale, "continue_transaction"), CustomizeCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "utilities_race"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 3, GetAssistantLocaleText(locale, "continue_transaction"), RaceChangeCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "utilities_faction"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_UTILITIES + 4, GetAssistantLocaleText(locale, "continue_transaction"), FactionChangeCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_UTILITIES + 1 && action <= ASSISTANT_GOSSIP_UTILITIES + 4)
@@ -236,20 +242,20 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
 
         if (FlightPathsEnabled[EXPANSION_CLASSIC] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_CLASSIC] && HasAvailableFlightPaths(player, EXPANSION_CLASSIC))
         {
-            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GOSSIP_FLIGHT_PATHS_KALIMDOR_EASTERN_KINGDOMS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 1, GOSSIP_CONTINUE_TRANSACTION, FlightPathsCost[EXPANSION_CLASSIC], false);
+            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GetAssistantLocaleText(locale, "flight_paths_kalimdor_eastern_kingdoms"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 1, GetAssistantLocaleText(locale, "continue_transaction"), FlightPathsCost[EXPANSION_CLASSIC], false);
         }
 
-        if (FlightPathsEnabled[EXPANSION_THE_BURNING_CRUSADE] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_THE_BURNING_CRUSADE]  && HasAvailableFlightPaths(player, EXPANSION_THE_BURNING_CRUSADE))
+        if (FlightPathsEnabled[EXPANSION_THE_BURNING_CRUSADE] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_THE_BURNING_CRUSADE] && HasAvailableFlightPaths(player, EXPANSION_THE_BURNING_CRUSADE))
         {
-            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GOSSIP_FLIGHT_PATHS_OUTLAND, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 2, GOSSIP_CONTINUE_TRANSACTION, FlightPathsCost[EXPANSION_THE_BURNING_CRUSADE], false);
+            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GetAssistantLocaleText(locale, "flight_paths_outland"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 2, GetAssistantLocaleText(locale, "continue_transaction"), FlightPathsCost[EXPANSION_THE_BURNING_CRUSADE], false);
         }
 
         if (FlightPathsEnabled[EXPANSION_WRATH_OF_THE_LICH_KING] && player->GetLevel() >= FlightPathsRequiredLevel[EXPANSION_WRATH_OF_THE_LICH_KING] && HasAvailableFlightPaths(player, EXPANSION_WRATH_OF_THE_LICH_KING))
         {
-            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GOSSIP_FLIGHT_PATHS_NORTHREND, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 3, GOSSIP_CONTINUE_TRANSACTION, FlightPathsCost[EXPANSION_WRATH_OF_THE_LICH_KING], false);
+            AddGossipItemFor(player, GOSSIP_ICON_TAXI, GetAssistantLocaleText(locale, "flight_paths_northrend"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FLIGHT_PATHS + 3, GetAssistantLocaleText(locale, "continue_transaction"), FlightPathsCost[EXPANSION_WRATH_OF_THE_LICH_KING], false);
         }
 
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_FLIGHT_PATHS + 1 && action <= ASSISTANT_GOSSIP_FLIGHT_PATHS + 3)
@@ -287,7 +293,7 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         ListProfession(player, SKILL_SKINNING);
         ListProfession(player, SKILL_INSCRIPTION);
         ListProfession(player, SKILL_JEWELCRAFTING);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action >= ASSISTANT_GOSSIP_PROFESSIONS + 1 && action <= ASSISTANT_GOSSIP_PROFESSIONS + 14)
@@ -353,11 +359,11 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         {
             if (player->GetGroup())
             {
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_INSTANCES_HEROIC, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 1);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "instances_heroic"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 1);
             }
             else
             {
-                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_HEROIC, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_heroic"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GetAssistantLocaleText(locale, "continue_transaction"), HeroicInstanceCost, false);
             }
         }
 
@@ -365,29 +371,29 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         {
             if (player->GetGroup())
             {
-                AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_INSTANCES_RAID, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 4);
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "instances_raid"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 4);
             }
             else
             {
-                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_RAID, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
+                AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_raid"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GetAssistantLocaleText(locale, "continue_transaction"), RaidInstanceCost, false);
             }
         }
 
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GetAssistantLocaleText(locale, "previous_page"), GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 1)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_GROUP, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 3, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_player"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GetAssistantLocaleText(locale, "continue_transaction"), HeroicInstanceCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_group"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 3, GetAssistantLocaleText(locale, "continue_transaction"), HeroicInstanceCost, false);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 2)
     {
         ResetInstances(player, INSTANCE_TYPE_HEROIC);
         player->ModifyMoney(-HeroicInstanceCost);
-        ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_INSTANCES_HEROIC_RESET);
+        ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "instances_heroic_reset"));
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
     }
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 3)
@@ -395,12 +401,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         if (Group* group = player->GetGroup())
         {
             group->DoForAllMembers([this](Player* member)
-            {
-                ResetInstances(member, INSTANCE_TYPE_HEROIC);
-            });
+                                   { ResetInstances(member, INSTANCE_TYPE_HEROIC); });
 
             player->ModifyMoney(-HeroicInstanceCost);
-            ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_INSTANCES_HEROIC_GROUP_RESET);
+            ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "instances_heroic_group_reset"));
         }
 
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
@@ -408,15 +412,15 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 4)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_GROUP, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 6, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_player"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GetAssistantLocaleText(locale, "continue_transaction"), RaidInstanceCost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GetAssistantLocaleText(locale, "instances_group"), GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 6, GetAssistantLocaleText(locale, "continue_transaction"), RaidInstanceCost, false);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 5)
     {
         ResetInstances(player, INSTANCE_TYPE_RAID);
         player->ModifyMoney(-RaidInstanceCost);
-        ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_INSTANCES_RAID_RESET);
+        ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "instances_raid_reset"));
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);
     }
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 6)
@@ -424,12 +428,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         if (Group* group = player->GetGroup())
         {
             group->DoForAllMembers([this](Player* member)
-            {
-                ResetInstances(member, INSTANCE_TYPE_RAID);
-            });
+                                   { ResetInstances(member, INSTANCE_TYPE_RAID); });
 
             player->ModifyMoney(-RaidInstanceCost);
-            ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_INSTANCES_RAID_GROUP_RESET);
+            ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "instances_raid_group_reset"));
         }
 
         OnGossipSelect(player, creature, GOSSIP_SENDER_MAIN, 1);

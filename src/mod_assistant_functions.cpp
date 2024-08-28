@@ -17,15 +17,18 @@ bool Assistant::HasLoginFlag(Player* player)
 
 void Assistant::SetLoginFlag(Player* player, AtLoginFlags flag, uint32 cost)
 {
+    WorldSession* session = player->GetSession();
+    LocaleConstant locale = session->GetSessionDbLocaleIndex();
+
     if (HasLoginFlag(player))
     {
-        ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_UTILITIES_IN_PROGRESS);
+        ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "utilities_in_progress"));
         return;
     }
 
     player->ModifyMoney(-cost);
     player->SetAtLoginFlag(flag);
-    ChatHandler(player->GetSession()).PSendSysMessage(GOSSIP_UTILITIES_DONE);
+    ChatHandler(player->GetSession()).PSendSysMessage(GetAssistantLocaleText(locale, "utilities_done"));
 }
 
 bool Assistant::CanUnlockFlightPaths(Player* player)
@@ -45,8 +48,8 @@ std::vector<int> Assistant::GetAvailableFlightPaths(Player* player, uint8 expans
     switch (expansion)
     {
     case EXPANSION_CLASSIC:
-        flightpaths.push_back(79); // Marshal's Refuge, Un'Goro Crater
-        flightpaths.push_back(80); // Ratchet, The Barrens
+        flightpaths.push_back(79);  // Marshal's Refuge, Un'Goro Crater
+        flightpaths.push_back(80);  // Ratchet, The Barrens
         flightpaths.push_back(166); // Emerald Sanctuary, Felwood
         flightpaths.push_back(179); // Mudsprocket, Dustwallow Marsh
         flightpaths.push_back(205); // Hatchet Hills, Ghostlands
@@ -54,77 +57,77 @@ std::vector<int> Assistant::GetAvailableFlightPaths(Player* player, uint8 expans
 
         if (player->GetTeamId() == TEAM_ALLIANCE)
         {
-            flightpaths.push_back(2); // Stormwind City
-            flightpaths.push_back(4); // Sentinel Hill, Westfall
-            flightpaths.push_back(5); // Lakeshire, Redridge Mountains
-            flightpaths.push_back(6); // Ironforge, Dun Morogh
-            flightpaths.push_back(7); // Menethil Harbor, Wetlands
-            flightpaths.push_back(8); // Thelsamar, Loch Modan
-            flightpaths.push_back(12); // Darkshire, Duskwood
-            flightpaths.push_back(14); // Southshore, Hillsbrad Foothills
-            flightpaths.push_back(16); // Refuge Pointe, Arathi Highlands
-            flightpaths.push_back(19); // Booty Bay, Stranglethorn Vale
-            flightpaths.push_back(26); // Auberdine, Darkshore
-            flightpaths.push_back(27); // Rut'theran Village, Teldrassil
-            flightpaths.push_back(28); // Astranaar, Ashenvale
-            flightpaths.push_back(31); // Thalanaar, Feralas
-            flightpaths.push_back(32); // Theramore Isle, Dustwallow Marsh
-            flightpaths.push_back(33); // Stonetalon Peak, Stonetalon Mountains
-            flightpaths.push_back(37); // Nijel's Point, Desolace
-            flightpaths.push_back(38); // Shadowprey Village, Desolace
-            flightpaths.push_back(39); // Gadgetzan, Tanaris
-            flightpaths.push_back(41); // Feathermoon Stronghold, Feralas
-            flightpaths.push_back(43); // Aerie Peak, The Hinterlands
-            flightpaths.push_back(45); // Nethergarde Keep, Blasted Lands
-            flightpaths.push_back(49); // Moonglade
-            flightpaths.push_back(52); // Everlook, Winterspring
-            flightpaths.push_back(62); // Nighthaven, Moonglade
-            flightpaths.push_back(64); // Talrendis Point, Azshara
-            flightpaths.push_back(65); // Talonbranch Glade, Felwood
-            flightpaths.push_back(66); // Chillwind Camp, Western Plaguelands
-            flightpaths.push_back(67); // Light's Hope Chapel, Eastern Plaguelands
-            flightpaths.push_back(71); // Morgan's Vigil, Burning Steppes
-            flightpaths.push_back(73); // Cenarion Hold, Silithus
-            flightpaths.push_back(74); // Thorium Point, Searing Gorge
-            flightpaths.push_back(93); // Blood Watch, Bloodmyst Isle
-            flightpaths.push_back(94); // The Exodar
+            flightpaths.push_back(2);   // Stormwind City
+            flightpaths.push_back(4);   // Sentinel Hill, Westfall
+            flightpaths.push_back(5);   // Lakeshire, Redridge Mountains
+            flightpaths.push_back(6);   // Ironforge, Dun Morogh
+            flightpaths.push_back(7);   // Menethil Harbor, Wetlands
+            flightpaths.push_back(8);   // Thelsamar, Loch Modan
+            flightpaths.push_back(12);  // Darkshire, Duskwood
+            flightpaths.push_back(14);  // Southshore, Hillsbrad Foothills
+            flightpaths.push_back(16);  // Refuge Pointe, Arathi Highlands
+            flightpaths.push_back(19);  // Booty Bay, Stranglethorn Vale
+            flightpaths.push_back(26);  // Auberdine, Darkshore
+            flightpaths.push_back(27);  // Rut'theran Village, Teldrassil
+            flightpaths.push_back(28);  // Astranaar, Ashenvale
+            flightpaths.push_back(31);  // Thalanaar, Feralas
+            flightpaths.push_back(32);  // Theramore Isle, Dustwallow Marsh
+            flightpaths.push_back(33);  // Stonetalon Peak, Stonetalon Mountains
+            flightpaths.push_back(37);  // Nijel's Point, Desolace
+            flightpaths.push_back(38);  // Shadowprey Village, Desolace
+            flightpaths.push_back(39);  // Gadgetzan, Tanaris
+            flightpaths.push_back(41);  // Feathermoon Stronghold, Feralas
+            flightpaths.push_back(43);  // Aerie Peak, The Hinterlands
+            flightpaths.push_back(45);  // Nethergarde Keep, Blasted Lands
+            flightpaths.push_back(49);  // Moonglade
+            flightpaths.push_back(52);  // Everlook, Winterspring
+            flightpaths.push_back(62);  // Nighthaven, Moonglade
+            flightpaths.push_back(64);  // Talrendis Point, Azshara
+            flightpaths.push_back(65);  // Talonbranch Glade, Felwood
+            flightpaths.push_back(66);  // Chillwind Camp, Western Plaguelands
+            flightpaths.push_back(67);  // Light's Hope Chapel, Eastern Plaguelands
+            flightpaths.push_back(71);  // Morgan's Vigil, Burning Steppes
+            flightpaths.push_back(73);  // Cenarion Hold, Silithus
+            flightpaths.push_back(74);  // Thorium Point, Searing Gorge
+            flightpaths.push_back(93);  // Blood Watch, Bloodmyst Isle
+            flightpaths.push_back(94);  // The Exodar
             flightpaths.push_back(167); // Forest Song, Ashenvale
             flightpaths.push_back(195); // Rebel Camp, Stranglethorn Vale
         }
         else if (player->GetTeamId() == TEAM_HORDE)
         {
-            flightpaths.push_back(10); // The Sepulcher, Silverpine Forest
-            flightpaths.push_back(11); // Undercity
-            flightpaths.push_back(13); // Tarren Mill, Hillsbrad Foothills
-            flightpaths.push_back(17); // Hammerfall, Arathi Highlands
-            flightpaths.push_back(18); // Booty Bay, Stranglethorn Vale
-            flightpaths.push_back(20); // Grom'gol, Stranglethorn Vale
-            flightpaths.push_back(21); // Kargath, Badlands
-            flightpaths.push_back(22); // Thunder Bluff
-            flightpaths.push_back(23); // Orgrimmar
-            flightpaths.push_back(25); // The Crossroads, The Barrens
-            flightpaths.push_back(29); // Sun Rock Retreat, Stonetalon Mountains
-            flightpaths.push_back(30); // Freewind Post, Thousand Needles
-            flightpaths.push_back(38); // Shadowprey Village, Desolace
-            flightpaths.push_back(40); // Gadgetzan, Tanaris
-            flightpaths.push_back(42); // Camp Mojache, Feralas
-            flightpaths.push_back(44); // Valormok, Azshara
-            flightpaths.push_back(48); // Bloodvenom Post, Felwood
-            flightpaths.push_back(53); // Everlook, Winterspring
-            flightpaths.push_back(55); // Brackenwall Village, Dustwallow Marsh
-            flightpaths.push_back(56); // Stonard, Swamp of Sorrows
-            flightpaths.push_back(58); // Zoram'gar Outpost, Ashenvale
-            flightpaths.push_back(61); // Splintertree Post, Ashenvale
-            flightpaths.push_back(63); // Nighthaven, Moonglade
-            flightpaths.push_back(68); // Light's Hope Chapel, Eastern Plaguelands
-            flightpaths.push_back(69); // Moonglade
-            flightpaths.push_back(70); // Flame Crest, Burning Steppes
-            flightpaths.push_back(72); // Cenarion Hold, Silithus
-            flightpaths.push_back(75); // Thorium Point, Searing Gorge
-            flightpaths.push_back(76); // Revantusk Village, The Hinterlands
-            flightpaths.push_back(77); // Camp Taurajo, The Barrens
-            flightpaths.push_back(82); // Silvermoon City
-            flightpaths.push_back(83); // Tranquillien, Ghostlands
+            flightpaths.push_back(10);  // The Sepulcher, Silverpine Forest
+            flightpaths.push_back(11);  // Undercity
+            flightpaths.push_back(13);  // Tarren Mill, Hillsbrad Foothills
+            flightpaths.push_back(17);  // Hammerfall, Arathi Highlands
+            flightpaths.push_back(18);  // Booty Bay, Stranglethorn Vale
+            flightpaths.push_back(20);  // Grom'gol, Stranglethorn Vale
+            flightpaths.push_back(21);  // Kargath, Badlands
+            flightpaths.push_back(22);  // Thunder Bluff
+            flightpaths.push_back(23);  // Orgrimmar
+            flightpaths.push_back(25);  // The Crossroads, The Barrens
+            flightpaths.push_back(29);  // Sun Rock Retreat, Stonetalon Mountains
+            flightpaths.push_back(30);  // Freewind Post, Thousand Needles
+            flightpaths.push_back(38);  // Shadowprey Village, Desolace
+            flightpaths.push_back(40);  // Gadgetzan, Tanaris
+            flightpaths.push_back(42);  // Camp Mojache, Feralas
+            flightpaths.push_back(44);  // Valormok, Azshara
+            flightpaths.push_back(48);  // Bloodvenom Post, Felwood
+            flightpaths.push_back(53);  // Everlook, Winterspring
+            flightpaths.push_back(55);  // Brackenwall Village, Dustwallow Marsh
+            flightpaths.push_back(56);  // Stonard, Swamp of Sorrows
+            flightpaths.push_back(58);  // Zoram'gar Outpost, Ashenvale
+            flightpaths.push_back(61);  // Splintertree Post, Ashenvale
+            flightpaths.push_back(63);  // Nighthaven, Moonglade
+            flightpaths.push_back(68);  // Light's Hope Chapel, Eastern Plaguelands
+            flightpaths.push_back(69);  // Moonglade
+            flightpaths.push_back(70);  // Flame Crest, Burning Steppes
+            flightpaths.push_back(72);  // Cenarion Hold, Silithus
+            flightpaths.push_back(75);  // Thorium Point, Searing Gorge
+            flightpaths.push_back(76);  // Revantusk Village, The Hinterlands
+            flightpaths.push_back(77);  // Camp Taurajo, The Barrens
+            flightpaths.push_back(82);  // Silvermoon City
+            flightpaths.push_back(83);  // Tranquillien, Ghostlands
             flightpaths.push_back(384); // The Bulwark, Tirisfal Glades
         }
         break;
@@ -153,7 +156,7 @@ std::vector<int> Assistant::GetAvailableFlightPaths(Player* player, uint8 expans
         }
         else if (player->GetTeamId() == TEAM_HORDE)
         {
-            flightpaths.push_back(99); // Thrallmar, Hellfire Peninsula
+            flightpaths.push_back(99);  // Thrallmar, Hellfire Peninsula
             flightpaths.push_back(102); // Falcon Watch, Hellfire Peninsula
             flightpaths.push_back(118); // Zabra'jin, Zangarmarsh
             flightpaths.push_back(120); // Garadar, Nagrand
@@ -269,6 +272,9 @@ void Assistant::UnlockFlightPaths(Player* player, uint8 expansion)
 
 void Assistant::ListProfession(Player* player, uint32 id)
 {
+    WorldSession* session = player->GetSession();
+    LocaleConstant locale = session->GetSessionDbLocaleIndex();
+
     if (IsValidProfession(player, id))
     {
         std::string name;
@@ -278,64 +284,64 @@ void Assistant::ListProfession(Player* player, uint32 id)
         switch (id)
         {
         case SKILL_FIRST_AID:
-            name = GOSSIP_PROFESSIONS_FIRST_AID;
+            name = GetAssistantLocaleText(locale, "professions_first_aid");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 1;
             break;
         case SKILL_BLACKSMITHING:
-            name = GOSSIP_PROFESSIONS_BLACKSMITHING;
+            name = GetAssistantLocaleText(locale, "professions_blacksmithing");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 2;
             break;
         case SKILL_LEATHERWORKING:
-            name = GOSSIP_PROFESSIONS_LEATHERWORKING;
+            name = GetAssistantLocaleText(locale, "professions_leatherworking");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 3;
             break;
         case SKILL_ALCHEMY:
-            name = GOSSIP_PROFESSIONS_ALCHEMY;
+            name = GetAssistantLocaleText(locale, "professions_alchemy");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 4;
             break;
         case SKILL_HERBALISM:
-            name = GOSSIP_PROFESSIONS_HERBALISM;
+            name = GetAssistantLocaleText(locale, "professions_herbalism");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 5;
             break;
         case SKILL_COOKING:
-            name = GOSSIP_PROFESSIONS_COOKING;
+            name = GetAssistantLocaleText(locale, "professions_cooking");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 6;
             break;
         case SKILL_MINING:
-            name = GOSSIP_PROFESSIONS_MINING;
+            name = GetAssistantLocaleText(locale, "professions_mining");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 7;
             break;
         case SKILL_TAILORING:
-            name = GOSSIP_PROFESSIONS_TAILORING;
+            name = GetAssistantLocaleText(locale, "professions_tailoring");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 8;
             break;
         case SKILL_ENGINEERING:
-            name = GOSSIP_PROFESSIONS_ENGINEERING;
+            name = GetAssistantLocaleText(locale, "professions_engineering");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 9;
             break;
         case SKILL_ENCHANTING:
-            name = GOSSIP_PROFESSIONS_ENCHANTING;
+            name = GetAssistantLocaleText(locale, "professions_enchanting");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 10;
             break;
         case SKILL_FISHING:
-            name = GOSSIP_PROFESSIONS_FISHING;
+            name = GetAssistantLocaleText(locale, "professions_fishing");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 11;
             break;
         case SKILL_SKINNING:
-            name = GOSSIP_PROFESSIONS_SKINNING;
+            name = GetAssistantLocaleText(locale, "professions_skinning");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 12;
             break;
         case SKILL_INSCRIPTION:
-            name = GOSSIP_PROFESSIONS_INSCRIPTION;
+            name = GetAssistantLocaleText(locale, "professions_inscription");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 13;
             break;
         case SKILL_JEWELCRAFTING:
-            name = GOSSIP_PROFESSIONS_JEWELCRAFTING;
+            name = GetAssistantLocaleText(locale, "professions_jewelcrafting");
             menu = ASSISTANT_GOSSIP_PROFESSIONS + 14;
             break;
         }
 
-        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("%s %s", GOSSIP_PROFESSIONS_CHOOSE, name), GOSSIP_SENDER_MAIN, menu, GOSSIP_CONTINUE_TRANSACTION, cost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("%s %s", GetAssistantLocaleText(locale, "professions_choose"), name), GOSSIP_SENDER_MAIN, menu, GetAssistantLocaleText(locale, "continue_transaction"), cost, false);
     }
 }
 

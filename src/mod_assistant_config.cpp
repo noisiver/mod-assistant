@@ -45,5 +45,4 @@ void Assistant::OnAfterConfigLoad(bool /*reload*/)
     HeroicInstanceCost = sConfigMgr->GetOption<uint32>("Assistant.Instances.Heroic.Cost", 100000);
     RaidInstanceEnabled = sConfigMgr->GetOption<bool>("Assistant.Instances.Raid.Enabled", 1);
     RaidInstanceCost = sConfigMgr->GetOption<uint32>("Assistant.Instances.Raid.Cost", 1000000);
-
 }
