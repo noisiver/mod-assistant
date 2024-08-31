@@ -6,3 +6,8 @@ All items obtained from the Assistant are free to purchase, however users can ea
 All the features listed above are enabled, or disabled, through the configuration - allowing a user to only use the features they want.
 
 The entry of the assistant is **9000000**.
+
+# Pull Requests
+I don't accept pull requests. There are a few exceptions listed below, and all of them have to be true for me to consider merging a pull request.
+- It's something I *really* want or that I think should be included with the module.
+- It matches my code style.
