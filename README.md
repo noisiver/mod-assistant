@@ -7,7 +7,14 @@ All the features listed above are enabled, or disabled, through the configuratio
 
 The entry of the assistant is **9000000**.
 
-# Pull Requests
-I don't accept pull requests. There are a few exceptions listed below, and all of them have to be true for me to consider merging a pull request.
-- It's something I *really* want or that I think should be included with the module.
-- It matches my code style.
+# Changes in this Fork
+* Added ability to learn how to create mage portals from Sidrus' fork.
+* Added in flasks, BC gems, potions, and enhants from Dreathean's fork.
+* Added a way to access the custom heirlooms armor (Pants/Helms/Ring/Neck/Cloak), and a vanilla flying tome.
+* Added a 36 slot bag
+
+# Credits
+Forked from Noisiver's Mod Assistant - https://github.com/noisiver/mod-assistant, all credit goes to him for creating this module.
+Looked at Dreathean's Mod Assistant fork - https://github.com/Dreathean/mod-assistant and integrated their changes/additions to match Noisiver's code
+Looked at Sidrus' Mod Assistant fork = https://github.com/sidrus/mod-assistant and integrated their portal changes to match Noisiver's code
+
