@@ -12,11 +12,17 @@ enum
     ASSISTANT_GOSSIP_HEIRLOOM        = 100,
     ASSISTANT_GOSSIP_GLYPH           = 200,
     ASSISTANT_GOSSIP_GEM             = 400,
-    ASSISTANT_GOSSIP_CONTAINER       = 500,
-    ASSISTANT_GOSSIP_FLIGHT_PATHS    = 600,
-    ASSISTANT_GOSSIP_UTILITIES       = 700,
-    ASSISTANT_GOSSIP_PROFESSIONS     = 800,
-    ASSISTANT_GOSSIP_INSTANCES       = 900,
+    ASSISTANT_GOSSIP_GEM_WOTLK       = 500,
+    ASSISTANT_GOSSIP_GEM_BC          = 600,
+    ASSISTANT_GOSSIP_CONTAINER       = 700,
+    ASSISTANT_GOSSIP_FLASK           = 800,
+    ASSISTANT_GOSSIP_FLIGHT_PATHS    = 900,
+    ASSISTANT_GOSSIP_UTILITIES       = 1000,
+    ASSISTANT_GOSSIP_PROFESSIONS     = 1100,
+    ASSISTANT_GOSSIP_ENCHANT         = 1200,
+    ASSISTANT_GOSSIP_POTION          = 1400,
+    ASSISTANT_GOSSIP_INSTANCES       = 1500,
+    ASSISTANT_GOSSIP_PORTALS         = 1600,
 
     ASSISTANT_GOSSIP_TEXT            = 48,
 
@@ -26,6 +32,9 @@ enum
     ASSISTANT_VENDOR_GLYPH           = 9000003,
     ASSISTANT_VENDOR_GEM             = 9000023,
     ASSISTANT_VENDOR_CONTAINER       = 9000030,
+    ASSISTANT_VENDOR_FLASK           = 9000038,
+    ASSISTANT_VENDOR_ENCHANT         = 9000039,
+    ASSISTANT_VENDOR_POTION          = 9000047,
 
     PROFESSION_LEVEL_APPRENTICE      = 75,
     PROFESSION_LEVEL_JOURNEYMAN      = 150,
@@ -66,6 +75,8 @@ enum
 #define GOSSIP_GEMS_PURPLE "I want some purple gems"
 #define GOSSIP_GEMS_GREEN "I want some green gems"
 #define GOSSIP_GEMS_ORANGE "I want some orange gems"
+#define GOSSIP_GEMS_WOTLK "I want some Wrath of the Lich King gems"
+#define GOSSIP_GEMS_BC "I want some Burning Crusade gems"
 
 #define GOSSIP_CONTAINERS "I want containers"
 
@@ -99,6 +110,23 @@ enum
 #define GOSSIP_PROFESSIONS_INSCRIPTION "Inscription"
 #define GOSSIP_PROFESSIONS_JEWELCRAFTING "Jewelcrafting"
 
+#define GOSSIP_ENCHANTS "I want enchants"
+#define GOSSIP_ENCHANTS_VANILLA "I want some Vanilla enchants"
+#define GOSSIP_ENCHANTS_VANILLA_GOOD "I want some good Vanilla enchants"
+#define GOSSIP_ENCHANTS_VANILLA_RARE "I want some rare Vanilla enchants"
+#define GOSSIP_ENCHANTS_BC_GOOD "I want some good BC enchants"
+#define GOSSIP_ENCHANTS_BC_RARE "I want some rare BC enchants"
+#define GOSSIP_ENCHANTS_WOTLK_GOOD "I want some good WotLK enchants"
+#define GOSSIP_ENCHANTS_WOTLK_RARE "I want some rare WotLK enchants"
+#define GOSSIP_ENCHANTS_WOTLK_EPIC "I want some epic WotLK enchants"
+
+#define GOSSIP_POTIONS "I want potions"
+#define GOSSIP_POTIONS_VANILLA "I want some Vanilla potions"
+#define GOSSIP_POTIONS_BC "I want some BC potions"
+#define GOSSIP_POTIONS_WOTLK "I want some WotLK potions"
+
+#define GOSSIP_FLASKS "I want flasks"
+
 #define GOSSIP_INSTANCES "I want to reset instances"
 #define GOSSIP_INSTANCES_HEROIC "I want to reset heroic dungeons"
 #define GOSSIP_INSTANCES_RAID "I want to reset raids"
@@ -111,6 +139,8 @@ enum
 
 #define GOSSIP_CONTINUE_TRANSACTION "Do you wish to continue the transaction?"
 #define GOSSIP_PREVIOUS_PAGE "Previous Page"
+
+#define GOSSIP_PORTAL "I want to learn how to create portals"
 
 class Assistant : public CreatureScript, WorldScript
 {
@@ -129,9 +159,27 @@ private:
     bool GlyphsEnabled;
     bool GemsEnabled;
     bool ContainersEnabled;
+    bool FlasksEnabled;
+    bool PotionsEnabled;
+    bool EnchantsEnabled;
 
     uint32 GetGlyphId(uint32 /*id*/, bool /*major*/);
 
+    // Portals
+    bool PortalsEnabled;
+    uint32 PortalCost;
+    bool CanBuyPortals(Player* player) const;
+
+    static std::vector<uint32> ParsePortalIds(const std::string &configStr);
+    std::string HordePortalIdConfig;
+    std::string AlliancePortalIdConfig;
+    std::string NeutralPortalIdConfig;
+    void ConfigurePortals();
+
+    std::vector<uint32> HordePortals {};
+    std::vector<uint32> AlliancePortals {};
+    std::vector<uint32> NeutralPortals {};
+    
     // Utilities
     bool UtilitiesEnabled;
     uint32 NameChangeCost;

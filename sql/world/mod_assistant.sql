@@ -64,11 +64,60 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40129, 
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40164, 40165, 40166, 40167, 40168, 40169, 40170, 40171, 40172, 40173, 40174, 40175, 40176, 40177, 40178, 40179, 40180, 40181, 40182);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40142, 40143, 40144, 40145, 40146, 40147, 40148, 40149, 40150, 40151, 40152, 40153, 40154, 40155, 40156, 40157, 40158, 40159, 40160, 40161, 40162, 40163);
 -- Containers
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243, 23162);
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
+-- Gem: Meta 70
+UPDATE `item_template` SET `BuyPrice`=300000, `SellPrice`=100000 WHERE `entry` IN (25896, 34220, 25893, 25901, 32640, 25894, 25895, 32409, 28557, 25897, 28556, 25898, 35501, 25890, 32641, 25899, 35503, 32410, 33633);
+-- Gem: Red 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (24027, 24029, 24028, 24030, 24031, 24032, 24036);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32195, 32194, 35489, 32193, 32198, 35487, 32196, 32197, 32199, 35488);
+-- Gem: Blue 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (24033, 24039, 24035, 24037);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32200, 32201, 32202, 32203);
+-- Gem: Yellow 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (24047, 24051, 24052, 24050, 24053, 35315, 24048, 31861);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32205, 32204, 32208, 35761, 32207, 32209, 32206, 32210);
+-- Gem: Purple 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (24057, 24055, 24056, 31865, 35707, 24054, 31863);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32216, 32213, 37503, 32214, 32212, 32215, 32211);
+-- Gem: Green 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (33782, 24065, 24062, 24066, 24067, 35318);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32225, 32223, 32224, 32226, 35759, 35758);
+-- Gem: Orange 70
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=100000 WHERE `entry` IN (31867, 32637, 31868, 24061, 24058, 24060, 35316);
+UPDATE `item_template` SET `BuyPrice`=200000, `SellPrice`=100000 WHERE `entry` IN (32220, 32219, 32222, 35760, 32217, 32221, 32218);
+-- Flasks
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=0 WHERE `entry` IN (13512, 13510, 13513);
+UPDATE `item_template` SET `BuyPrice`=150000, `SellPrice`=0 WHERE `entry` IN (22866, 22854, 22861, 33208, 22853, 22851);
+UPDATE `item_template` SET `BuyPrice`=250000, `SellPrice`=0 WHERE `entry` IN (46376, 46377, 46379, 46378);
+-- Enchantments lvl 40-50
+UPDATE `item_template` SET `BuyPrice`=5000, `SellPrice`=0 WHERE `entry` IN (7967, 15564, 38837, 10548, 38833, 38847, 38848, 8173, 38825, 38846, 38822, 38829, 38845, 38851, 38832, 38827, 38839, 38841, 38844, 38835, 38849, 38824, 38826, 38828, 38830, 38836, 45628, 38840, 38842);
+-- Enchantments lvl 51-60 white/green
+UPDATE `item_template` SET `BuyPrice`=30000, `SellPrice`=0 WHERE `entry` IN (11642, 12645, 38854, 38938, 11644, 25650, 11647, 18173, 38857, 11645, 38863, 18172, 18182, 18330, 38860, 11622, 18331, 11646, 11648, 18170, 18329, 38852, 38853, 38859, 18169, 38856, 38861, 38867, 11643, 11649, 18171, 38858, 38862, 38864, 38866, 38881, 38929, 38855);
+-- Enchantments lvl 51-60 rare
+UPDATE `item_template` SET `BuyPrice`=100000, `SellPrice`=0 WHERE `entry` IN (38880, 38838, 18283, 20077, 19782, 38879, 19783, 38896, 20078, 22638, 38875, 19784, 20076, 19787, 19788, 38872, 22636, 38870, 19785, 38878, 19786, 19789, 19790, 22635, 38869, 18251, 38868, 38871);
+UPDATE `item_template` SET `BuyPrice`=300000, `SellPrice`=0 WHERE `entry` IN (38873, 38877);
+-- Enchantments lvl 65-70 BC white/green
+UPDATE `item_template` SET `BuyPrice`=120000, `SellPrice`=0 WHERE `entry` IN (29534, 29533, 24273, 23764, 38918, 38917, 28888, 34207, 23530, 29192, 29193, 28887, 29191, 29186, 28910, 28912, 38884, 28886, 30846, 29187, 29189, 28909, 38920, 38919, 38946, 28889, 35728, 38947, 28911, 35729, 35730, 35731, 38913, 38933, 38902, 38889, 38895, 38945, 38939, 38882, 38899, 38910, 38944);
+-- Enchantments lvl 70 BC rare
+UPDATE `item_template` SET `BuyPrice`=400000, `SellPrice`=0 WHERE `entry` IN (38925, 41146, 24274, 23766, 29536, 44497, 24276, 29535, 44453, 23765, 38957, 38948, 38926, 38927, 38922, 38924, 38923, 38998);
+-- Enchantments lvl 80 WOTLK white/green
+UPDATE `item_template` SET `BuyPrice`=400000, `SellPrice`=0 WHERE `entry` IN (38979, 39006, 39003, 38989, 38975, 44458, 38967, 38986, 39005, 38997, 38984, 38993, 39004, 38978, 38976, 38990, 38964, 38985);
+-- Enchantments lvl 80 WOTLK rares
+UPDATE `item_template` SET `BuyPrice`=750000, `SellPrice`=0 WHERE `entry` IN (38371, 38372, 44493, 44463, 44466, 44957, 41611, 44137, 44936, 44069, 44879, 44075, 41167, 44067, 44878, 44068,44877, 44131, 44139, 41601, 44138, 44875, 44130, 41603, 44129, 44140, 46026, 44876, 44141, 44132, 46098, 45060, 44884, 44872, 44124, 44880, 38963, 44125, 44881, 44883, 44882, 38992, 38995, 38965, 44467, 45056, 38972, 43987);
+-- Enchantments lvl 80 WOTLK epics
+UPDATE `item_template` SET `BuyPrice`=1000000, `SellPrice`=0 WHERE `entry` IN (41602, 38374, 41604, 41604, 38373, 44871, 44963, 44874, 44126, 44873);
+-- Potions lvl 1-60 Vanilla
+UPDATE `item_template` SET `BuyPrice`=5000, `SellPrice`=0 WHERE `entry` IN (9036, 13442, 13457, 13456, 13458, 13446, 13444, 20008);
+UPDATE `item_template` SET `BuyPrice`=500, `SellPrice`=0 WHERE `entry` IN (5631);
+UPDATE `item_template` SET `BuyPrice`=1000, `SellPrice`=0 WHERE `entry` IN (5633, 2459 ,5634);
+-- Potions lvl 60-70 Burning Crusade
+UPDATE `item_template` SET `BuyPrice`=20000, `SellPrice`=0 WHERE `entry` IN (22829, 22832, 22838, 22839, 22837, 22849, 22842, 22844, 22845, 22841, 22846);
+-- Potions lvl 70-80 WotLK
+UPDATE `item_template` SET `BuyPrice`=30000, `SellPrice`=0 WHERE `entry` IN (33447, 33448, 40211, 40212, 40093, 40215, 40217, 40214, 40216, 40213);
 
 -- Heirloom: Weapon
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+30;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+49;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry, 42943), -- Bloodied Arcanite Reaper
 (@Entry, 42944), -- Balanced Heartseeker
@@ -109,8 +158,24 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+1, 48689), -- Stained Shadowcraft Tunic
 (@Entry+1, 48691), -- Tattered Dreadmist Robe
 (@Entry+1, 50255), -- Dread Pirate Ring
+-- Heirloom: Armor (Custom, requires manual work to create)
+(@Entry+1, 100000), -- Signet of the Third Fleet (Secondary Ring)
+(@Entry+1, 100001), -- Worn Stoneskin Gargoyle Cloak (Secondary Cloak)
+(@Entry+1, 100002), -- Eternal Horizon Choker (Secondary Neckpiece)
+(@Entry+1, 100003), -- Stained Shadowcraft Mask (Agility Helm)
+(@Entry+1, 100004), -- Stained Shadowcraft Pants (Agility Pants)
+(@Entry+1, 100005), -- Helm of Valor (Plate Helm)
+(@Entry+1, 100006), -- Legplates of Valor (Plate Pants)
+(@Entry+1, 100007), -- Coif of Elements (Mail Helm)
+(@Entry+1, 100008), -- Kilt of Elements (Mail Pants)
+(@Entry+1, 100009), -- Dreadmist Mask (Cloth Helm)
+(@Entry+1, 100010), -- Dreadmist Leggings (Cloth Pants)
+(@Entry+1, 100011), -- Wildheart Cowl (Druid Helm)
+(@Entry+1, 100012), -- Wildheart Kilt (Druid Pants)
 -- Heirloom: Other
 (@Entry+2, 49177), -- Tome of Cold Weather Flight
+-- Heirloom: Other (Custom, requires manual work to create)
+(@Entry+2, 701000), -- Classic Flying Mount
 -- Glyph: Warrior (Major)
 (@Entry+3, 43412), -- Glyph of Bloodthirst
 (@Entry+3, 43413), -- Glyph of Rapid Charge
@@ -592,7 +657,403 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+29, 40162), -- Accurate Ametrine
 (@Entry+29, 40163), -- Resolute Ametrine
 -- Container
-(@Entry+30, 1729), -- Gunnysack of the Night Watch
-(@Entry+30, 3604), -- Bandolier of the Night Watch
-(@Entry+30, 3605), -- Quiver of the Night Watch
-(@Entry+30, 22243); -- Small Soul Pouch
+(@Entry+30, 1729),  -- Gunnysack of the Night Watch
+(@Entry+30, 3604),  -- Bandolier of the Night Watch
+(@Entry+30, 3605),  -- Quiver of the Night Watch
+(@Entry+30, 22243), -- Small Soul Pouch
+(@Entry+30, 23162), -- Foror's Crate of Endless Resist Gear Storage (36 Slot)
+-- Gem: Meta 70
+(@Entry+31, 25896), -- Powerful Earthstorm Diamond
+(@Entry+31, 34220), -- Chaotic Skyfire Diamond
+(@Entry+31, 25893), -- Mystical Skyfire Diamond
+(@Entry+31, 25901), -- Insightful Earthstorm Diamond
+(@Entry+31, 32640), -- Potent Unstable Diamond
+(@Entry+31, 25894), -- Swift Skyfire Diamond
+(@Entry+31, 25895), -- Enigmatic Skyfire Diamond
+(@Entry+31, 32409), -- Relentless Earthstorm Diamond
+(@Entry+31, 28557), -- Swift Starfire Diamond
+(@Entry+31, 25897), -- Bracing Earthstorm Diamond
+(@Entry+31, 28556), -- Swift Windfire Diamond
+(@Entry+31, 25898), -- Tenacious Earthstorm Diamond
+(@Entry+31, 35501), -- Eternal Earthstorm Diamond
+(@Entry+31, 25890), -- Destructive Skyfire Diamond
+(@Entry+31, 32641), -- Imbued Unstable Diamond
+(@Entry+31, 25899), -- Brutal Earthstorm Diamond
+(@Entry+31, 35503), -- Ember Skyfire Diamond
+(@Entry+31, 32410), -- Thundering Skyfire Diamond
+-- Gem: Red 70
+(@Entry+32, 24027), -- Bold Living Ruby
+(@Entry+32, 24029), -- Teardrop Living Ruby
+(@Entry+32, 24028), -- Delicate Living Ruby
+(@Entry+32, 24030), -- Runed Living Ruby
+(@Entry+32, 24031), -- Bright Living Ruby
+(@Entry+32, 24032), -- Subtle Living Ruby
+(@Entry+32, 24036), -- Flashing Living Ruby
+(@Entry+32, 32195), -- Teardrop Crimson Spinel
+(@Entry+32, 32194), -- Delicate Crimson Spinel
+(@Entry+32, 35489), -- Teardrop Crimson Spinel
+(@Entry+32, 32193), -- Bold Crimson Spinel
+(@Entry+32, 32198), -- Subtle Crimson Spinel
+(@Entry+32, 35487), -- Bright Crimson Spinel
+(@Entry+32, 32196), -- Runed Crimson Spinel
+(@Entry+32, 32197), -- Bright Crimson Spinel
+(@Entry+32, 32199), -- Flashing Crimson Spinel
+(@Entry+32, 35488), -- Runed Crimson Spinel
+-- Gem: Blue 70
+(@Entry+33, 24033), -- Solid Star of Elune
+(@Entry+33, 24039), -- Stormy Star of Elune
+(@Entry+33, 24035), -- Sparkling Star of Elune
+(@Entry+33, 24037), -- Lustrous Star of Elune
+(@Entry+33, 32200), -- Solid Empyrean Sapphire
+(@Entry+33, 32201), -- Sparkling Empyrean Sapphire
+(@Entry+33, 32202), -- Lustrous Empyrean Sapphire
+(@Entry+33, 32203), -- Stormy Empyrean Sapphire
+-- Gem: Yellow 70
+(@Entry+34, 24047), -- Brilliant Dawnstone
+(@Entry+34, 24051), -- Rigid Dawnstone
+(@Entry+34, 24052), -- Thick Dawnstone
+(@Entry+34, 24050), -- Gleaming Dawnstone
+(@Entry+34, 24053), -- Mystic Dawnstone
+(@Entry+34, 35315), -- Quick Dawnstone
+(@Entry+34, 24048), -- Smooth Dawnstone
+(@Entry+34, 31861), -- Great Dawnstone
+(@Entry+34, 32205), -- Smooth Lionseye
+(@Entry+34, 32204), -- Brilliant Lionseye
+(@Entry+34, 32208), -- Thick Lionseye
+(@Entry+34, 35761), -- Quick Lionseye
+(@Entry+34, 32207), -- Gleaming Lionseye
+(@Entry+34, 32209), -- Mystic Lionseye
+(@Entry+34, 32206), -- Rigid Lionseye
+(@Entry+34, 32210), -- Great Lionseye
+-- Gem: Purple 70
+(@Entry+35, 24057), -- Royal Nightseye
+(@Entry+35, 24055), -- Shifting Nightseye
+(@Entry+35, 24056), -- Glowing Nightseye
+(@Entry+35, 31865), -- Infused Nightseye
+(@Entry+35, 35707), -- Regal Nightseye
+(@Entry+35, 24054), -- Sovereign Nightseye
+(@Entry+35, 31863), -- Balanced Nightseye
+(@Entry+35, 32216), -- Royal Shadowsong Amethyst
+(@Entry+35, 32213), -- Balanced Shadowsong Amethyst
+(@Entry+35, 37503), -- Purified Shadowsong Amethyst
+(@Entry+35, 32214), -- Infused Shadowsong Amethyst
+(@Entry+35, 32212), -- Shifting Shadowsong Amethyst
+(@Entry+35, 32215), -- Glowing Shadowsong Amethyst
+(@Entry+35, 32211), -- Sovereign Shadowsong Amethyst
+-- Gem: Green 70
+(@Entry+36, 33782), -- Steady Talasite
+(@Entry+36, 24065), -- Dazzling Talasite
+(@Entry+36, 24062), -- Enduring Talasite
+(@Entry+36, 24066), -- Radiant Talasite
+(@Entry+36, 24067), -- Jagged Talasite
+(@Entry+36, 35318), -- Forceful Talasite
+(@Entry+36, 32225), -- Dazzling Seaspray Emerald
+(@Entry+36, 32223), -- Enduring Seaspray Emerald
+(@Entry+36, 32224), -- Radiant Seaspray Emerald
+(@Entry+36, 32226), -- Jagged Seaspray Emerald
+(@Entry+36, 35759), -- Forceful Seaspray Emerald
+(@Entry+36, 35758), -- Steady Seaspray Emerald
+-- Gem: Orange 70
+(@Entry+37, 31867), -- Veiled Noble Topaz
+(@Entry+37, 32637), -- Unstable Citrine
+(@Entry+37, 31868), -- Wicked Noble Topaz
+(@Entry+37, 24061), -- Glinting Noble Topaz
+(@Entry+37, 24058), -- Inscribed Noble Topaz
+(@Entry+37, 24060), -- Luminous Noble Topaz
+(@Entry+37, 35316), -- Reckless Noble Topaz
+(@Entry+37, 32220), -- Glinting Pyrestone
+(@Entry+37, 32219), -- Luminous Pyrestone
+(@Entry+37, 32222), -- Wicked Pyrestone
+(@Entry+37, 35760), -- Reckless Pyrestone
+(@Entry+37, 32217), -- Inscribed Pyrestone
+(@Entry+37, 32221), -- Veiled Pyrestone
+(@Entry+37, 32218), -- Potent Pyrestone
+-- Flasks
+(@Entry+38, 13512), -- Flask of Supreme Power
+(@Entry+38, 13510), -- Flask of the Titans
+(@Entry+38, 13513), -- Flask of Chromatic Resistance
+(@Entry+38, 22866), -- Flask of Pure Death
+(@Entry+38, 22854), -- Flask of Relentless Assault
+(@Entry+38, 22861), -- Flask of Blinding Light
+(@Entry+38, 33208), -- Flask of Chromatic Wonder
+(@Entry+38, 22853), -- Flask of Mighty Restoration
+(@Entry+38, 22851), -- Flask of Fortification
+(@Entry+38, 46376), -- Flask of the Frost Wyrm
+(@Entry+38, 46377), -- Flask of Endless Rage
+(@Entry+38, 46379), -- Flask of Stoneblood
+(@Entry+38, 46378), -- Flask of Pure Mojo
+-- Enchantments lvl 40-50
+(@Entry+39, 7967),  -- Mithril Shield Spike
+(@Entry+39, 15564), -- Rugged Armor Kit
+(@Entry+39, 38837), -- Scroll of Enchant Boots - Minor Speed
+(@Entry+39, 10548), -- Sniper Scope
+(@Entry+39, 38833), -- Scroll of Enchant Chest - Superior Health
+(@Entry+39, 38847), -- Scroll of Enchant Chest - Stats
+(@Entry+39, 38848), -- Scroll of Enchant Weapon - Greater Striking
+(@Entry+39, 8173),  -- Thick Armor Kit
+(@Entry+39, 38825), -- Scroll of Enchant Cloak - Greater Defense
+(@Entry+39, 38846), -- Scroll of Enchant Bracer - Greater Strength
+(@Entry+39, 38822), -- Scroll of Enchant 2H Weapon - Impact
+(@Entry+39, 38829), -- Scroll of Enchant Bracer - Intellect
+(@Entry+39, 38845), -- Scroll of Enchant 2H Weapon - Greater Impact
+(@Entry+39, 38851), -- Scroll of Enchant Gloves - Minor Haste
+(@Entry+39, 38832), -- Scroll of Enchant Bracer - Greater Spirit
+(@Entry+39, 38827), -- Scroll of Enchant Gloves - Agility
+(@Entry+39, 38839), -- Scroll of Enchant Shield - Greater Spirit
+(@Entry+39, 38841), -- Scroll of Enchant Chest - Superior Mana
+(@Entry+39, 38844), -- Scroll of Enchant Boots - Agility
+(@Entry+39, 38835), -- Scroll of Enchant Cloak - Lesser Agility
+(@Entry+39, 38849), -- Scroll of Enchant Bracer - Greater Stamina
+(@Entry+39, 38824), -- Scroll of Enchant Chest - Lesser Stats
+(@Entry+39, 38826), -- Scroll of Enchant Cloak - Resistance
+(@Entry+39, 38828), -- Scroll of Enchant Shield - Stamina
+(@Entry+39, 38830), -- Scroll of Enchant Boots - Stamina
+(@Entry+39, 38836), -- Scroll of Enchant Gloves - Strength
+(@Entry+39, 45628), -- Scroll of Enchant Boots - Lesser Accuracy
+(@Entry+39, 38840), -- Scroll of Enchant Weapon - Demonslaying
+(@Entry+39, 38842), -- Scroll of Enchant Bracer - Deflection
+-- Enchantments lvl 51-60 white/green
+(@Entry+40, 11642), -- Lesser Arcanum of Constitution
+(@Entry+40, 12645), -- Thorium Shield Spike
+(@Entry+40, 38854), -- Scroll of Enchant Bracer - Superior Strength
+(@Entry+40, 38938), -- Scroll of Enchant Bracer - Assault
+(@Entry+40, 11644), -- Lesser Arcanum of Resilience
+(@Entry+40, 25650), -- Knothide Armor Kit
+(@Entry+40, 11647), -- Lesser Arcanum of Voracity
+(@Entry+40, 18173), -- Shadow Mantle of the Dawn
+(@Entry+40, 38857), -- Scroll of Enchant Gloves - Greater Strength
+(@Entry+40, 11645), -- Lesser Arcanum of Voracity
+(@Entry+40, 38863), -- Scroll of Enchant Boots - Greater Agility
+(@Entry+40, 18172), -- Nature Mantle of the Dawn
+(@Entry+40, 18182), -- Chromatic Mantle of the Dawn
+(@Entry+40, 18330), -- Arcanum of Focus
+(@Entry+40, 38860), -- Scroll of Enchant Shield - Vitality
+(@Entry+40, 11622), -- Lesser Arcanum of Rumination
+(@Entry+40, 18331), -- Arcanum of Protection
+(@Entry+40, 11646), -- Lesser Arcanum of Voracity
+(@Entry+40, 11648), -- Lesser Arcanum of Voracity
+(@Entry+40, 18170), -- Frost Mantle of the Dawn
+(@Entry+40, 18329), -- Arcanum of Rapidity
+(@Entry+40, 38852), -- Scroll of Enchant Bracer - Greater Intellect
+(@Entry+40, 38853), -- Scroll of Enchant Bracer - Superior Spirit
+(@Entry+40, 38859), -- Scroll of Enchant Cloak - Superior Defense
+(@Entry+40, 18169), -- Flame Mantle of the Dawn
+(@Entry+40, 38856), -- Scroll of Enchant Gloves - Greater Agility
+(@Entry+40, 38861), -- Scroll of Enchant Shield - Greater Stamina
+(@Entry+40, 38867), -- Scroll of Enchant Chest - Major Mana
+(@Entry+40, 11643), -- Lesser Arcanum of Tenacity
+(@Entry+40, 11649), -- Lesser Arcanum of Voracity
+(@Entry+40, 18171), -- Arcane Mantle of the Dawn
+(@Entry+40, 38858), -- Scroll of Enchant Cloak - Greater Resistance
+(@Entry+40, 38862), -- Scroll of Enchant Boots - Greater Stamina
+(@Entry+40, 38864), -- Scroll of Enchant Boots - Spirit
+(@Entry+40, 38866), -- Scroll of Enchant Chest - Major Health
+(@Entry+40, 38881), -- Scroll of Enchant Bracer - Mana Regeneration
+(@Entry+40, 38929), -- Scroll of Enchant Chest - Restore Mana Prime
+(@Entry+40, 38855), -- Scroll of Enchant Bracer - Superior Stamina
+-- Enchantments lvl 51-60 rare
+(@Entry+41, 38880), -- Scroll of Enchant Weapon - Agility
+(@Entry+41, 38838), -- Scroll of Enchant Weapon - Fiery Weapon
+(@Entry+41, 18283), -- Biznicks 247x128 Accurascope
+(@Entry+41, 20077), -- Zandalar Signet of Might
+(@Entry+41, 19782), -- Presence of Might
+(@Entry+41, 38879), -- Scroll of Enchant Weapon - Strength
+(@Entry+41, 19783), -- Syncretist's Sigil
+(@Entry+41, 38896), -- Scroll of Enchant 2H Weapon - Agility
+(@Entry+41, 20078), -- Zandalar Signet of Serenity
+(@Entry+41, 22638), -- Shadow Guard
+(@Entry+41, 38875), -- Scroll of Enchant 2H Weapon - Major Intellect
+(@Entry+41, 19784), -- Death's Embrace
+(@Entry+41, 20076), -- Zandalar Signet of Mojo
+(@Entry+41, 19787), -- Presence of Sight
+(@Entry+41, 19788), -- Hoodoo Hex
+(@Entry+41, 38872), -- Scroll of Enchant Weapon - Unholy Weapon
+(@Entry+41, 22636), -- Ice Guard
+(@Entry+41, 38870), -- Scroll of Enchant Weapon - Superior Striking
+(@Entry+41, 19785), -- Falcon's Call
+(@Entry+41, 38878), -- Scroll of Enchant Weapon - Healing Power
+(@Entry+41, 19786), -- Vodouisant's Vigilant Embrace
+(@Entry+41, 19789), -- Prophetic Aura
+(@Entry+41, 19790), -- Animist's Caress
+(@Entry+41, 22635), -- Savage Guard
+(@Entry+41, 38869), -- Scroll of Enchant 2H Weapon - Superior Impact
+(@Entry+41, 18251), -- Core Armor Kit
+(@Entry+41, 38868), -- Scroll of Enchant Weapon - Icy Chill
+(@Entry+41, 38871), -- Scroll of Enchant Weapon - Lifestealing
+(@Entry+41, 38873), -- Scroll of Enchant Weapon - Crusader
+(@Entry+41, 38877), -- Scroll of Enchant Weapon - Spellpower
+-- Enchantments lvl 65-70 BC white/green
+(@Entry+42, 29534), -- Clefthide Leg Armor
+(@Entry+42, 29533), -- Cobrahide Leg Armor
+(@Entry+42, 24273), -- Mystic Spellthread
+(@Entry+42, 23764), -- Adamantite Scope
+(@Entry+42, 38918), -- Scroll of Enchant Weapon - Major Intellect
+(@Entry+42, 38917), -- Scroll of Enchant Weapon - Major Striking
+(@Entry+42, 28888), -- Greater Inscription of Vengeance
+(@Entry+42, 34207), -- Glove Reinforcements
+(@Entry+42, 23530), -- Felsteel Shield Spike
+(@Entry+42, 29192), -- Arcanum of Ferocity
+(@Entry+42, 29193), -- Arcanum of the Gladiator
+(@Entry+42, 28887), -- Greater Inscription of Faith
+(@Entry+42, 29191), -- Arcanum of Power
+(@Entry+42, 29186), -- Arcanum of the Defender
+(@Entry+42, 28910), -- Greater Inscription of the Blade
+(@Entry+42, 28912), -- Greater Inscription of the Oracle
+(@Entry+42, 38884), -- Scroll of Enchant Weapon - Mighty Intellect
+(@Entry+42, 28886), -- Greater Inscription of Discipline
+(@Entry+42, 30846), -- Arcanum of the Outcast
+(@Entry+42, 29187), -- Inscription of Endurance
+(@Entry+42, 29189), -- Arcanum of Renewal
+(@Entry+42, 28909), -- Greater Inscription of the Orb
+(@Entry+42, 38920), -- Scroll of Enchant Weapon - Potency
+(@Entry+42, 38919), -- Scroll of Enchant 2H Weapon - Savagery
+(@Entry+42, 38946), -- Scroll of Enchant Weapon - Major Healing
+(@Entry+42, 28889), -- Greater Inscription of Warding
+(@Entry+42, 35728), -- Greater Inscription of the Blade
+(@Entry+42, 38947), -- Scroll of Enchant Weapon - Greater Agility
+(@Entry+42, 28911), -- Greater Inscription of the Knight
+(@Entry+42, 35729), -- Greater Inscription of the Knight
+(@Entry+42, 35730), -- Greater Inscription of the Oracle
+(@Entry+42, 35731), -- Greater Inscription of the Orb
+(@Entry+42, 38913), -- Scroll of Enchant Chest - Exceptional Stats
+(@Entry+42, 38933), -- Scroll of Enchant Gloves - Major Strength
+(@Entry+42, 38902), -- Scroll of Enchant Bracer - Fortitude
+(@Entry+42, 38889), -- Scroll of Enchant Gloves - Healing Power
+(@Entry+42, 38895), -- Scroll of Enchant Cloak - Dodge
+(@Entry+42, 38945), -- Scroll of Enchant Shield - Major Stamina
+(@Entry+42, 38939), -- Scroll of Enchant Cloak - Spell Penetration
+(@Entry+42, 38882), -- Scroll of Enchant Bracer - Healing Power
+(@Entry+42, 38899), -- Scroll of Enchant Bracer - Major Defense
+(@Entry+42, 38910), -- Scroll of Enchant Boots - Surefooted
+(@Entry+42, 38944), -- Scroll of Enchant Boots - Boar's Speed
+-- Enchantments lvl 70 BC rare
+(@Entry+43, 38925), -- Scroll of Enchant Weapon - Mongoose
+(@Entry+43, 41146), -- Sun Scope
+(@Entry+43, 24274), -- Runic Spellthread
+(@Entry+43, 23766), -- Stabilized Eternium Scope
+(@Entry+43, 29536), -- Nethercleft Leg Armor
+(@Entry+43, 44497), -- Scroll of Enchant Weapon - Accuracy
+(@Entry+43, 24276), -- Golden Spellthread
+(@Entry+43, 29535), -- Nethercobra Leg Armor
+(@Entry+43, 44453), -- Scroll of Enchant Weapon - Greater Potency
+(@Entry+43, 23765), -- Khorium Scope
+(@Entry+43, 38948), -- Scroll of Enchant Weapon - Executioner
+(@Entry+43, 38926), -- Scroll of Enchant Weapon - Spellsurge
+(@Entry+43, 38927), -- Scroll of Enchant Weapon - Battlemaster
+(@Entry+43, 38922), -- Scroll of Enchant 2H Weapon - Major Agility
+(@Entry+43, 38924), -- Scroll of Enchant Weapon - Soulfrost
+(@Entry+43, 38923), -- Scroll of Enchant Weapon - Sunfire
+(@Entry+43, 38998), -- Scroll of Enchant Weapon - Deathfrost
+-- Enchantments lvl 80 WOTLK white/green
+(@Entry+44, 38979), -- Scroll of Enchant Gloves - Exceptional Spellpower
+(@Entry+44, 39006), -- Scroll of Enchant Boots - Tuskarr's Vitality
+(@Entry+44, 39003), -- Scroll of Enchant Cloak - Greater Speed
+(@Entry+44, 38989), -- Scroll of Enchant Chest - Super Stats
+(@Entry+44, 38975), -- Scroll of Enchant Chest - Exceptional Resilience
+(@Entry+44, 44458), -- Scroll of Enchant Gloves - Crusher
+(@Entry+44, 38967), -- Scroll of Enchant Gloves - Major Agility
+(@Entry+44, 38986), -- Scroll of Enchant Boots - Icewalker
+(@Entry+44, 39005), -- Scroll of Enchant Chest - Super Health
+(@Entry+44, 38997), -- Scroll of Enchant Bracers - Greater Spellpower
+(@Entry+44, 38984), -- Scroll of Enchant Bracer - Expertise
+(@Entry+44, 38993), -- Scroll of Enchant Cloak - Shadow Armor
+(@Entry+44, 39004), -- Scroll of Enchant Cloak - Wisdom
+(@Entry+44, 38978), -- Scroll of Enchant Cloak - Titanweave
+(@Entry+44, 38976), -- Scroll of Enchant Boots - Superior Agility
+(@Entry+44, 38990), -- Scroll of Enchant Gloves - Armsman
+(@Entry+44, 38964), -- Scroll of Enchant Gloves - Greater Assault
+(@Entry+44, 38985), -- Scroll of Enchant Gloves - Greater Blasting
+-- Enchantments lvl 80 WOTLK rares
+(@Entry+45, 38371), -- Jormungar Leg Armor
+(@Entry+45, 38372), -- Nerubian Leg Armor
+(@Entry+45, 44493), -- Scroll of Enchant Weapon - Berserking
+(@Entry+45, 44463), -- Scroll of Enchant 2H Weapon - Massacre
+(@Entry+45, 44466), -- Scroll of Enchant Weapon - Superior Potency
+(@Entry+45, 44957), -- Greater Inscription of the Gladiator
+(@Entry+45, 41611), -- Eternal Belt Buckle
+(@Entry+45, 44137), -- Arcanum of the Frosty Soul
+(@Entry+45, 44936), -- Titanium Plating
+(@Entry+45, 44069), -- Arcanum of Triumph
+(@Entry+45, 44879), -- Arcanum of Torment
+(@Entry+45, 44075), -- Arcanum of Dominance
+(@Entry+45, 41167), -- Heartseeker Scope
+(@Entry+45, 44067), -- Inscription of Triumph
+(@Entry+45, 44878), -- Arcanum of the Stalwart Protector
+(@Entry+45, 44068), -- Inscription of Dominance
+(@Entry+45, 44877), -- Arcanum of Burning Mysteries
+(@Entry+45, 44131), -- Lesser Inscription of the Axe
+(@Entry+45, 44139), -- Arcanum of the Fleeing Shadow
+(@Entry+45, 41601), -- Shining Spellthread
+(@Entry+45, 44138), -- Arcanum of Toxic Warding
+(@Entry+45, 44875), -- Arcanum of the Savage Gladiator
+(@Entry+45, 44130), -- Lesser Inscription of the Crag
+(@Entry+45, 41603), -- Azure Spellthread
+(@Entry+45, 44129), -- Lesser Inscription of the Storm
+(@Entry+45, 44140), -- Arcanum of the Eclipsed Moon
+(@Entry+45, 46026), -- Scroll of Enchant Weapon - Blade Ward
+(@Entry+45, 44876), -- Arcanum of Blissful Mending
+(@Entry+45, 44141), -- Arcanum of the Flame's Soul
+(@Entry+45, 44132), -- Lesser Inscription of the Pinnacle
+(@Entry+45, 46098), -- Scroll of Enchant Weapon - Blood Draining
+(@Entry+45, 45060), -- Scroll of Enchant Staff - Spellpower
+(@Entry+45, 44884), -- Arcanum of the Frosty Soul
+(@Entry+45, 44872), -- Greater Inscription of the Crag
+(@Entry+45, 44124), -- NPC Equip 44124
+(@Entry+45, 44880), -- Arcanum of the Flame's Soul
+(@Entry+45, 38963), -- Scroll of Enchant Weapon - Exceptional Spirit
+(@Entry+45, 44125), -- NPC Equip 44125
+(@Entry+45, 44881), -- Arcanum of the Eclipsed Moon
+(@Entry+45, 44883), -- Arcanum of Toxic Warding
+(@Entry+45, 44882), -- Arcanum of the Fleeing Shadow
+(@Entry+45, 38992), -- Scroll of Enchant 2H Weapon - Greater Savagery
+(@Entry+45, 38995), -- Scroll of Enchant Weapon - Exceptional Agility
+(@Entry+45, 38965), -- Scroll of Enchant Weapon - Icebreaker
+(@Entry+45, 44467), -- Scroll of Enchant Weapon - Mighty Spellpower
+(@Entry+45, 45056), -- Scroll of Enchant Staff - Greater Spellpower
+(@Entry+45, 38972), -- Scroll of Enchant Weapon - Lifeward
+(@Entry+45, 43987), -- Scroll of Enchant Weapon - Black Magic
+-- Enchantments lvl 80 WOTLK epics
+(@Entry+46, 41602), -- Brilliant Spellthread
+(@Entry+46, 38374), -- Icescale Leg Armor
+(@Entry+46, 41604), -- Sapphire Spellthread
+(@Entry+46, 38373), -- Frosthide Leg Armor
+(@Entry+46, 44871), -- Greater Inscription of the Axe
+(@Entry+46, 44963), -- Earthen Leg Armor
+(@Entry+46, 44874), -- Greater Inscription of the Storm
+(@Entry+46, 44873), -- Greater Inscription of the Pinnacle
+-- Potions lvl 1-60 Vanilla
+(@Entry+47, 5631), -- Rage Potion
+(@Entry+47, 2459), -- Swiftness Potion
+(@Entry+47, 5633), -- Great Rage Potion
+(@Entry+47, 5634), -- Free Action Potion
+(@Entry+47, 9036), -- Magic Resistance Potion
+(@Entry+47, 13442), -- Mighty Rage Potion
+(@Entry+47, 13457), -- Greater Fire Protection Potion
+(@Entry+47, 13456), -- Greater Frost Protection Potion
+(@Entry+47, 13458), -- Greater Nature Protection Potion
+(@Entry+47, 13446), -- Major Healing Potion
+(@Entry+47, 13444), -- Major Mana Potion
+(@Entry+47, 20008), -- Living Action Potion
+-- Potions lvl 60-70 Burning Crusade
+(@Entry+48, 22829), -- Super Healing Potion
+(@Entry+48, 22832), -- Super Mana Potion
+(@Entry+48, 22838), -- Haste Potion
+(@Entry+48, 22839), -- Destruction Potion
+(@Entry+48, 22837), -- Heroic Potion
+(@Entry+48, 22849), -- Ironshield Potion
+(@Entry+48, 22842), -- Major Frost Protection Potion
+(@Entry+48, 22844), -- Major Nature Protection Potion
+(@Entry+48, 22845), -- Major Arcane Protection Potion
+(@Entry+48, 22841), -- Major Fire Protection Potion
+(@Entry+48, 22846), -- Major Shadow Protection Potion
+-- Potions lvl 70-80 WotLK
+(@Entry+49, 33447), -- Runic Healing Potion
+(@Entry+49, 33448), -- Runic Mana Potion
+(@Entry+49, 40211), -- Potion of Speed
+(@Entry+49, 40212), -- Potion of Wild Magic
+(@Entry+49, 40093), -- Indestructible Potion
+(@Entry+49, 40215), -- Mighty Frost Protection Potion
+(@Entry+49, 40217), -- Mighty Shadow Protection Potion
+(@Entry+49, 40214), -- Mighty Fire Protection Potion
+(@Entry+49, 40216), -- Mighty Nature Protection Potion
+(@Entry+49, 40213); -- Mighty Arcane Protection Potion
