@@ -335,7 +335,7 @@ void Assistant::ListProfession(Player* player, uint32 id)
             break;
         }
 
-        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("%s %s", GOSSIP_PROFESSIONS_CHOOSE, name), GOSSIP_SENDER_MAIN, menu, GOSSIP_CONTINUE_TRANSACTION, cost, false);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, Acore::StringFormat("{} {}", GOSSIP_PROFESSIONS_CHOOSE, name), GOSSIP_SENDER_MAIN, menu, GOSSIP_CONTINUE_TRANSACTION, cost, false);
     }
 }
 
