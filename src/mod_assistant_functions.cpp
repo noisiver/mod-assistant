@@ -1,3 +1,4 @@
+#include "Tokenize.h"
 #include "mod_assistant.h"
 
 uint32 Assistant::GetGlyphId(uint32 id, bool major)
@@ -441,4 +442,41 @@ void Assistant::ResetInstances(Player* player, uint8 type)
             }
         }
     }
+}
+
+bool Assistant::CanBuyPortals(Player* player) const 
+{
+    if (!PortalsEnabled) 
+    {
+        return false;
+    }
+
+    PlayerSpellMap spells = player->GetSpellMap();
+    auto portalIds = player->GetTeamId() == TEAM_HORDE ? HordePortals : AlliancePortals;
+
+    return std::any_of(portalIds.begin(), portalIds.end(), [&](const uint32 &item) 
+    {
+        return !spells.contains(item);
+    });
+}
+
+std::vector<uint32> Assistant::ParsePortalIds(const std::string& configStr) 
+{
+    auto stringViews = Acore::Tokenize(configStr, ',', false);
+    std::vector<uint32> portalIds;
+    portalIds.reserve(stringViews.size());
+
+    for (const auto& view : stringViews) 
+    {
+        portalIds.push_back(Acore::StringTo<uint32>(view).value());
+    }
+
+    return portalIds;
+}
+
+void Assistant::ConfigurePortals() 
+{
+    HordePortals = ParsePortalIds(HordePortalIdConfig);
+    AlliancePortals = ParsePortalIds(AlliancePortalIdConfig);
+    NeutralPortals = ParsePortalIds(NeutralPortalIdConfig);
 }
