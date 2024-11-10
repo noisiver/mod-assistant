@@ -34,7 +34,7 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 (@Entry, 571, 5791.71, 560.464, 650.657, 1.79314); -- Dalaran
 
 -- Major Glyphs
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (43412, 43413, 43414, 43415, 43416, 43417, 43418, 43419, 43420, 43421, 43422, 43423, 43424, 43425, 43426, 43427, 43428, 43429, 43430, 43431, 43432, 45790, 45792, 45793, 45794, 45795, 45797);
+/*UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (43412, 43413, 43414, 43415, 43416, 43417, 43418, 43419, 43420, 43421, 43422, 43423, 43424, 43425, 43426, 43427, 43428, 43429, 43430, 43431, 43432, 45790, 45792, 45793, 45794, 45795, 45797);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (41092, 41094, 41095, 41096, 41097, 41098, 41099, 41100, 41101, 41102, 41103, 41104, 41105, 41106, 41107, 41108, 41109, 41110, 43867, 43868, 43869, 45741, 45742, 45743, 45744, 45745, 45746, 45747);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (42897, 42898, 42899, 42900, 42901, 42902, 42903, 42904, 42905, 42906, 42907, 42908, 42909, 42910, 42911, 42912, 42913, 42914, 42915, 42916, 42917, 45625, 45731, 45732, 45733, 45734, 45735);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (42954, 42955, 42956, 42957, 42958, 42959, 42960, 42961, 42962, 42963, 42964, 42965, 42966, 42967, 42968, 42969, 42970, 42971, 42972, 42973, 42974, 45761, 45762, 45764, 45766, 45767, 45768, 45769);
@@ -63,13 +63,16 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40123, 
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40129, 40130, 40131, 40132, 40133, 40134, 40135, 40136, 40137, 40138, 40139, 40140, 40141);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40164, 40165, 40166, 40167, 40168, 40169, 40170, 40171, 40172, 40173, 40174, 40175, 40176, 40177, 40178, 40179, 40180, 40181, 40182);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40142, 40143, 40144, 40145, 40146, 40147, 40148, 40149, 40150, 40151, 40152, 40153, 40154, 40155, 40156, 40157, 40158, 40159, 40160, 40161, 40162, 40163);
+-- Elixirs
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (2454, 2457, 3390, 3391, 6373, 6662, 8949, 9155, 9187, 9206, 9224, 9264, 12820, 13452, 13453, 13454, 17708, 21546, 22824, 22825, 22827, 22831, 22833, 22835, 28102, 28103, 28104, 31679, 34537, 39666, 40068, 40070, 40073, 40076, 44325, 44327, 44329, 44330, 44331, 45621);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (2458, 3382, 3383, 3388, 3389, 3825, 3826, 5997, 8827, 8951, 9088, 9179, 13445, 13447, 20004, 20007, 22834, 22840, 22848, 23444, 32062, 32063, 32067, 32068, 40072, 40078, 40097, 40109, 44328, 44332);
 -- Containers
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);*/
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 
--- Heirloom: Weapon
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+30;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+32;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
+-- Heirloom: Weapon
 (@Entry, 42943), -- Bloodied Arcanite Reaper
 (@Entry, 42944), -- Balanced Heartseeker
 (@Entry, 42945), -- Venerable Dal'Rend's Sacred Charge
@@ -591,8 +594,80 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+29, 40161), -- Glimmering Ametrine
 (@Entry+29, 40162), -- Accurate Ametrine
 (@Entry+29, 40163), -- Resolute Ametrine
+-- Battle Elixirs
+(@Entry+30, 2454), -- Elixir of Lion's Strength
+(@Entry+30, 2457), -- Elixir of Minor Agility
+(@Entry+30, 3390), -- Elixir of Lesser Agility
+(@Entry+30, 3391), -- Elixir of Ogre's Strength
+(@Entry+30, 6373), -- Elixir of Firepower
+(@Entry+30, 6662), -- Elixir of Giant Growth
+(@Entry+30, 8949), -- Elixir of Agility
+(@Entry+30, 9155), -- Arcane Elixir
+(@Entry+30, 9187), -- Elixir of Greater Agility
+(@Entry+30, 9206), -- Elixir of Giants
+(@Entry+30, 9224), -- Elixir of Demonslaying
+(@Entry+30, 9264), -- Elixir of Shadow Power
+(@Entry+30, 12820), -- Winterfall Firewater
+(@Entry+30, 13452), -- Elixir of the Mongoose
+(@Entry+30, 13453), -- Elixir of Brute Force
+(@Entry+30, 13454), -- Greater Arcane Elixir
+(@Entry+30, 17708), -- Elixir of Frost Power
+(@Entry+30, 21546), -- Elixir of Greater Firepower
+(@Entry+30, 22824), -- Elixir of Major Strength
+(@Entry+30, 22825), -- Elixir of Healing Power
+(@Entry+30, 22827), -- Elixir of Major Frost Power
+(@Entry+30, 22831), -- Elixir of Major Agility
+(@Entry+30, 22833), -- Elixir of Major Firepower
+(@Entry+30, 22835), -- Elixir of Major Shadow Power
+(@Entry+30, 28102), -- Onslaught Elixir
+(@Entry+30, 28103), -- Adept's Elixir
+(@Entry+30, 28104), -- Elixir of Mastery
+(@Entry+30, 31679), -- Fel Strength Elixir
+(@Entry+30, 34537), -- Bloodberry Elixir
+(@Entry+30, 39666), -- Elixir of Mighty Agility
+(@Entry+30, 40068), -- Wrath Elixir
+(@Entry+30, 40070), -- Spellpower Elixir
+(@Entry+30, 40073), -- Elixir of Mighty Strength
+(@Entry+30, 40076), -- Guru's Elixir
+(@Entry+30, 44325), -- Elixir of Accuracy
+(@Entry+30, 44327), -- Elixir of Deadly Strikes
+(@Entry+30, 44329), -- Elixir of Expertise
+(@Entry+30, 44330), -- Elixir of Armor Piercing
+(@Entry+30, 44331), -- Elixir of Lightning Speed
+(@Entry+30, 45621), -- Elixir of Minor Accuracy
+-- Guardian Elixirs
+(@Entry+31, 2458), -- Elixir of Minor Fortitude
+(@Entry+31, 3382), -- Weak Troll's Blood Elixir
+(@Entry+31, 3383), -- Elixir of Wisdom
+(@Entry+31, 3388), -- Strong Troll's Blood Elixir
+(@Entry+31, 3389), -- Elixir of Defense
+(@Entry+31, 3825), -- Elixir of Fortitude
+(@Entry+31, 3826), -- Major Troll's Blood Elixir
+(@Entry+31, 5997), -- Elixir of Minor Defense
+(@Entry+31, 8827), -- Elixir of Water Walking
+(@Entry+31, 8951), -- Elixir of Greater Defense
+(@Entry+31, 9088), -- Gift of Arthas
+(@Entry+31, 9179), -- Elixir of Greater Intellect
+(@Entry+31, 13445), -- Elixir of Superior Defense
+(@Entry+31, 13447), -- Elixir of the Sages
+(@Entry+31, 20004), -- Mighty Troll's Blood Elixir
+(@Entry+31, 20007), -- Mageblood Elixir
+(@Entry+31, 22834), -- Elixir of Major Defense
+(@Entry+31, 22840), -- Elixir of Major Mageblood
+(@Entry+31, 22848), -- Elixir of Empowerment
+(@Entry+31, 23444), -- Goldenmist Special Brew
+(@Entry+31, 32062), -- Elixir of Major Fortitude
+(@Entry+31, 32063), -- Earthen Elixir
+(@Entry+31, 32067), -- Elixir of Draenic Wisdom
+(@Entry+31, 32068), -- Elixir of Ironskin
+(@Entry+31, 40072), -- Elixir of Spirit
+(@Entry+31, 40078), -- Elixir of Mighty Fortitude
+(@Entry+31, 40097), -- Elixir of Protection
+(@Entry+31, 40109), -- Elixir of Mighty Mageblood
+(@Entry+31, 44328), -- Elixir of Mighty Defense
+(@Entry+31, 44332), -- Elixir of Mighty Thoughts
 -- Container
-(@Entry+30, 1729), -- Gunnysack of the Night Watch
-(@Entry+30, 3604), -- Bandolier of the Night Watch
-(@Entry+30, 3605), -- Quiver of the Night Watch
-(@Entry+30, 22243); -- Small Soul Pouch
+(@Entry+32, 1729), -- Gunnysack of the Night Watch
+(@Entry+32, 3604), -- Bandolier of the Night Watch
+(@Entry+32, 3605), -- Quiver of the Night Watch
+(@Entry+32, 22243); -- Small Soul Pouch

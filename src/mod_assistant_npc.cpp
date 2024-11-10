@@ -19,6 +19,11 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_GEMS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_GEM);
     }
 
+    if (ElixirsEnabled)
+    {
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_ELIXIRS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS);
+    }
+
     if (ContainersEnabled)
     {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_CONTAINERS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
@@ -185,6 +190,22 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         }
 
         player->GetSession()->SendListInventory(creature->GetGUID(), id);
+    }
+    else if (action == ASSISTANT_GOSSIP_ELIXIRS)
+    {
+        ClearGossipMenuFor(player);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ELIXIRS_BATTLE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS + 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ELIXIRS_GUARDIAN, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+    }
+    else if (action == ASSISTANT_GOSSIP_ELIXIRS + 1)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ELIXIR + 0);
+    }
+    else if (action == ASSISTANT_GOSSIP_ELIXIRS + 2)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ELIXIR + 1);
     }
     else if (action == ASSISTANT_GOSSIP_CONTAINER)
     {
