@@ -669,8 +669,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+31, 44328), -- Elixir of Mighty Defense
 (@Entry+31, 44332), -- Elixir of Mighty Thoughts
 -- Food
-(@Entry+32, 27667), -- Spicy Crawdad
-(@Entry+32, 33052), -- Fisherman's Feast
 (@Entry+32, 34748), -- Mammoth Meal
 (@Entry+32, 34749), -- Shoveltusk Steak
 (@Entry+32, 34750), -- Worm Delight
