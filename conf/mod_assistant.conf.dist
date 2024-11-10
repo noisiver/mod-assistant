@@ -6,6 +6,8 @@
 # Heirlooms include armor pieces, weapons and tome of cold weather flight
 # Glyphs include every major and minor glyph for all classes
 # Gems include all glyphs relevant for level 80 classes
+# Elixirs include all battle and guardian elixirs
+# Food includes most of the food items that give you a buff after 10 seconds of eating them
 # Containers include the lowest amount of slot bags by default
 #
 
@@ -13,6 +15,7 @@ Assistant.Heirlooms.Enabled  = 1
 Assistant.Glyphs.Enabled     = 1
 Assistant.Gems.Enabled       = 1
 Assistant.Elixirs.Enabled    = 1
+Assistant.Food.Enabled       = 1
 Assistant.Containers.Enabled = 1
 
 #################################

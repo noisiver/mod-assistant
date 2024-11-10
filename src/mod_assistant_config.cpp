@@ -7,6 +7,7 @@ void Assistant::OnAfterConfigLoad(bool /*reload*/)
     GlyphsEnabled = sConfigMgr->GetOption<bool>("Assistant.Glyphs.Enabled", 1);
     GemsEnabled = sConfigMgr->GetOption<bool>("Assistant.Gems.Enabled", 1);
     ElixirsEnabled = sConfigMgr->GetOption<bool>("Assistant.Elixirs.Enabled", 1);
+    FoodEnabled = sConfigMgr->GetOption<bool>("Assistant.Food.Enabled", 1);
     ContainersEnabled = sConfigMgr->GetOption<bool>("Assistant.Containers.Enabled", 1);
 
     // Utilities

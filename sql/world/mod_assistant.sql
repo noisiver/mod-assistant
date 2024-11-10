@@ -66,11 +66,13 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (40142, 
 -- Elixirs
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (2454, 2457, 3390, 3391, 6373, 6662, 8949, 9155, 9187, 9206, 9224, 9264, 12820, 13452, 13453, 13454, 17708, 21546, 22824, 22825, 22827, 22831, 22833, 22835, 28102, 28103, 28104, 31679, 34537, 39666, 40068, 40070, 40073, 40076, 44325, 44327, 44329, 44330, 44331, 45621);
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (2458, 3382, 3383, 3388, 3389, 3825, 3826, 5997, 8827, 8951, 9088, 9179, 13445, 13447, 20004, 20007, 22834, 22840, 22848, 23444, 32062, 32063, 32067, 32068, 40072, 40078, 40097, 40109, 44328, 44332);
+-- Food
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (27667, 33052, 34748, 34749, 34750, 34751, 34752, 34754, 34755, 34756, 34757, 34758, 34762, 34763, 34764, 34765, 34766, 34767, 34768, 34769, 42942, 42993, 42994, 42995, 42996, 42998, 42999, 43000, 43268, 44953);
 -- Containers
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);*/
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+32;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+33;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 -- Heirloom: Weapon
 (@Entry, 42943), -- Bloodied Arcanite Reaper
@@ -666,8 +668,39 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+31, 40109), -- Elixir of Mighty Mageblood
 (@Entry+31, 44328), -- Elixir of Mighty Defense
 (@Entry+31, 44332), -- Elixir of Mighty Thoughts
+-- Food
+(@Entry+32, 27667), -- Spicy Crawdad
+(@Entry+32, 33052), -- Fisherman's Feast
+(@Entry+32, 34748), -- Mammoth Meal
+(@Entry+32, 34749), -- Shoveltusk Steak
+(@Entry+32, 34750), -- Worm Delight
+(@Entry+32, 34751), -- Roasted Worg
+(@Entry+32, 34752), -- Rhino Dogs
+(@Entry+32, 34754), -- Mega Mammoth Meal
+(@Entry+32, 34755), -- Tender Shoveltusk Steak
+(@Entry+32, 34756), -- Spiced Worm Burger
+(@Entry+32, 34757), -- Very Burnt Worg
+(@Entry+32, 34758), -- Mighty Rhino Dogs
+(@Entry+32, 34762), -- Grilled Sculpin
+(@Entry+32, 34763), -- Smoked Salmon
+(@Entry+32, 34764), -- Poached Nettlefish
+(@Entry+32, 34765), -- Pickled Fangtooth
+(@Entry+32, 34766), -- Poached Northern Sculpin
+(@Entry+32, 34767), -- Firecracker Salmon
+(@Entry+32, 34768), -- Spicy Blue Nettlefish
+(@Entry+32, 34769), -- Imperial Manta Steak
+(@Entry+32, 42942), -- Baked Manta Ray
+(@Entry+32, 42993), -- Spicy Fried Herring
+(@Entry+32, 42994), -- Rhinolicious Wormsteak
+(@Entry+32, 42995), -- Hearty Rhino
+(@Entry+32, 42996), -- Snapper Extreme
+(@Entry+32, 42998), -- Cuttlesteak
+(@Entry+32, 42999), -- Blackened Dragonfin
+(@Entry+32, 43000), -- Dragonfin Filet
+(@Entry+32, 43268), -- Dalaran Clam Chowder
+(@Entry+32, 44953), -- Worg Tartare
 -- Container
-(@Entry+32, 1729), -- Gunnysack of the Night Watch
-(@Entry+32, 3604), -- Bandolier of the Night Watch
-(@Entry+32, 3605), -- Quiver of the Night Watch
-(@Entry+32, 22243); -- Small Soul Pouch
+(@Entry+33, 1729), -- Gunnysack of the Night Watch
+(@Entry+33, 3604), -- Bandolier of the Night Watch
+(@Entry+33, 3605), -- Quiver of the Night Watch
+(@Entry+33, 22243); -- Small Soul Pouch
