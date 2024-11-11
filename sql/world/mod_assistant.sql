@@ -72,7 +72,7 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (46376, 
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (27667, 33052, 34748, 34749, 34750, 34751, 34752, 34754, 34755, 34756, 34757, 34758, 34762, 34763, 34764, 34765, 34766, 34767, 34768, 34769, 42942, 42993, 42994, 42995, 42996, 42998, 42999, 43000, 43268, 44953);
 -- Enchants
 -- Weapons
-UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (38772, 38779, 38780, 38781, 38788, 38794, 38796, 38813, 38814, 38821, 38822, 38838, 38840, 38845, 38848, 38868, 38869, 38870, 38871, 38872, 38873, 38874, 38875, 38876, 38877, 38878, 38879, 38880, 38883, 38884, 38896, 38917, 38918, 38919, 38920, 38921, 38922, 38923, 38924, 38925, 38926, 38927, 38946, 38947, 38948, 38963, 38965, 38972, 38981, 38988, 38991, 38992, 38995, 38998, 43987, 44453, 44463, 44466, 44467, 44493, 44497, 44946, 46026, 46098);
+UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (18283, 23765, 23766, 38772, 38779, 38780, 38781, 38788, 38794, 38796, 38813, 38814, 38821, 38822, 38838, 38840, 38845, 38848, 38868, 38869, 38870, 38871, 38872, 38873, 38874, 38875, 38876, 38877, 38878, 38879, 38880, 38883, 38884, 38896, 38917, 38918, 38919, 38920, 38921, 38922, 38923, 38924, 38925, 38926, 38927, 38946, 38947, 38948, 38963, 38965, 38972, 38981, 38988, 38991, 38992, 38995, 38998, 41146, 41167, 43987, 44453, 44463, 44466, 44467, 44493, 44497, 44946, 46026, 46098);
 -- Head
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (44149, 44150, 44152, 44159, 50367, 50368, 50369, 50370);
 -- Shoulders
@@ -98,7 +98,7 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3
 */
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+44;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+45;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 -- Heirloom: Weapon
 (@Entry, 42943), -- Bloodied Arcanite Reaper
@@ -730,6 +730,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+33, 44953), -- Worg Tartare
 -- Enchants
 -- Weapons
+(@Entry+34, 18283), -- Biznicks 247x128 Accurascope
+(@Entry+34, 23765), -- Khorium Scope
+(@Entry+34, 23766), -- Stabilized Eternium Scope
 (@Entry+34, 38772), -- Scroll of Enchant 2H Weapon - Minor Impact
 (@Entry+34, 38779), -- Scroll of Enchant Weapon - Minor Beastslayer
 (@Entry+34, 38780), -- Scroll of Enchant Weapon - Minor Striking
@@ -784,6 +787,8 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+34, 38992), -- Scroll of Enchant 2H Weapon - Greater Savagery
 (@Entry+34, 38995), -- Scroll of Enchant Weapon - Exceptional Agility
 (@Entry+34, 38998), -- Scroll of Enchant Weapon - Deathfrost
+(@Entry+34, 41146), -- Sun Scope
+(@Entry+34, 41167), -- Heartseeker Scope
 (@Entry+34, 43987), -- Scroll of Enchant Weapon - Black Magic
 (@Entry+34, 44453), -- Scroll of Enchant Weapon - Greater Potency
 (@Entry+34, 44463), -- Scroll of Enchant 2H Weapon - Massacre
