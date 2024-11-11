@@ -81,6 +81,8 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (44133, 
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (38766, 38767, 38769, 38773, 38776, 38782, 38798, 38799, 38804, 38808, 38818, 38824, 38833, 38841, 38847, 38865, 38866, 38867, 38911, 38912, 38913, 38928, 38929, 38930, 38955, 38962, 38975, 38989, 38999, 39002, 39005, 44465);
 -- Wrists
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (38679, 38768, 38771, 38774, 38777, 38778, 38783, 38793, 38797, 38803, 38809, 38811, 38812, 38817, 38829, 38832, 38842, 38846, 38849, 38852, 38853, 38854, 38855, 38881, 38882, 38897, 38898, 38899, 38900, 38901, 38902, 38903, 38937, 38938, 38968, 38971, 38980, 38984, 38987, 38997, 44470, 44815, 44947);
+-- Gloves
+38800, 38801, 38802, 38823, 38827, 38831, 38834, 38836, 38850, 38851, 38856, 38857, 38885, 38886, 38887, 38888, 38889, 38890, 38931, 38932, 38933, 38934, 38935, 38936, 38951, 38953, 38960, 38964, 38967, 38979, 38985, 38990, 44458, 50816
 -- Waist
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (41611);
 -- Legs
@@ -887,103 +889,138 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+38, 44470), -- Scroll of Enchant Bracer - Superior Spellpower
 (@Entry+38, 44815), -- Scroll of Enchant Bracers - Greater Assault
 (@Entry+38, 44947), -- Scroll of Enchant Bracer - Major Stamina
+-- Gloves
+(@Entry+39, 38800), -- Scroll of Enchant Gloves - Mining
+(@Entry+39, 38801), -- Scroll of Enchant Gloves - Herbalism
+(@Entry+39, 38802), -- Scroll of Enchant Gloves - Fishing
+(@Entry+39, 38823), -- Scroll of Enchant Gloves - Skinning
+(@Entry+39, 38827), -- Scroll of Enchant Gloves - Agility
+(@Entry+39, 38831), -- Scroll of Enchant Gloves - Advanced Mining
+(@Entry+39, 38834), -- Scroll of Enchant Gloves - Advanced Herbalism
+(@Entry+39, 38836), -- Scroll of Enchant Gloves - Strength
+(@Entry+39, 38850), -- Scroll of Enchant Gloves - Riding Skill
+(@Entry+39, 38851), -- Scroll of Enchant Gloves - Minor Haste
+(@Entry+39, 38856), -- Scroll of Enchant Gloves - Greater Agility
+(@Entry+39, 38857), -- Scroll of Enchant Gloves - Greater Strength
+(@Entry+39, 38885), -- Scroll of Enchant Gloves - Threat
+(@Entry+39, 38886), -- Scroll of Enchant Gloves - Shadow Power
+(@Entry+39, 38887), -- Scroll of Enchant Gloves - Frost Power
+(@Entry+39, 38888), -- Scroll of Enchant Gloves - Fire Power
+(@Entry+39, 38889), -- Scroll of Enchant Gloves - Healing Power
+(@Entry+39, 38890), -- Scroll of Enchant Gloves - Superior Agility
+(@Entry+39, 38931), -- Scroll of Enchant Gloves - Blasting
+(@Entry+39, 38932), -- Scroll of Enchant Gloves - Precise Strikes
+(@Entry+39, 38933), -- Scroll of Enchant Gloves - Major Strength
+(@Entry+39, 38934), -- Scroll of Enchant Gloves - Assault
+(@Entry+39, 38935), -- Scroll of Enchant Gloves - Major Spellpower
+(@Entry+39, 38936), -- Scroll of Enchant Gloves - Major Healing
+(@Entry+39, 38951), -- Scroll of Enchant Gloves - Expertise
+(@Entry+39, 38953), -- Scroll of Enchant Gloves - Precision
+(@Entry+39, 38960), -- Scroll of Enchant Gloves - Gatherer
+(@Entry+39, 38964), -- Scroll of Enchant Gloves - Greater Assault
+(@Entry+39, 38967), -- Scroll of Enchant Gloves - Major Agility
+(@Entry+39, 38979), -- Scroll of Enchant Gloves - Exceptional Spellpower
+(@Entry+39, 38985), -- Scroll of Enchant Gloves - Greater Blasting
+(@Entry+39, 38990), -- Scroll of Enchant Gloves - Armsman
+(@Entry+39, 44458), -- Scroll of Enchant Gloves - Crusher
+(@Entry+39, 50816), -- Scroll of Enchant Gloves - Angler
 -- Waist
-(@Entry+39, 41611), -- Eternal Belt Buckle
+(@Entry+40, 41611), -- Eternal Belt Buckle
 -- Legs
-(@Entry+40, 38373), -- Frosthide Leg Armor
-(@Entry+40, 38374), -- Icescale Leg Armor
-(@Entry+40, 41602), -- Brilliant Spellthread
-(@Entry+40, 41604), -- Sapphire Spellthread
-(@Entry+40, 44963), -- Earthen Leg Armor
+(@Entry+41, 38373), -- Frosthide Leg Armor
+(@Entry+41, 38374), -- Icescale Leg Armor
+(@Entry+41, 41602), -- Brilliant Spellthread
+(@Entry+41, 41604), -- Sapphire Spellthread
+(@Entry+41, 44963), -- Earthen Leg Armor
 -- Feet
-(@Entry+41, 37603), -- Scroll of Enchant Boots - Dexterity
-(@Entry+41, 38785), -- Scroll of Enchant Boots - Minor Stamina
-(@Entry+41, 38786), -- Scroll of Enchant Boots - Minor Agility
-(@Entry+41, 38807), -- Scroll of Enchant Boots - Lesser Agility
-(@Entry+41, 38810), -- Scroll of Enchant Boots - Lesser Stamina
-(@Entry+41, 38819), -- Scroll of Enchant Boots - Lesser Spirit
-(@Entry+41, 38830), -- Scroll of Enchant Boots - Stamina
-(@Entry+41, 38837), -- Scroll of Enchant Boots - Minor Speed
-(@Entry+41, 38844), -- Scroll of Enchant Boots - Agility
-(@Entry+41, 38862), -- Scroll of Enchant Boots - Greater Stamina
-(@Entry+41, 38863), -- Scroll of Enchant Boots - Greater Agility
-(@Entry+41, 38864), -- Scroll of Enchant Boots - Spirit
-(@Entry+41, 38908), -- Scroll of Enchant Boots - Vitality
-(@Entry+41, 38909), -- Scroll of Enchant Boots - Fortitude
-(@Entry+41, 38910), -- Scroll of Enchant Boots - Surefooted
-(@Entry+41, 38943), -- Scroll of Enchant Boots - Cat's Swiftness
-(@Entry+41, 38944), -- Scroll of Enchant Boots - Boar's Speed
-(@Entry+41, 38961), -- Scroll of Enchant Boots - Greater Spirit
-(@Entry+41, 38966), -- Scroll of Enchant Boots - Greater Fortitude
-(@Entry+41, 38974), -- Scroll of Enchant Boots - Greater Vitality
-(@Entry+41, 38976), -- Scroll of Enchant Boots - Superior Agility
-(@Entry+41, 38986), -- Scroll of Enchant Boots - Icewalker
-(@Entry+41, 39006), -- Scroll of Enchant Boots - Tuskarr's Vitality
-(@Entry+41, 44449), -- Scroll of Enchant Boots - Assault
-(@Entry+41, 44469), -- Scroll of Enchant Boots - Greater Assault
-(@Entry+41, 45628), -- Scroll of Enchant Boots - Lesser Accuracy
+(@Entry+42, 37603), -- Scroll of Enchant Boots - Dexterity
+(@Entry+42, 38785), -- Scroll of Enchant Boots - Minor Stamina
+(@Entry+42, 38786), -- Scroll of Enchant Boots - Minor Agility
+(@Entry+42, 38807), -- Scroll of Enchant Boots - Lesser Agility
+(@Entry+42, 38810), -- Scroll of Enchant Boots - Lesser Stamina
+(@Entry+42, 38819), -- Scroll of Enchant Boots - Lesser Spirit
+(@Entry+42, 38830), -- Scroll of Enchant Boots - Stamina
+(@Entry+42, 38837), -- Scroll of Enchant Boots - Minor Speed
+(@Entry+42, 38844), -- Scroll of Enchant Boots - Agility
+(@Entry+42, 38862), -- Scroll of Enchant Boots - Greater Stamina
+(@Entry+42, 38863), -- Scroll of Enchant Boots - Greater Agility
+(@Entry+42, 38864), -- Scroll of Enchant Boots - Spirit
+(@Entry+42, 38908), -- Scroll of Enchant Boots - Vitality
+(@Entry+42, 38909), -- Scroll of Enchant Boots - Fortitude
+(@Entry+42, 38910), -- Scroll of Enchant Boots - Surefooted
+(@Entry+42, 38943), -- Scroll of Enchant Boots - Cat's Swiftness
+(@Entry+42, 38944), -- Scroll of Enchant Boots - Boar's Speed
+(@Entry+42, 38961), -- Scroll of Enchant Boots - Greater Spirit
+(@Entry+42, 38966), -- Scroll of Enchant Boots - Greater Fortitude
+(@Entry+42, 38974), -- Scroll of Enchant Boots - Greater Vitality
+(@Entry+42, 38976), -- Scroll of Enchant Boots - Superior Agility
+(@Entry+42, 38986), -- Scroll of Enchant Boots - Icewalker
+(@Entry+42, 39006), -- Scroll of Enchant Boots - Tuskarr's Vitality
+(@Entry+42, 44449), -- Scroll of Enchant Boots - Assault
+(@Entry+42, 44469), -- Scroll of Enchant Boots - Greater Assault
+(@Entry+42, 45628), -- Scroll of Enchant Boots - Lesser Accuracy
 -- Cloak
-(@Entry+42, 38770), -- Scroll of Enchant Cloak - Minor Resistance
-(@Entry+42, 38775), -- Scroll of Enchant Cloak - Minor Protection
-(@Entry+42, 38784), -- Scroll of Enchant Cloak - Lesser Fire Resistance
-(@Entry+42, 38789), -- Scroll of Enchant Cloak - Minor Agility
-(@Entry+42, 38790), -- Scroll of Enchant Cloak - Lesser Protection
-(@Entry+42, 38795), -- Scroll of Enchant Cloak - Lesser Shadow Resistance
-(@Entry+42, 38806), -- Scroll of Enchant Cloak - Defense
-(@Entry+42, 38815), -- Scroll of Enchant Cloak - Fire Resistance
-(@Entry+42, 38825), -- Scroll of Enchant Cloak - Greater Defense
-(@Entry+42, 38826), -- Scroll of Enchant Cloak - Resistance
-(@Entry+42, 38835), -- Scroll of Enchant Cloak - Lesser Agility
-(@Entry+42, 38858), -- Scroll of Enchant Cloak - Greater Resistance
-(@Entry+42, 38859), -- Scroll of Enchant Cloak - Superior Defense
-(@Entry+42, 38891), -- Scroll of Enchant Cloak - Greater Fire Resistance
-(@Entry+42, 38892), -- Scroll of Enchant Cloak - Greater Nature Resistance
-(@Entry+42, 38893), -- Scroll of Enchant Cloak - Stealth
-(@Entry+42, 38894), -- Scroll of Enchant Cloak - Subtlety
-(@Entry+42, 38895), -- Scroll of Enchant Cloak - Dodge
-(@Entry+42, 38914), -- Scroll of Enchant Cloak - Major Armor
-(@Entry+42, 38915), -- Scroll of Enchant Cloak - Major Resistance
-(@Entry+42, 38939), -- Scroll of Enchant Cloak - Spell Penetration
-(@Entry+42, 38940), -- Scroll of Enchant Cloak - Greater Agility
-(@Entry+42, 38941), -- Scroll of Enchant Cloak - Greater Arcane Resistance
-(@Entry+42, 38942), -- Scroll of Enchant Cloak - Greater Shadow Resistance
-(@Entry+42, 38950), -- Scroll of Enchant Cloak - Superior Frost Resistance
-(@Entry+42, 38956), -- Scroll of Enchant Cloak - Superior Nature Resistance
-(@Entry+42, 38959), -- Scroll of Enchant Cloak - Superior Agility
-(@Entry+42, 38969), -- Scroll of Enchant Cloak - Superior Fire Resistance
-(@Entry+42, 38973), -- Scroll of Enchant Cloak - Spell Piercing
-(@Entry+42, 38977), -- Scroll of Enchant Cloak - Superior Shadow Resistance
-(@Entry+42, 38978), -- Scroll of Enchant Cloak - Titanweave
-(@Entry+42, 38982), -- Scroll of Enchant Cloak - Superior Arcane Resistance
-(@Entry+42, 38993), -- Scroll of Enchant Cloak - Shadow Armor
-(@Entry+42, 39000), -- Scroll of Enchant Cloak - Steelweave
-(@Entry+42, 39001), -- Scroll of Enchant Cloak - Mighty Armor
-(@Entry+42, 39003), -- Scroll of Enchant Cloak - Greater Speed
-(@Entry+42, 39004), -- Scroll of Enchant Cloak - Wisdom
-(@Entry+42, 44456), -- Scroll of Enchant Cloak - Speed
-(@Entry+42, 44457), -- Scroll of Enchant Cloak - Major Agility
+(@Entry+43, 38770), -- Scroll of Enchant Cloak - Minor Resistance
+(@Entry+43, 38775), -- Scroll of Enchant Cloak - Minor Protection
+(@Entry+43, 38784), -- Scroll of Enchant Cloak - Lesser Fire Resistance
+(@Entry+43, 38789), -- Scroll of Enchant Cloak - Minor Agility
+(@Entry+43, 38790), -- Scroll of Enchant Cloak - Lesser Protection
+(@Entry+43, 38795), -- Scroll of Enchant Cloak - Lesser Shadow Resistance
+(@Entry+43, 38806), -- Scroll of Enchant Cloak - Defense
+(@Entry+43, 38815), -- Scroll of Enchant Cloak - Fire Resistance
+(@Entry+43, 38825), -- Scroll of Enchant Cloak - Greater Defense
+(@Entry+43, 38826), -- Scroll of Enchant Cloak - Resistance
+(@Entry+43, 38835), -- Scroll of Enchant Cloak - Lesser Agility
+(@Entry+43, 38858), -- Scroll of Enchant Cloak - Greater Resistance
+(@Entry+43, 38859), -- Scroll of Enchant Cloak - Superior Defense
+(@Entry+43, 38891), -- Scroll of Enchant Cloak - Greater Fire Resistance
+(@Entry+43, 38892), -- Scroll of Enchant Cloak - Greater Nature Resistance
+(@Entry+43, 38893), -- Scroll of Enchant Cloak - Stealth
+(@Entry+43, 38894), -- Scroll of Enchant Cloak - Subtlety
+(@Entry+43, 38895), -- Scroll of Enchant Cloak - Dodge
+(@Entry+43, 38914), -- Scroll of Enchant Cloak - Major Armor
+(@Entry+43, 38915), -- Scroll of Enchant Cloak - Major Resistance
+(@Entry+43, 38939), -- Scroll of Enchant Cloak - Spell Penetration
+(@Entry+43, 38940), -- Scroll of Enchant Cloak - Greater Agility
+(@Entry+43, 38941), -- Scroll of Enchant Cloak - Greater Arcane Resistance
+(@Entry+43, 38942), -- Scroll of Enchant Cloak - Greater Shadow Resistance
+(@Entry+43, 38950), -- Scroll of Enchant Cloak - Superior Frost Resistance
+(@Entry+43, 38956), -- Scroll of Enchant Cloak - Superior Nature Resistance
+(@Entry+43, 38959), -- Scroll of Enchant Cloak - Superior Agility
+(@Entry+43, 38969), -- Scroll of Enchant Cloak - Superior Fire Resistance
+(@Entry+43, 38973), -- Scroll of Enchant Cloak - Spell Piercing
+(@Entry+43, 38977), -- Scroll of Enchant Cloak - Superior Shadow Resistance
+(@Entry+43, 38978), -- Scroll of Enchant Cloak - Titanweave
+(@Entry+43, 38982), -- Scroll of Enchant Cloak - Superior Arcane Resistance
+(@Entry+43, 38993), -- Scroll of Enchant Cloak - Shadow Armor
+(@Entry+43, 39000), -- Scroll of Enchant Cloak - Steelweave
+(@Entry+43, 39001), -- Scroll of Enchant Cloak - Mighty Armor
+(@Entry+43, 39003), -- Scroll of Enchant Cloak - Greater Speed
+(@Entry+43, 39004), -- Scroll of Enchant Cloak - Wisdom
+(@Entry+43, 44456), -- Scroll of Enchant Cloak - Speed
+(@Entry+43, 44457), -- Scroll of Enchant Cloak - Major Agility
 -- Shield
-(@Entry+43, 38787), -- Scroll of Enchant Shield - Minor Stamina
-(@Entry+43, 38791), -- Scroll of Enchant Shield - Lesser Protection
-(@Entry+43, 38792), -- Scroll of Enchant Shield - Lesser Spirit
-(@Entry+43, 38805), -- Scroll of Enchant Shield - Lesser Stamina
-(@Entry+43, 38816), -- Scroll of Enchant Shield - Spirit
-(@Entry+43, 38820), -- Scroll of Enchant Shield - Lesser Block
-(@Entry+43, 38828), -- Scroll of Enchant Shield - Stamina
-(@Entry+43, 38839), -- Scroll of Enchant Shield - Greater Spirit
-(@Entry+43, 38843), -- Scroll of Enchant Shield - Frost Resistance
-(@Entry+43, 38860), -- Scroll of Enchant Shield - Vitality
-(@Entry+43, 38861), -- Scroll of Enchant Shield - Greater Stamina
-(@Entry+43, 38904), -- Scroll of Enchant Shield - Tough Shield
-(@Entry+43, 38905), -- Scroll of Enchant Shield - Intellect
-(@Entry+43, 38906), -- Scroll of Enchant Shield - Shield Block
-(@Entry+43, 38907), -- Scroll of Enchant Shield - Resistance
-(@Entry+43, 38945), -- Scroll of Enchant Shield - Major Stamina
-(@Entry+43, 38949), -- Scroll of Enchant Shield - Resilience
-(@Entry+43, 38954), -- Scroll of Enchant Shield - Defense
-(@Entry+43, 44455), -- Scroll of Enchant Shield - Greater Intellect
+(@Entry+44, 38787), -- Scroll of Enchant Shield - Minor Stamina
+(@Entry+44, 38791), -- Scroll of Enchant Shield - Lesser Protection
+(@Entry+44, 38792), -- Scroll of Enchant Shield - Lesser Spirit
+(@Entry+44, 38805), -- Scroll of Enchant Shield - Lesser Stamina
+(@Entry+44, 38816), -- Scroll of Enchant Shield - Spirit
+(@Entry+44, 38820), -- Scroll of Enchant Shield - Lesser Block
+(@Entry+44, 38828), -- Scroll of Enchant Shield - Stamina
+(@Entry+44, 38839), -- Scroll of Enchant Shield - Greater Spirit
+(@Entry+44, 38843), -- Scroll of Enchant Shield - Frost Resistance
+(@Entry+44, 38860), -- Scroll of Enchant Shield - Vitality
+(@Entry+44, 38861), -- Scroll of Enchant Shield - Greater Stamina
+(@Entry+44, 38904), -- Scroll of Enchant Shield - Tough Shield
+(@Entry+44, 38905), -- Scroll of Enchant Shield - Intellect
+(@Entry+44, 38906), -- Scroll of Enchant Shield - Shield Block
+(@Entry+44, 38907), -- Scroll of Enchant Shield - Resistance
+(@Entry+44, 38945), -- Scroll of Enchant Shield - Major Stamina
+(@Entry+44, 38949), -- Scroll of Enchant Shield - Resilience
+(@Entry+44, 38954), -- Scroll of Enchant Shield - Defense
+(@Entry+44, 44455), -- Scroll of Enchant Shield - Greater Intellect
 -- Container
-(@Entry+44, 1729), -- Gunnysack of the Night Watch
-(@Entry+44, 3604), -- Bandolier of the Night Watch
-(@Entry+44, 3605), -- Quiver of the Night Watch
-(@Entry+44, 22243); -- Small Soul Pouch
+(@Entry+45, 1729), -- Gunnysack of the Night Watch
+(@Entry+45, 3604), -- Bandolier of the Night Watch
+(@Entry+45, 3605), -- Quiver of the Night Watch
+(@Entry+45, 22243); -- Small Soul Pouch

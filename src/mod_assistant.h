@@ -31,7 +31,7 @@ enum
     ASSISTANT_VENDOR_ELIXIR          = 9000030,
     ASSISTANT_VENDOR_FOOD            = 9000033,
     ASSISTANT_VENDOR_ENCHANT         = 9000034,
-    ASSISTANT_VENDOR_CONTAINER       = 9000044,
+    ASSISTANT_VENDOR_CONTAINER       = 9000045,
 
     PROFESSION_LEVEL_APPRENTICE      = 75,
     PROFESSION_LEVEL_JOURNEYMAN      = 150,
@@ -86,6 +86,7 @@ enum
 #define GOSSIP_ENCHANTS_SHOULDER "I want shoulder enchants"
 #define GOSSIP_ENCHANTS_CHEST "I want chest enchants"
 #define GOSSIP_ENCHANTS_BRACER "I want bracer enchants"
+#define GOSSIP_ENCHANTS_GLOVES "I want glove enchants"
 #define GOSSIP_ENCHANTS_WAIST "I want belt enchants"
 #define GOSSIP_ENCHANTS_LEGS "I want leg enchants"
 #define GOSSIP_ENCHANTS_FEET "I want boots enchants"
