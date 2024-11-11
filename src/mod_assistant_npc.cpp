@@ -201,6 +201,7 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
         ClearGossipMenuFor(player);
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ELIXIRS_BATTLE, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS + 1);
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ELIXIRS_GUARDIAN, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ELIXIRS_FLASK, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS + 3);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
@@ -211,6 +212,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_ELIXIRS + 2)
     {
         player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ELIXIR + 1);
+    }
+    else if (action == ASSISTANT_GOSSIP_ELIXIRS + 3)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ELIXIR + 2);
     }
     else if (action == ASSISTANT_GOSSIP_FOOD)
     {

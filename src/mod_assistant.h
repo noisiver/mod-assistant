@@ -28,8 +28,8 @@ enum
     ASSISTANT_VENDOR_GLYPH           = 9000003,
     ASSISTANT_VENDOR_GEM             = 9000023,
     ASSISTANT_VENDOR_ELIXIR          = 9000030,
-    ASSISTANT_VENDOR_FOOD            = 9000032,
-    ASSISTANT_VENDOR_CONTAINER       = 9000033,
+    ASSISTANT_VENDOR_FOOD            = 9000033,
+    ASSISTANT_VENDOR_CONTAINER       = 9000034,
 
     PROFESSION_LEVEL_APPRENTICE      = 75,
     PROFESSION_LEVEL_JOURNEYMAN      = 150,
@@ -74,6 +74,7 @@ enum
 #define GOSSIP_ELIXIRS "I want elixirs"
 #define GOSSIP_ELIXIRS_BATTLE "I want some battle elixirs"
 #define GOSSIP_ELIXIRS_GUARDIAN "I want some guardian elixirs"
+#define GOSSIP_ELIXIRS_FLASK "I want some flasks"
 
 #define GOSSIP_FOOD "I want food"
 

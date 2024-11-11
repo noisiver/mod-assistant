@@ -72,7 +72,7 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (27667, 
 UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3604, 3605, 22243);*/
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+33;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+34;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 -- Heirloom: Weapon
 (@Entry, 42943), -- Bloodied Arcanite Reaper
@@ -668,37 +668,42 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+31, 40109), -- Elixir of Mighty Mageblood
 (@Entry+31, 44328), -- Elixir of Mighty Defense
 (@Entry+31, 44332), -- Elixir of Mighty Thoughts
+-- Flasks
+(@Entry+32, 46376), -- Flask of the Frost Wyrm
+(@Entry+32, 46377), -- Flask of Endless Rage
+(@Entry+32, 46378), -- Flask of Pure Mojo
+(@Entry+32, 46379), -- Flask of Stoneblood
 -- Food
-(@Entry+32, 34748), -- Mammoth Meal
-(@Entry+32, 34749), -- Shoveltusk Steak
-(@Entry+32, 34750), -- Worm Delight
-(@Entry+32, 34751), -- Roasted Worg
-(@Entry+32, 34752), -- Rhino Dogs
-(@Entry+32, 34754), -- Mega Mammoth Meal
-(@Entry+32, 34755), -- Tender Shoveltusk Steak
-(@Entry+32, 34756), -- Spiced Worm Burger
-(@Entry+32, 34757), -- Very Burnt Worg
-(@Entry+32, 34758), -- Mighty Rhino Dogs
-(@Entry+32, 34762), -- Grilled Sculpin
-(@Entry+32, 34763), -- Smoked Salmon
-(@Entry+32, 34764), -- Poached Nettlefish
-(@Entry+32, 34765), -- Pickled Fangtooth
-(@Entry+32, 34766), -- Poached Northern Sculpin
-(@Entry+32, 34767), -- Firecracker Salmon
-(@Entry+32, 34768), -- Spicy Blue Nettlefish
-(@Entry+32, 34769), -- Imperial Manta Steak
-(@Entry+32, 42942), -- Baked Manta Ray
-(@Entry+32, 42993), -- Spicy Fried Herring
-(@Entry+32, 42994), -- Rhinolicious Wormsteak
-(@Entry+32, 42995), -- Hearty Rhino
-(@Entry+32, 42996), -- Snapper Extreme
-(@Entry+32, 42998), -- Cuttlesteak
-(@Entry+32, 42999), -- Blackened Dragonfin
-(@Entry+32, 43000), -- Dragonfin Filet
-(@Entry+32, 43268), -- Dalaran Clam Chowder
-(@Entry+32, 44953), -- Worg Tartare
+(@Entry+33, 34748), -- Mammoth Meal
+(@Entry+33, 34749), -- Shoveltusk Steak
+(@Entry+33, 34750), -- Worm Delight
+(@Entry+33, 34751), -- Roasted Worg
+(@Entry+33, 34752), -- Rhino Dogs
+(@Entry+33, 34754), -- Mega Mammoth Meal
+(@Entry+33, 34755), -- Tender Shoveltusk Steak
+(@Entry+33, 34756), -- Spiced Worm Burger
+(@Entry+33, 34757), -- Very Burnt Worg
+(@Entry+33, 34758), -- Mighty Rhino Dogs
+(@Entry+33, 34762), -- Grilled Sculpin
+(@Entry+33, 34763), -- Smoked Salmon
+(@Entry+33, 34764), -- Poached Nettlefish
+(@Entry+33, 34765), -- Pickled Fangtooth
+(@Entry+33, 34766), -- Poached Northern Sculpin
+(@Entry+33, 34767), -- Firecracker Salmon
+(@Entry+33, 34768), -- Spicy Blue Nettlefish
+(@Entry+33, 34769), -- Imperial Manta Steak
+(@Entry+33, 42942), -- Baked Manta Ray
+(@Entry+33, 42993), -- Spicy Fried Herring
+(@Entry+33, 42994), -- Rhinolicious Wormsteak
+(@Entry+33, 42995), -- Hearty Rhino
+(@Entry+33, 42996), -- Snapper Extreme
+(@Entry+33, 42998), -- Cuttlesteak
+(@Entry+33, 42999), -- Blackened Dragonfin
+(@Entry+33, 43000), -- Dragonfin Filet
+(@Entry+33, 43268), -- Dalaran Clam Chowder
+(@Entry+33, 44953), -- Worg Tartare
 -- Container
-(@Entry+33, 1729), -- Gunnysack of the Night Watch
-(@Entry+33, 3604), -- Bandolier of the Night Watch
-(@Entry+33, 3605), -- Quiver of the Night Watch
-(@Entry+33, 22243); -- Small Soul Pouch
+(@Entry+34, 1729), -- Gunnysack of the Night Watch
+(@Entry+34, 3604), -- Bandolier of the Night Watch
+(@Entry+34, 3605), -- Quiver of the Night Watch
+(@Entry+34, 22243); -- Small Soul Pouch
