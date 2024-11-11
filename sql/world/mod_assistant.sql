@@ -793,19 +793,19 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+34, 46026), -- Scroll of Enchant Weapon - Blade Ward
 (@Entry+34, 46098), -- Scroll of Enchant Weapon - Blood Draining
 -- Head
-(@Entry+35, 44149), -- Arcanum of Torment
-(@Entry+35, 44150), -- Arcanum of the Stalwart Protector
-(@Entry+35, 44152), -- Arcanum of Blissful Mending
-(@Entry+35, 44159), -- Arcanum of Burning Mysteries
+-- (@Entry+35, 44149), -- Arcanum of Torment
+-- (@Entry+35, 44150), -- Arcanum of the Stalwart Protector
+-- (@Entry+35, 44152), -- Arcanum of Blissful Mending
+-- (@Entry+35, 44159), -- Arcanum of Burning Mysteries
 (@Entry+35, 50367), -- Arcanum of Torment
 (@Entry+35, 50368), -- Arcanum of Burning Mysteries
 (@Entry+35, 50369), -- Arcanum of the Stalwart Protector
 (@Entry+35, 50370), -- Arcanum of Blissful Mending
 -- Shoulders
-(@Entry+36, 44133), -- Greater Inscription of the Axe
-(@Entry+36, 44134), -- Greater Inscription of the Crag
-(@Entry+36, 44135), -- Greater Inscription of the Storm 
-(@Entry+36, 44136), -- Greater Inscription of the Pinnacle
+-- (@Entry+36, 44133), -- Greater Inscription of the Axe
+-- (@Entry+36, 44134), -- Greater Inscription of the Crag
+-- (@Entry+36, 44135), -- Greater Inscription of the Storm 
+-- (@Entry+36, 44136), -- Greater Inscription of the Pinnacle
 (@Entry+36, 50335), -- Greater Inscription of the Axe
 (@Entry+36, 50336), -- Greater Inscription of the Crag
 (@Entry+36, 50337), -- Greater Inscription of the Pinnacle
