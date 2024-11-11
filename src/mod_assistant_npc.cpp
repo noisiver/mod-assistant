@@ -29,6 +29,11 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_FOOD, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FOOD);
     }
 
+    if (EnchantsEnabled)
+    {
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_ENCHANTS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS);
+    }
+
     if (ContainersEnabled)
     {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_CONTAINERS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_CONTAINER);
@@ -220,6 +225,62 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_FOOD)
     {
         player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_FOOD);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS)
+    {
+        ClearGossipMenuFor(player);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_WEAPON, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 1);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_HEAD, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 2);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_SHOULDER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 3);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_CHEST, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 4);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_BRACER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 5);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_WAIST, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 6);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_LEGS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 7);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_FEET, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 8);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_CLOAK, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 9);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_ENCHANTS_SHIELD, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ENCHANTS + 10);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 1)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 0);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 2)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 1);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 3)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 2);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 4)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 3);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 5)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 4);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 6)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 5);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 7)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 6);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 8)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 7);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 9)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 8);
+    }
+    else if (action == ASSISTANT_GOSSIP_ENCHANTS + 10)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_ENCHANT + 9);
     }
     else if (action == ASSISTANT_GOSSIP_CONTAINER)
     {

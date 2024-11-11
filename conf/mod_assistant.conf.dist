@@ -16,6 +16,7 @@ Assistant.Glyphs.Enabled     = 1
 Assistant.Gems.Enabled       = 1
 Assistant.Elixirs.Enabled    = 1
 Assistant.Food.Enabled       = 1
+Assistant.Enchants.Enabled   = 1
 Assistant.Containers.Enabled = 1
 
 #################################

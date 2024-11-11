@@ -14,11 +14,12 @@ enum
     ASSISTANT_GOSSIP_GEM             = 400,
     ASSISTANT_GOSSIP_ELIXIRS         = 500,
     ASSISTANT_GOSSIP_FOOD            = 600,
-    ASSISTANT_GOSSIP_CONTAINER       = 700,
-    ASSISTANT_GOSSIP_FLIGHT_PATHS    = 800,
-    ASSISTANT_GOSSIP_UTILITIES       = 900,
-    ASSISTANT_GOSSIP_PROFESSIONS     = 1000,
-    ASSISTANT_GOSSIP_INSTANCES       = 1100,
+    ASSISTANT_GOSSIP_ENCHANTS        = 700,
+    ASSISTANT_GOSSIP_CONTAINER       = 800,
+    ASSISTANT_GOSSIP_FLIGHT_PATHS    = 900,
+    ASSISTANT_GOSSIP_UTILITIES       = 1000,
+    ASSISTANT_GOSSIP_PROFESSIONS     = 1100,
+    ASSISTANT_GOSSIP_INSTANCES       = 1200,
 
     ASSISTANT_GOSSIP_TEXT            = 48,
 
@@ -29,7 +30,8 @@ enum
     ASSISTANT_VENDOR_GEM             = 9000023,
     ASSISTANT_VENDOR_ELIXIR          = 9000030,
     ASSISTANT_VENDOR_FOOD            = 9000033,
-    ASSISTANT_VENDOR_CONTAINER       = 9000034,
+    ASSISTANT_VENDOR_ENCHANT         = 9000034,
+    ASSISTANT_VENDOR_CONTAINER       = 9000044,
 
     PROFESSION_LEVEL_APPRENTICE      = 75,
     PROFESSION_LEVEL_JOURNEYMAN      = 150,
@@ -77,6 +79,18 @@ enum
 #define GOSSIP_ELIXIRS_FLASK "I want some flasks"
 
 #define GOSSIP_FOOD "I want food"
+
+#define GOSSIP_ENCHANTS "I want enchants"
+#define GOSSIP_ENCHANTS_WEAPON "I want weapon enchants"
+#define GOSSIP_ENCHANTS_HEAD "I want head enchants"
+#define GOSSIP_ENCHANTS_SHOULDER "I want shoulder enchants"
+#define GOSSIP_ENCHANTS_CHEST "I want chest enchants"
+#define GOSSIP_ENCHANTS_BRACER "I want bracer enchants"
+#define GOSSIP_ENCHANTS_WAIST "I want belt enchants"
+#define GOSSIP_ENCHANTS_LEGS "I want leg enchants"
+#define GOSSIP_ENCHANTS_FEET "I want boots enchants"
+#define GOSSIP_ENCHANTS_CLOAK "I want cloak enchants"
+#define GOSSIP_ENCHANTS_SHIELD "I want shield enchants"
 
 #define GOSSIP_CONTAINERS "I want containers"
 
@@ -141,6 +155,7 @@ private:
     bool GemsEnabled;
     bool ElixirsEnabled;
     bool FoodEnabled;
+    bool EnchantsEnabled;
     bool ContainersEnabled;
 
     uint32 GetGlyphId(uint32 /*id*/, bool /*major*/);
