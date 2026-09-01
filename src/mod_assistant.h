@@ -138,7 +138,7 @@ enum
 #define GOSSIP_CONTINUE_TRANSACTION "Do you wish to continue the transaction?"
 #define GOSSIP_PREVIOUS_PAGE "Previous Page"
 
-class Assistant : public CreatureScript, WorldScript
+class Assistant : public CreatureScript
 {
 public:
     Assistant();
@@ -147,8 +147,9 @@ public:
     bool OnGossipHello(Player* /*player*/, Creature* /*creature*/) override;
     bool OnGossipSelect(Player* /*player*/, Creature* /*creature*/, uint32 /*sender*/, uint32 /*action*/) override;
 
-    // WorldScript
-    void OnAfterConfigLoad(bool /*reload*/) override;
+    // Called by Assistant_WorldScript below. This class is registered in
+    // exactly one script registry now; see the second class for why.
+    void LoadConfig();
 
 private:
     bool HeirloomsEnabled;
@@ -210,6 +211,20 @@ private:
     bool CanResetInstances(Player* /*player*/);
     bool HasSavedInstances(Player* /*player*/, uint8 /*type*/);
     void ResetInstances(Player* /*player*/, uint8 /*type*/);
+};
+
+// Split out of Assistant deliberately. Assistant used to derive from both
+// CreatureScript and WorldScript, so its constructor registered the same
+// pointer in two script registries. ScriptMgr::Unload() deletes every pointer
+// in every registry, so it deleted this object twice and the worldserver
+// aborted with "double free or corruption" on every shutdown.
+// See docs/findings/illidan-crash-4-mod-assistant-double-delete.md.
+class Assistant_WorldScript : public WorldScript
+{
+public:
+    Assistant_WorldScript();
+
+    void OnAfterConfigLoad(bool /*reload*/) override;
 };
 
 #endif
