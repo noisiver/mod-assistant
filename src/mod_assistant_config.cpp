@@ -1,6 +1,6 @@
 #include "mod_assistant.h"
 
-void Assistant::OnAfterConfigLoad(bool /*reload*/)
+void Assistant::LoadConfig()
 {
     // Vendors
     HeirloomsEnabled = sConfigMgr->GetOption<bool>("Assistant.Heirlooms.Enabled", 1);
