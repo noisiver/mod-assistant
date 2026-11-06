@@ -138,7 +138,7 @@ enum
 #define GOSSIP_CONTINUE_TRANSACTION "Do you wish to continue the transaction?"
 #define GOSSIP_PREVIOUS_PAGE "Previous Page"
 
-class Assistant : public CreatureScript, WorldScript
+class Assistant : public CreatureScript
 {
 public:
     Assistant();
@@ -147,8 +147,8 @@ public:
     bool OnGossipHello(Player* /*player*/, Creature* /*creature*/) override;
     bool OnGossipSelect(Player* /*player*/, Creature* /*creature*/, uint32 /*sender*/, uint32 /*action*/) override;
 
-    // WorldScript
-    void OnAfterConfigLoad(bool /*reload*/) override;
+    // Called by Assistant_WorldScript::OnAfterConfigLoad.
+    void LoadConfig();
 
 private:
     bool HeirloomsEnabled;
@@ -210,6 +210,15 @@ private:
     bool CanResetInstances(Player* /*player*/);
     bool HasSavedInstances(Player* /*player*/, uint8 /*type*/);
     void ResetInstances(Player* /*player*/, uint8 /*type*/);
+};
+
+// One registry per object: ScriptMgr::Unload() deletes each registry's scripts.
+class Assistant_WorldScript : public WorldScript
+{
+public:
+    Assistant_WorldScript();
+
+    void OnAfterConfigLoad(bool /*reload*/) override;
 };
 
 #endif
